@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route} from "react-router-dom"
+import Categories from './components/Categories'
+import Navbar from './components/Navbar';
+import Workouts from './components/Workouts';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navbar/>}>
+        <Route index element={<Categories/>}/>
+        <Route path="Workouts" element={<Workouts/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    // <div>
+    // <Navbar/>
+    // <Categories/>
+    // </div>
   );
 }
-
 export default App;

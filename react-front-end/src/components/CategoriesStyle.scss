@@ -1,0 +1,20 @@
+.categoriesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+
+  }
+.workoutCategories { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content:space-between;
+  border-radius: 10px;
+  width: 20%;
+  height:180px;
+  margin: 0 0.80% 2em;
+  background-color: white;
+  color:black;
+  font-weight: 700;
+  }

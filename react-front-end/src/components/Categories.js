@@ -1,12 +1,29 @@
 import "./CategoriesStyle.scss"
 
 export default function categories({ }) {
+
+  let apiGetRequest = {
+    method: 'GET',
+    url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+    headers: {
+      'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
+      'x-rapidapi-key': 'c246264552msh38d3d1e59cd14a4p155348jsnd0dcd0a98213'
+    }
+  };
+
+  axios.request(apiGetRequest)
+    .then((response) => {
+      console.log('I am axios GET res', response.data)
+    }).catch((error) => {
+      console.log(error.message)
+    })
+    
   return (
   
     <div className="containerMain categoriesWrapper">
       <div className="workoutCategories">
         <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png"/>
-        <div clasName="title">Back</div>
+        <div className="title">Back</div>
       </div>
       <div className="workoutCategories">
         Cardio

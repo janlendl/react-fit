@@ -1,0 +1,1 @@
+INSERT INTO workoutSessions (completed_on, duration, comment, workout_id) VALUES ('2022-02-03', 3600, 'Welcome to the gun show!', 1);

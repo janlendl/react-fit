@@ -3,10 +3,10 @@
 const router = require("express").Router();
 
 module.exports = db => {
-  router.get("/members", (req, res) => {
+  router.get("/users", (req, res) => {
     db.query(`SELECT * FROM users`)
-      .then(({ rows: members }) => {
-      res.json(members);
+      .then(({ rows: users }) => {
+      res.json(users);
     });
   });
 

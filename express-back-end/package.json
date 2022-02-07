@@ -2,11 +2,12 @@
   "name": "express-back-end",
   "version": "1.0.0",
   "description": "Boilerplate for the Express backend in an Express-React project",
-  "main": "server.js",
+  "main": "index.js",
   "author": "garrettgsb",
   "license": "MIT",
   "scripts": {
-    "go": "nodemon server.js"
+    "start": "node index.js",
+    "go": "nodemon index.js"
   },
   "dependencies": {
     "axios": "^0.25.0",

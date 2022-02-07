@@ -17,14 +17,13 @@
 // module.exports = client;
 
 const pg = require("pg");
-console.log('ENV::::',process.env);
 const client = new pg.Client({
   connectionString: process.env.DATABASE_URL || "",
   ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
 });
 
 client
-  .connect()
+  .connect(console.log("Connected to 🏋️  💪  database"))
   .catch(e => console.log(`Error connecting to Postgres server:\n${e}`));
 
 module.exports = client;

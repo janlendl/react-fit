@@ -1,17 +1,36 @@
-require('dotenv').config({ debug: true });
+const PORT = process.env.PORT || 8001;
+const ENV = require("./environment");
 
-const { Client } = require('pg');
+const app = require("./application")(ENV/*, { updateAppointment }*/);
+const server = require("http").Server(app);
 
-const client = new Client({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  port: process.env.DB_PORT,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+const WebSocket = require("ws");
+const wss = new WebSocket.Server({ server });
+
+wss.on("connection", socket => {
+  socket.onmessage = event => {
+    console.log(`Message Received: ${event.data}`);
+
+    if (event.data === "ping") {
+      socket.send(JSON.stringify("pong"));
+    }
+  };
 });
 
-client
-  .connect()
-  .catch(e => console.log(`Error connecting to Postgres server:\n${e}`));
+// function updateAppointment(id, interview) {
+//   wss.clients.forEach(function eachClient(client) {
+//     if (client.readyState === WebSocket.OPEN) {
+//       client.send(
+//         JSON.stringify({
+//           type: "SET_INTERVIEW",
+//           id,
+//           interview
+//         })
+//       );
+//     }
+//   });
+// }
 
-module.exports = client;
+server.listen(PORT, () => {
+  console.log(`Listening on port ${PORT} in ${ENV} mode.`);
+});

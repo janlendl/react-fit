@@ -12,6 +12,7 @@ const db = require("./db");
 
 const categories = require("./routes/categories");
 const exercises = require("./routes/exercises");
+const members = require("./routes/members");
 // const appointments = require("./routes/appointments");
 // const interviewers = require("./routes/interviewers");
 
@@ -37,6 +38,7 @@ module.exports = function application( ENV/*, actions = { updateAppointment: () 
 
   app.use("/api", categories(db));
   app.use("/api", exercises(db));
+  app.use("/api", members(db));
   // app.use("/api", appointments(db, actions.updateAppointment));
   // app.use("/api", interviewers(db));
 

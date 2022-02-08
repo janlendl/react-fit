@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./CategoriesStyle.scss"
 
-export default function categories({ }) {
+export default function categories() {
 
   let apiGetRequest = {
     method: 'GET',
@@ -26,39 +26,45 @@ export default function categories({ }) {
   return (
   
     <div className="containerMain categoriesWrapper">
+
       <div className="workoutCategories">
-        <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png"/>
+        {/* This is an example of how each Category Image will be used as a Link to the Exercise Component */}
+      <Link to="Exercises"><img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png"/></Link>
         <div className="title">Back</div>
       </div>
+
       <div className="workoutCategories">
         <Link to="Exercises">Cardio</Link>
       </div>
+
       <div className="workoutCategories">
-        Chest
+      <Link to="Exercises">Chest</Link>
       </div>
+
       <div className="workoutCategories">
-        Lower Arms
+      <Link to="Exercises">Lower Arms</Link>
       </div>
+
       <div className="workoutCategories">
-        Lower Legs
+      <Link to="Exercises">Lower Legs</Link>
       </div>
+
       <div className="workoutCategories">
-        Shoulders
+      <Link to="Exercises">Shoulders</Link>
       </div>
+
       <div className="workoutCategories">
-        Upper Arms
+      <Link to="Exercises">Upper Arms</Link>
       </div>
+
       <div className="workoutCategories">
-        Upper Legs
+      <Link to="Exercises">Upper Legs</Link>
       </div>
+
       <div className="workoutCategories">
-        Core
+      <Link to="Exercises">Core</Link>
       </div>
 
     </div>
-
-
-
-    
   )
 }

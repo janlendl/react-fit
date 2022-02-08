@@ -3,7 +3,7 @@ import "./Workouts.scss"
 // import { permittedCrossDomainPolicies } from "helmet";
 
 
-export default function workouts({ props}) {
+export default function workouts(props) {
   return (
     <div className="WorkoutWrapper">
       <div className="row">

@@ -1,3 +1,4 @@
+import axios from "axios";
 import "./CategoriesStyle.scss"
 
 export default function categories({ }) {
@@ -11,13 +12,15 @@ export default function categories({ }) {
     }
   };
 
-  axios.request(apiGetRequest)
-    .then((response) => {
-      console.log('I am axios GET res', response.data)
-    }).catch((error) => {
-      console.log(error.message)
-    })
-    
+  // axios.request(apiGetRequest)
+  //   .then((response) => {
+  //     console.log('I am axios GET res', response.data)
+  //   }).catch((error) => {
+  //     console.log(error.message)
+  //   })
+
+  const allBodyparts = [ "back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist" ]
+
   return (
   
     <div className="containerMain categoriesWrapper">

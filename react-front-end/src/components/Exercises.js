@@ -1,9 +1,11 @@
-export default function exercises({ }) {
+export default function exercises() {
+  console.log("You've reached the Exercises Page")
+  
   return (
-  <div>
+  <>
 
-    
+    <h1>This is a page</h1>
 
-  </div>
+  </>
   )
 }

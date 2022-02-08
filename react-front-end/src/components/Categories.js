@@ -1,4 +1,6 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 import "./CategoriesStyle.scss"
 
 export default function categories({ }) {
@@ -29,7 +31,7 @@ export default function categories({ }) {
         <div className="title">Back</div>
       </div>
       <div className="workoutCategories">
-        Cardio
+        <Link to="Exercises">Cardio</Link>
       </div>
       <div className="workoutCategories">
         Chest

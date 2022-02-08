@@ -5,6 +5,12 @@ import "./CategoriesStyle.scss"
 
 export default function categories() {
 
+  // 1. Declare a onClick FN, name: getBodyPartName, Parameter = (bodyPartName)
+  // 2. onClick pass bodyPartName to Exercises Component
+  // 3. Implement useState [ exerciseData, setExerciseData ] 
+  // 4. Declare FN, name: getAxiosExerciseByBodyPartOne WITHIN setExerciseData
+  // 5. Upon initial render of the page execute setExerciseData using the bodyPartName as Arguement to String Interpolate Axios URL and render respective Exercise List
+
   let apiAllBodyParts = {
     method: 'GET',
     url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',

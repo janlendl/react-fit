@@ -17,20 +17,6 @@ wss.on("connection", socket => {
   };
 });
 
-// function updateAppointment(id, interview) {
-//   wss.clients.forEach(function eachClient(client) {
-//     if (client.readyState === WebSocket.OPEN) {
-//       client.send(
-//         JSON.stringify({
-//           type: "SET_INTERVIEW",
-//           id,
-//           interview
-//         })
-//       );
-//     }
-//   });
-// }
-
 server.listen(PORT, () => {
   console.log(`Listening on port ${PORT} in ${ENV} mode.`);
 });

@@ -1,8 +1,61 @@
-.WorkoutWrapper {
+.workoutContainer {
   display: flex;
-  flex-wrap: wrap;
-  padding: 30px;
-  
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  // margin-left: 50px;
+  // margin-right:50px;
+  color: black;
 }
 
+.exerciseCard {
+padding: 1.5rem;
+display: flex;
+}
+.flex-1 {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
 
+.justify-between{
+  justify-content: space-between;
+}
+.items-start {
+  align-items: flex-start;
+}
+
+.flex {
+  display: flex;
+}
+
+.titleExercises {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.ml-3{
+  margin-left: .75rem;
+}
+.h-7 {
+  height: 1.75rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.flow-root{
+  display: flow-root;
+}
+.w-24 {
+  width: 4rem;
+}
+.h-24 {
+  height: 4rem;
+}
+
+.text-black{
+  color:black;
+}

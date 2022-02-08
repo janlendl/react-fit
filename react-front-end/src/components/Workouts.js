@@ -8,9 +8,10 @@ import "./Workouts.scss";
 export default function workouts({ props }) {
   return (
     <>
-      <div class="row">
 
-        <div class="col-2 text-black">
+      <div class="row">
+        <div class="col-1 text-black sidebar fle flex-column">
+          <h3>Categories</h3>
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Active</a>
@@ -35,6 +36,7 @@ export default function workouts({ props }) {
             </li>
           </ul>
         </div>
+
 
         <div class="workoutContainer col-5 clearfix">
           <div class="card">

@@ -65,7 +65,7 @@ export default function Categories() {
       </article>
 
       <article className="workoutCategories">
-        <Link to="/exercises/core">
+        <Link to="/exercises/waist">
           <img src="/core.jpeg" />
           <div className="title">Core</div>
         </Link>

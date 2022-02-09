@@ -2,7 +2,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 
-import "./Workouts.scss";
+import "./Exercises.scss";
 
 export default function Exercises(props) {
   console.log("You've reached the Exercises Page")

@@ -19,7 +19,7 @@ export default function Categories() {
 
       <article className="workoutCategories">
         <Link to="/exercises/back">
-          <input type="image" src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" />
+          <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" />
         </Link>
         <span className="title">Back</span>
       </article>

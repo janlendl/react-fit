@@ -1,4 +1,3 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route} from "react-router-dom"
 import Categories from './components/Categories'
 import Navbar from './components/Navbar';
@@ -7,13 +6,14 @@ import Exercises from './components/Exercises';
 
 
 function App() {
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navbar/>}>
         <Route index element={<Categories/>}/>
-        <Route path="Workouts" element={<Workouts/>}/>
-        <Route path="Exercises" element={<Exercises/>}/>
+        <Route path="/workouts" element={<Workouts/>}/>
+        <Route path="/exercises/:bodypart" element={<Exercises/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

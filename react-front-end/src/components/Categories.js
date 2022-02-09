@@ -4,14 +4,6 @@ import "./CategoriesStyle.scss"
 
 export default function Categories() {
 
-  // 1. Declare a onClick FN, name: getBodyPartName, Parameter = (bodyPartName)
-  // 2. onClick pass bodyPartName to Exercises Component
-  // 3. Implement useState [ exerciseData, setExerciseData ] 
-  // 4. Declare FN, name: getAxiosExerciseByBodyPartOne WITHIN setExerciseData
-  // 5. Upon initial render of the page execute setExerciseData using the bodyPartName as Arguement to String Interpolate Axios URL and render respective Exercise List
-  // 6. Req Params to Grab BodyPart
-
-
   return (
 
     <section className="containerMain categoriesWrapper">
@@ -38,14 +30,14 @@ export default function Categories() {
       </article>
 
       <article className="workoutCategories">
-        <Link to="/exercises/lower_arms">
+        <Link to="/exercises/lower%20arms">
           <img src="/lower_arm.jpeg" />
           <div className="title">Lower Arms</div>
         </Link>
       </article>
 
       <article className="workoutCategories">
-        <Link to="/exercises/lower_legs">
+        <Link to="/exercises/lower%20legs">
           <img src="/lower_leg.jpeg" />
           <div className="title">Lower Legs</div>
         </Link>
@@ -59,14 +51,14 @@ export default function Categories() {
       </article>
 
       <article className="workoutCategories">
-        <Link to="/exercises/upper_arms">
+        <Link to="/exercises/upper%20arms">
           <img src="/upper_arm.jpeg" />
           <div className="title">Upper Arms</div>
         </Link>
       </article>
 
       <article className="workoutCategories">
-        <Link to="/exercises/upper_legs">
+        <Link to="/exercises/upper%20legs">
           <img src="/upper_leg.jpeg" />
           <div className="title">Upper Legs</div>
         </Link>

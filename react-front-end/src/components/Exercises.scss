@@ -17,3 +17,114 @@
   color:black;
   font-weight: 700;
 }
+
+.workoutContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  // margin-left: 50px;
+  // margin-right:50px;
+  color: black;
+}
+.col-4 {
+  flex: 0 0 40rem;
+  max-width: 40rem;
+}
+
+div .col-5 {
+  flex: 0 0 25rem;
+  max-width: 25rem;
+  margin-left: -0.925rem;
+}
+
+.exerciseCard {
+padding: 1.5rem;
+display: flex;
+}
+.flex-1 {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+.items-start {
+  align-items: flex-start;
+}
+
+.flex {
+  display: flex;
+}
+
+.titleExercises {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.ml-3{
+  margin-left: .75rem;
+}
+.h-7 {
+  height: 1.75rem;
+}
+
+.py-6 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.flow-root{
+  display: flow-root;
+}
+.w-24 {
+  width: 4rem;
+}
+.h-24 {
+  height: 4rem;
+}
+
+.text-black{
+  color:black;
+}
+
+.sidebar {
+  display:flex;
+  align-items: center;
+  color:black;
+  min-width:234px;
+  margin-top: 38px;
+  height:100vh;
+  background:white;
+  border-radius: 10px;
+  z-index:1;
+}
+.topWrapper {
+  height:184px;
+  width:100%;
+  background: linear-gradient(90deg, rgba(224,54,148,1) 27%, rgba(244,114,83,1) 97%);
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.boxstyle {
+  margin-top: 30px;
+  margin-bottom:30px;
+  padding:10px;
+  background:#fff;
+  border-radius: 14px;
+  box-sizing: border-box;
+  border: 1px solid #e8eefe;
+}
+.purple {
+  background-color: purple;
+}
+.mrg-right{
+  margin-right: 30px;
+}
+.sizeImg {
+  height:100px;
+  width:100px;
+}

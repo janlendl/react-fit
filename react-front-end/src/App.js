@@ -1,9 +1,10 @@
-import { BrowserRouter, Routes, Route} from "react-router-dom"
-import Categories from './components/Categories'
-import Navbar from './components/Navbar';
-import Workouts from './components/Workouts';
-import Exercises from './components/Exercises';
-
+import axios from "axios";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Categories from "./components/Categories";
+import Navbar from "./components/Navbar";
+import Workouts from "./components/Workouts";
+import About from "./components/about";
 
 function App() {
 

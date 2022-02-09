@@ -3,24 +3,26 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: center;
-
   }
+
 .workoutCategories { 
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content:space-between;
-  border-radius: 10px;
-  width: 20%;
-  height:180px;
-  margin: 0 0.80% 2em;
-  color:white;
+  align-content: space-between;
+  border-radius: 0.625rem;
+  height: 11.25rem;
+  margin: 0 1rem 2em;
+  color: white;
+  text-align: center;
   font-weight: 700;
   }
-  .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+
+.workoutCategories img {
+  width: auto;
+  height: 10rem;
+  border: 0.125rem solid whitesmoke;
+  padding: 0.063rem;
+  border-radius: 1.563rem;
+}

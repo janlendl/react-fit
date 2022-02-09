@@ -20,41 +20,65 @@ export default function Categories() {
       <article className="workoutCategories">
         <Link to="/exercises/back">
           <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" />
+          <div className="title">Back</div>
         </Link>
-        <span className="title">Back</span>
       </article>
 
-      <div className="workoutCategories">
-        <div className="title">Cardio</div>
-      </div>
+      <article className="workoutCategories">
+        <Link to="/exercises/cardio">
+          <img src="" />
+          <div className="title">Cardio</div>
+        </Link>
+      </article>
 
-      <div className="workoutCategories">
-        <div className="title">Chest</div>
-      </div>
+      <article className="workoutCategories">
+        <Link to="/exercises/chest">
+          <img src="" />
+          <div className="title">Chest</div>
+        </Link>
+      </article>
 
-      <div className="workoutCategories">
-        <div className="title">Lower Arms</div>
-      </div>
+      <article className="workoutCategories">
+        <Link to="/exercises/lower_arms">
+          <img src="" />
+          <div className="title">Lower Arms</div>
+        </Link>
+      </article>
 
-      <div className="workoutCategories">
-        <div className="title">Lower Legs</div>
-      </div>
+      <article className="workoutCategories">
+        <Link to="/exercises/lower_legs">
+          <img src="" />
+          <div className="title">Lower Legs</div>
+        </Link>
+      </article>
 
-      <div className="workoutCategories">
-        <div className="title">Shoulders</div>
-      </div>
+      <article className="workoutCategories">
+        <Link to="/exercises/shoulders">
+          <img src="" />
+          <div className="title">Shoulders</div>
+        </Link>
+      </article>
 
-      <div className="workoutCategories">
-        <div className="title">Upper Arms</div>
-      </div>
+      <article className="workoutCategories">
+        <Link to="/exercises/upper_arms">
+          <img src="" />
+          <div className="title">Upper Arms</div>
+        </Link>
+      </article>
 
-      <div className="workoutCategories">
-        <div className="title">Upper Legs</div>
-      </div>
+      <article className="workoutCategories">
+        <Link to="/exercises/upper_legs">
+          <img src="" />
+          <div className="title">Upper Legs</div>
+        </Link>
+      </article>
 
-      <div className="workoutCategories">
-        <div className="title">Core</div>
-      </div>
+      <article className="workoutCategories">
+        <Link to="/exercises/core">
+          <img src="" />
+          <div className="title">Core</div>
+        </Link>
+      </article>
 
     </section>
   )

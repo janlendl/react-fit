@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 10px;
   // margin-left: 50px;
   // margin-right:50px;
   color: black;
@@ -63,7 +62,35 @@ display: flex;
 .sidebar {
   display:flex;
   align-items: center;
-  color:white;
+  color:black;
+  min-width:234px;
+  margin-top: 38px;
   height:100vh;
-  background:black;
+  background:white;
+  border-radius: 10px;
+  z-index:1;
+}
+.topWrapper {
+  height:184px;
+  width:100%;
+  background: linear-gradient(90deg, rgba(224,54,148,1) 27%, rgba(244,114,83,1) 97%);
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.boxstyle {
+  margin-top: 30px;
+  margin-bottom:30px;
+  padding:10px;
+  background:#fff;
+  border-radius: 14px;
+  box-sizing: border-box;
+  border: 1px solid #e8eefe;
+}
+.purple {
+  background-color: purple;
+}
+.mrg-right{
+  margin-right: 30px;
 }

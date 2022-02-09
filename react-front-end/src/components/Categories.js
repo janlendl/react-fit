@@ -5,7 +5,7 @@ export default function categories({ }) {
   
     <div className="containerMain categoriesWrapper">
       <div className="workoutCategories">
-        <div><img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png"/></div>
+        <div><button></button></div>
         <div className = "centered">Back</div>
       </div>
       <div className="workoutCategories">

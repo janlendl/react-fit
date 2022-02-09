@@ -8,9 +8,9 @@ import "./Workouts.scss";
 export default function workouts({ props }) {
   return (
     <>
-
+    <div class="topWrapper">
       <div class="row">
-        <div class="col-1 text-black sidebar fle flex-column">
+        <div class="col-1 text-black sidebar fle flex-column boxstyle">
           <h3>Categories</h3>
           <ul class="nav flex-column">
             <li class="nav-item">
@@ -36,10 +36,10 @@ export default function workouts({ props }) {
             </li>
           </ul>
         </div>
+      
 
-
-        <div class="workoutContainer col-5 clearfix">
-          <div class="card">
+        <div class="workoutContainer col-4 clearfix">
+          <div class="card boxstyle">
             <div class="row row-cols-2 flex-nowrap">
               <div class="col-md-5">
                 <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" class="img-fluid rounded-start" alt="..." />
@@ -72,8 +72,8 @@ export default function workouts({ props }) {
         
       </div> */}
         </div>
-        <div class="col-5">
-          <div class='flex bg-light flex flex-column overflow-scroll'>
+        <div class="col-6">
+          <div class='flex bg-light flex flex-column overflow-scroll boxstyle'>
             <div class="flex-1 py-6 overflow-auto px-4 sm:px-6">
               <div class="flex align-items-start justify-content-between">
                 <h2 class="fw-bold text-black">Selected Exercises</h2>
@@ -84,9 +84,9 @@ export default function workouts({ props }) {
               <div class="mt-4">
                 <div class="flow-root">
                   <ul class="list-group mt-4">
-                    <li class="py-6 flex list-group-item">
+                    <li class="py-6 flex list-group-item purple">
                       <div class="flex-shrink-0 ps-1">
-                        <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" class="rounded-0"></img>
+                        <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" class="rounded-0 mrg-right"></img>
                       </div>
 
                       <div class="ms-4 flex-1 flex flex-column">
@@ -113,6 +113,7 @@ export default function workouts({ props }) {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
 

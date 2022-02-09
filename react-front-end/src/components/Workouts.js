@@ -3,17 +3,17 @@ import "./Workouts.scss"
 // import { permittedCrossDomainPolicies } from "helmet";
 
 
-export default function workouts({ props}) {
+export default function Workouts(props) {
   return (
-    <div class="WorkoutWrapper">
-      <div class="row">
-        <div class="col-md-5">
-          <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" class="img-fluid rounded-start" alt="..."/>
+    <div className="WorkoutWrapper">
+      <div className="row">
+        <div className="col-md-5">
+          <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" className="img-fluid rounded-start" alt="..."/>
         </div>
-        <div class="col-md-6">
-          <div class="card-body">
-            <h5 class="card-title">Exercise Information</h5>
-            <p class="card-text">{props}</p>
+        <div className="col-md-6">
+          <div className="card-body">
+            <h5 className="card-title">Exercise Information</h5>
+            <p className="card-text">Props</p>
  
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import "./Home.scss";
 
-export default function Navbar({ children }) {
+export default function Navbar(children) {
   return (
     <header>
       <nav className="header">

@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Navbar/>}>
         <Route index element={<Categories/>}/>
         <Route path="/workouts" element={<Workouts/>}/>
-        <Route path="/exercises/:bodypart" element={<Exercises/>}/>
+        <Route path="/exercises/:category" element={<Exercises/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -5,7 +5,7 @@ import Categories from "./components/Categories";
 import Exercises from "./components/Exercises";
 import Navbar from "./components/Navbar";
 import Workouts from "./components/Workouts";
-import About from "./components/about";
+import About from "./components/About";
 
 function App() {
 

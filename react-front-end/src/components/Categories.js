@@ -4,11 +4,38 @@ import "./CategoriesStyle.scss"
 
 export default function Categories() {
 
+  const bodyPartCategory = [{
+    title: 'back',
+    image: '/back.jpeg'
+  },
+  {
+    title: 'back',
+    image: '/back.jpeg'
+  },
+  {
+    title: 'back',
+    image: '/back.jpeg'
+  }
+  ]
+  // const allBodyParts = ["back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist"]
+
+
   return (
 
     <section className="containerMain categoriesWrapper">
 
-      <article className="landingPageCategories">
+
+      {bodyPartCategory.map((item) => {
+return (<article className="landingPageCategories">
+          <Link to="/exercises/back">
+            <img src={item.image} />
+            <div className="title">{item.title}</div>
+          </Link>
+        </article>)
+      })}
+
+
+      {/* <article className="landingPageCategories">
         <Link to="/exercises/back">
           <img src="/back.jpeg" />
           <div className="title">Back</div>
@@ -69,7 +96,7 @@ export default function Categories() {
           <img src="/core.jpeg" />
           <div className="title">Core</div>
         </Link>
-      </article>
+      </article> */}
 
     </section>
   )

@@ -8,10 +8,10 @@ export default function Exercises(props) {
   console.log("You've reached the Exercises Page")
 
   let { category } = useParams();
-
-  const [exerciseData, setExerciseData] = useState([])
-
   console.log(category)
+
+  const [bodyPart, setBodyPart] = useState(category)
+  const [exerciseData, setExerciseData] = useState([])
 
   let apiExerciseByBodyPart = {
     method: 'GET',
@@ -23,13 +23,12 @@ export default function Exercises(props) {
   };
 
   useEffect(() => {
-    const getExercises = async (category) => {
+    const getExercises = async () => {
       const response = await axios.request(apiExerciseByBodyPart)
       setExerciseData(response.data)
     };
     getExercises();
   }, [category])
-
 
   return (
 
@@ -41,47 +40,47 @@ export default function Exercises(props) {
             <ul className="nav flex-column">
               <li className="nav-item">
                 <Link to="/exercises/back">
-                  <span className="nav-link">Back</span>
+                  <span onClick={() => setBodyPart(category)} className="nav-link">Back</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/exercises/cardio">
-                  <span className="nav-link">Cardio</span>
+                  <span onClick={() => setBodyPart(category)} className="nav-link">Cardio</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/exercises/chest">
-                  <span className="nav-link">Chest</span>
+                  <span onClick={() => setBodyPart(category)} className="nav-link">Chest</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/exercises/lower%20arms">
-                  <span className="nav-link">Lower Arms</span>
+                  <span  onClick={() => setBodyPart(category)} className="nav-link">Lower Arms</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/exercises/lower%20legs">
-                  <span className="nav-link">Lower Legs</span>
+                  <span onClick={() => setBodyPart(category)} className="nav-link">Lower Legs</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/exercises/shoulders">
-                  <span className="nav-link">Shoulders</span>
+                  <span  onClick={() => setBodyPart(category)} className="nav-link">Shoulders</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/exercises/upper%20arms">
-                  <span className="nav-link">Upper Arms</span>
+                  <span onClick={() => setBodyPart(category)} className="nav-link">Upper Arms</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/exercises/upper%20legs">
-                  <span className="nav-link">Upper Legs</span>
+                  <span onClick={() => setBodyPart(category)} className="nav-link">Upper Legs</span>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/exercises/waist">
-                  <span className="nav-link">Core</span>
+                  <span onClick={() => setBodyPart(category)} className="nav-link">Core</span>
                 </Link>
               </li>
             </ul>

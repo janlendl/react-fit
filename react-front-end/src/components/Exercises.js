@@ -11,8 +11,6 @@ export default function Exercises(props) {
 
   const [exerciseData, setExerciseData] = useState([])
 
-  console.log(category)
-
   let apiExerciseByBodyPart = {
     method: 'GET',
     url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
@@ -87,24 +85,50 @@ export default function Exercises(props) {
             </ul>
           </div>
 
-
           <div className="workoutContainer col-4 clearfix">
             <div className="card boxstyle">
               <div className="row row-cols-2 flex-nowrap">
-                <div className="col-md-5">
-                  <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" className="img-fluid rounded-start" alt="..." />
-                </div>
-                <div className="col-md-10">
-                  <div className="card-body">
-                    <h5 className="card-title">Exercise Information</h5>
-                    <p className="card-text">TO BE REPLACED BY PROPS</p>
-                    <a href="#" className="btn btn-primary">Add to Workout</a>
-                  </div>
-                </div>
+
+                <table>
+
+                {exerciseData.map((exercise) => {
+                  return (
+
+                  <tr className="exerciseContainer">
+                      <div className="col-md-5">
+                          <h5 className="card-title">{exercise.name}</h5>
+                        <img src={exercise.gifUrl} className="img-fluid rounded-start" alt={exercise.name} />
+                      </div>
+                      <div className="exerciseInfo col-md-10">
+                        <div className="card-body">
+
+                    <div class="exerciseContainer">
+                          <ul className="card-text">
+                            <li>
+                              Category: {exercise.bodyPart}
+                            </li>
+                            <li>
+                              Target: {exercise.target}
+                            </li>
+                            <li>
+                              Equipment: {exercise.equipment}
+                            </li>
+                          </ul>
+                    </div>
+
+                          <a className="btn btn-primary">Add Exercise</a>
+                        </div>
+                      </div>
+                  </tr>  
+
+                  )
+                })}
+                    </table>
+
               </div>
             </div>
-
           </div>
+
           <div className="col-5">
             <div className='flex bg-light flex flex-column overflow-scroll boxstyle'>
               <div className="flex-1 py-6 overflow-auto px-4 sm:px-6">

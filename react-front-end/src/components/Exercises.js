@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function Exercises(props) {
   console.log("You've reached the Exercises Page")
@@ -150,7 +151,7 @@ export default function Exercises(props) {
                                 </li>
                               </ul>
                             </div>
-                            <a className="btn btn-primary">Add Exercise</a>
+                            <a className="btn btn-primary">Add</a>
                           </div>
                         </div>
                       </td>
@@ -172,24 +173,25 @@ export default function Exercises(props) {
                 </div>
                 <div className="mt-4">
                   <div className="flow-root">
+
+                    {/* Begining of Exercise List */}
                     <ul className="list-group mt-4">
                       <li className="py-6 flex list-group-item purple">
                         <div className="flex-shrink-0 ps-1">
                           {/* <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" className="rounded-0 mrg-right sizeImg"></img> */}
                         </div>
 
-{/* Begining of Exercise List */}
                         <div className="ms-4 flex-1 flex flex-column">
                           <div>
                             <div className="flex justify-content-between text-close">
                               <span>
-                              Exercise Name
+                                Exercise Name
                               </span>
                               <form>
-                              Sets
-                              Reps
+                                Sets
+                                Reps
                               </form>
-                              <FontAwesomeIcon icon={faTrash} />
+                              <FontAwesomeIcon className="trashIcon" icon={faTrash} />
                             </div>
                           </div>
 
@@ -198,10 +200,12 @@ export default function Exercises(props) {
                             </div>
                           </div>
                         </div>
-{/* End of Exercise List */}
-
                       </li>
                     </ul>
+                    {/* End of Exercise List */}
+                    <a className="mv btn btn-primary">Save</a>
+
+
                   </div>
                 </div>
               </div>

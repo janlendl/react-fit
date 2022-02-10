@@ -159,13 +159,24 @@ display: flex;
   box-sizing: border-box;
   border: 1px solid #e8eefe;
 }
-.purple {
-  background-color: purple;
+
+span, form {
+  color: black
 }
-.mrg-right{
-  margin-right: 30px;
+
+.trashIcon {
+  color: black
 }
-.sizeImg {
-  height:100px;
-  width:100px;
+
+.mv {
+  color: black;
+  margin-left: 11rem;
+  margin-top: 1rem;
 }
+
+// .purple {
+//   background-color: purple;
+// }
+// .mrg-right{
+//   margin-right: 30px;
+// }

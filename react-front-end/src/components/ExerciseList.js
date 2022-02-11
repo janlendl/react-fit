@@ -5,8 +5,10 @@ import { Link, useParams } from "react-router-dom";
 import ExerciseListItem from "./ExerciseListItem";
 
 import "./Exercises.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+
 
 const backExercises = [
   {
@@ -41,12 +43,12 @@ const backExercises = [
     name: "assisted pull-up",
     target: "lats"
   }
-]
+];
 
 export default function ExerciseList() {
   let { category } = useParams();
 
-  const [exerciseData, setExerciseData] = useState([])
+  const [exerciseData, setExerciseData] = useState([]);
 
   let apiExerciseByBodyPart = {
     method: 'GET',
@@ -59,13 +61,13 @@ export default function ExerciseList() {
 
   useEffect(() => {
     const getExercises = async () => {
-      const response = await axios.request(apiExerciseByBodyPart)
+      const response = await axios.request(apiExerciseByBodyPart);
       setExerciseData(response.data).catch((error) => {
         console.log(error.message);
       });
     };
     getExercises();
-  }, [category])
+  }, [category]);
 
   const exerciseItem = backExercises.map((exercise) => {
     return (
@@ -76,15 +78,16 @@ export default function ExerciseList() {
         bodyPart={exercise.bodyPart}
         target={exercise.target}
         equipment={exercise.equipment}
-        />
-        )
-      })
-      
-      return (
-        <>
-       <div className="topWrapper">
-        <div className="row">
-          <div className="col-1 text-black sidebar fle flex-column boxstyle">
+      />
+    );
+  });
+
+  return (
+    <>
+    <div class="topWrapper"></div>
+      <div className="container-lg mt-4 pt-4">
+        <div className="row noMrg justify-content-md-center">
+          <div class="col col-2">
             <h3>Categories</h3>
             <ul className="nav flex-column">
               <li className="nav-item">
@@ -135,55 +138,41 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-        {exerciseItem}
-      
-          <div className="col-5">
-            <div className='flex bg-light flex flex-column overflow-scroll boxstyle'>
-              <div className="flex-1 py-6 overflow-auto px-4 sm:px-6">
-                <div className="flex align-items-start justify-content-between">
-                  <h2 className="fw-bold text-black">Selected Exercises</h2>
-                  <div className="ms-3 h-7 flex align-items-center">
-                    {/* <button type="button" className="btn-close">X</button> */}
-                  </div>
+          <div class="col-md-auto">
+            {exerciseItem}
+          </div>
+
+          <div class="col col-lg-4">
+              <div class="card d-grid">
+                <div class="card-header">
+                  <h5 className="card-title capitalize">Create Custom Workout</h5>
                 </div>
-                <div className="mt-4">
-                  <div className="flow-root">
-                    {/* Begining of Exercise List */}
-                    <ul className="list-group mt-4">
-                      <li className="py-6 flex list-group-item purple">
-                        <div className="flex-shrink-0 ps-1">
-                          {/* <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" className="rounded-0 mrg-right sizeImg"></img> */}
-                        </div>
-                        <div className="ms-4 flex-1 flex flex-column">
-                          <div>
-                            <div className="flex justify-content-between text-close">
-                              <span>
-                                Exercise Name
-                              </span>
-                              <form>
-                                Sets
-                                Reps
-                              </form>
-                              <FontAwesomeIcon className="trashIcon" icon={faTrash} />
-                            </div>
-                          </div>
-                          <div className="flex-1 flex align-items-end justify-content-between fs-5">
-                            <div className="flex">
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                    {/* End of Exercise List */}
-                    <button className="mv btn btn-primary">Save</button>
-                  </div>
+                <div class="card-body">
+                  <h5>Exercise Name</h5>
+                  <ul class="card-text">
+                    <li >
+                      <form>
+                        <label for="Sets" class="form-label">Sets</label>
+                        <input type="text" class="form-control"></input>
+                        <label for="Sets" class="form-label">Reps</label>
+                        <input type="text" class="form-control"></input>
+                      </form>
+                    </li>
+                  </ul>
                 </div>
+
+                <div class="card-footer d-flex justify-content-between">
+                  <FontAwesomeIcon icon={faSquarePlus} />
+                  <FontAwesomeIcon icon={faTrash} />
+                </div>
+
               </div>
             </div>
           </div>
         </div>
-      </div>
+
 
     </>
   );
 };
+

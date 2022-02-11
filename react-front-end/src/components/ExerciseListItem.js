@@ -1,49 +1,53 @@
 import "./Exercises.scss";
+import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function ExerciseListItem(props) {
 
-  const { gif, name, bodyPart, target, equipment } = props
+  const { gif, name, bodyPart, target, equipment } = props;
+
+  const [addToWorkout, setaddToWorkout] = useState({});
+
+  // const addToWorkouts = () => {
+  //   setaddToWorkout([...addToWorkout, item]);
+  // };
+
+
+
+  console.log("this is props", props);
+
 
   return (
     <>
-      <div className="workoutContainer col-4 clearfix">
-        <div className="card boxstyle">
-          <div className="row row-cols-2 flex-nowrap">
-            <table>
-              <tbody>
-                <tr>
-                  <td className="exerciseContainer">
-                    <div className="col-md-5">
-                      <h5 className="card-title">{name}</h5>
-                      <img src={gif} className="img-fluid rounded-start" alt={name} />
-                    </div>
-                    <div className="exerciseInfo col-md-10">
-                      <div className="card-body">
-                        <div className="exerciseContainer">
-                          <ul className="card-text">
-                            <li>
-                              Category: {bodyPart}
-                            </li>
-                            <li>
-                              Target: {target}
-                            </li>
-                            <li>
-                              Equipment: {equipment}
-                            </li>
-                          </ul>
-                        </div>
-                        <button className="btn btn-primary">Add</button>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="row noMrg">
+        <div class="card mb-3">
+          <div class="row noMrg">
+            <div class="col-sm-3">
+              <img src={gif} className="img-fluid rounded-start" alt={name} />
+            </div>
+            <div class="card-body">
+              <h5 className="card-title capitalize">{name}</h5>
+              <ul className="card-text">
+                <li>
+                  Category: {bodyPart}
+                </li>
+                <li>
+                  Target: {target}
+                </li>
+                <li>
+                  Equipment: {equipment}
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer d-flex align-items-end">
+              <button className="btn btn-primary"><FontAwesomeIcon icon={faPlus} /></button>
+            </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
 // Mimi API request for List Exercise By Body Part = Back

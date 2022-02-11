@@ -1,9 +1,6 @@
-.row {
-  display: flex;
-  // flex-wrap: nowrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}    
+.noMrg {
+  margin:0px;
+}
 
 .categoriesWrapper {
   display: flex;
@@ -29,15 +26,9 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  // margin-left: 50px;
-  // margin-right:50px;
   color: black;
 }
-.col-4 {
-  flex: 0 0 40rem;
-  display: flex;
-  max-width: 40rem;
-}
+
 
 .exerciseContainer {
   display: flex;
@@ -45,12 +36,6 @@
   margin-bottom: 1.5rem;
 }
 
-.card-title {
-  display: flex;
-  justify-content: center;
-  width: 30rem;
-  font-weight: bold;
-}
 
 .exerciseInfo {
   display: flex;
@@ -60,27 +45,10 @@
   margin-top: 3rem;
 }
 
-.card-body {
-  display: flex;
-  flex-direction: column;
-  padding: 0rem;
-  width: 10rem;
-}
-
-div .col-5 {
-  flex: 0 0 25rem;
-  max-width: 25rem;
-  margin-left: -0.925rem;
-}
 
 .exerciseCard {
 padding: 1.5rem;
 display: flex;
-}
-.flex-1 {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0%;
 }
 
 .card-text {
@@ -91,6 +59,7 @@ display: flex;
 .justify-between{
   justify-content: space-between;
 }
+
 .items-start {
   align-items: flex-start;
 }
@@ -99,10 +68,6 @@ display: flex;
   display: flex;
 }
 
-.titleExercises {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
 
 .ml-3{
   margin-left: .75rem;
@@ -126,15 +91,11 @@ display: flex;
   height: 4rem;
 }
 
-.text-black{
-  color:black;
-}
-
 .sidebar {
   display:flex;
   align-items: center;
   color:black;
-  min-width:234px;
+  min-width:225px;
   margin-top: 38px;
   height:100vh;
   background:white;
@@ -142,7 +103,7 @@ display: flex;
   z-index:1;
 }
 .topWrapper {
-  height:184px;
+  height:50px;
   width:100%;
   background: linear-gradient(90deg, rgba(224,54,148,1) 27%, rgba(244,114,83,1) 97%);
   display:flex;
@@ -151,8 +112,6 @@ display: flex;
 }
 
 .boxstyle {
-  margin-top: 30px;
-  margin-bottom:30px;
   padding:10px;
   background:#fff;
   border-radius: 14px;
@@ -164,19 +123,18 @@ span, form {
   color: black
 }
 
-.trashIcon {
-  color: black
+
+.card-body{
+  width:12rem;
 }
 
-.mv {
-  color: black;
-  margin-left: 11rem;
-  margin-top: 1rem;
+.card-footer{
+  background-color: white;
 }
 
-// .purple {
-//   background-color: purple;
-// }
-// .mrg-right{
-//   margin-right: 30px;
-// }
+.capitalize {
+  text-transform: capitalize;
+}
+.form-control{
+  width:50%;
+}

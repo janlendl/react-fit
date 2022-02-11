@@ -1,4 +1,4 @@
-import Exercises from "./Exercises";
+
 import { useState, useEffect } from "react";
 
 

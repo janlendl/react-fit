@@ -1,8 +1,7 @@
 import "./Exercises.scss";
 
 export default function ExerciseListItem(props) {
-
-  const { gif, name, bodyPart, target, equipment, onAdd } = props
+  const { id, gif, name, bodyPart, target, equipment, onAdd } = props
 
   return (
     <>
@@ -32,7 +31,7 @@ export default function ExerciseListItem(props) {
                             </li>
                           </ul>
                         </div>
-                        <button onClick={()=>onAdd()} className="btn btn-primary">Add</button>
+                        <button onClick={()=>onAdd(id)} className="btn btn-primary">Add</button>
                       </div>
                     </div>
                   </td>
@@ -45,11 +44,3 @@ export default function ExerciseListItem(props) {
     </>
   )
 }
-
-// Mimi API request for List Exercise By Body Part = Back
-
-
-
-// Mimic API request for List All Body Parts
-
-// const allBodyParts = ["back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist"]

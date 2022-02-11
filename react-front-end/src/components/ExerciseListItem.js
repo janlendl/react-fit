@@ -1,74 +1,15 @@
-import axios from "axios";
-import { Link, useParams } from "react-router-dom"
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
 
 import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
 
-export default function Exercises(props) {
+export default function ExerciseListItem(props) {
   console.log("You've reached the Exercises Page")
-
-  let { category } = useParams();
-
-  // Variable exerciseData will be plugged into the embbed map to represent API Data -- See note below
-  const [exerciseData, setExerciseData] = useState([])
-
-  let apiExerciseByBodyPart = {
-    method: 'GET',
-    url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
-    headers: {
-      'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
-      'x-rapidapi-key': 'c246264552msh38d3d1e59cd14a4p155348jsnd0dcd0a98213'
-    }
-  };
-
-  useEffect(() => {
-    const getExercises = async (category) => {
-      const response = await axios.request(apiExerciseByBodyPart)
-      setExerciseData(response.data)
-    };
-    getExercises();
-  }, [category])
-
-  const backExercises = [
-    {
-      bodyPart: "back",
-      equipment: "cable",
-      gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-      id: "0007",
-      name: "alternate lateral pulldown",
-      target: "lats"
-    },
-    {
-      bodyPart: "back",
-      equipment: "body weight",
-      gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
-      id: "3293",
-      name: "archer pull up",
-      target: "lats"
-    },
-    {
-      bodyPart: "back",
-      equipment: "leverage machine",
-      gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
-      id: "0015",
-      name: "assisted parallel close grip pull-up",
-      target: "lats"
-    },
-    {
-      bodyPart: "back",
-      equipment: "leverage machine",
-      gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
-      id: "0017",
-      name: "assisted pull-up",
-      target: "lats"
-    }
-  ]
+  
+  const { gif, name, bodyPart, target, equipment } = props
 
   return (
-
     <>
       <div className="topWrapper">
         <div className="row">
@@ -127,13 +68,13 @@ export default function Exercises(props) {
             <div className="card boxstyle">
               <div className="row row-cols-2 flex-nowrap">
                 <table>
-                  {/* Variable backExercises will need to be replaced with Variable exerciseData. This has been temporarily removed as I have run out of API requests */}
-                  {backExercises.map((exercise) => {
-                    return (
+                  <tbody>
+                    <tr>
+
                       <td className="exerciseContainer">
                         <div className="col-md-5">
-                          <h5 className="card-title">{exercise.name}</h5>
-                          <img src={exercise.gifUrl} className="img-fluid rounded-start" alt={exercise.name} />
+                          <h5 className="card-title">{name}</h5>
+                          <img src={gif} className="img-fluid rounded-start" alt={name} />
                         </div>
                         <div className="exerciseInfo col-md-10">
                           <div className="card-body">
@@ -141,13 +82,13 @@ export default function Exercises(props) {
                             <div className="exerciseContainer">
                               <ul className="card-text">
                                 <li>
-                                  Category: {exercise.bodyPart}
+                                  Category: {bodyPart}
                                 </li>
                                 <li>
-                                  Target: {exercise.target}
+                                  Target: {target}
                                 </li>
                                 <li>
-                                  Equipment: {exercise.equipment}
+                                  Equipment: {equipment}
                                 </li>
                               </ul>
                             </div>
@@ -155,8 +96,9 @@ export default function Exercises(props) {
                           </div>
                         </div>
                       </td>
-                    )
-                  })}
+
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </div>

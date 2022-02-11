@@ -92,7 +92,6 @@ export default function ExerciseList() {
 
     return (
       <ExerciseListItem
-        {...exercise}
         key={exercise.id}
         gif={exercise.gifUrl}
         name={exercise.name}

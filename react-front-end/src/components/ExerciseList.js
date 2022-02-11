@@ -49,32 +49,50 @@ export default function ExerciseList() {
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
 
-  let apiExerciseByBodyPart = {
-    method: 'GET',
-    url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
-    headers: {
-      'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
-      'x-rapidapi-key': 'c2c9da1eb8msh17b3797bf1980ddp197370jsn45878d3b3863'
-    }
-  };
+  // let apiExerciseByBodyPart = {
+  //   method: 'GET',
+  //   url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
+  //   headers: {
+  //     'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
+  //     'x-rapidapi-key': 'c2c9da1eb8msh17b3797bf1980ddp197370jsn45878d3b3863'
+  //   }
+  // };
 
-  useEffect(() => {
-    const getExercises = async () => {
-      const response = await axios.request(apiExerciseByBodyPart)
-      setExerciseData(response.data).catch((error) => {
-        console.log(error.message);
-      });
-    };
-    getExercises();
-  }, [category])
+  // useEffect(() => {
+  //   const getExercises = async () => {
+  //     const response = await axios.request(apiExerciseByBodyPart)
+  //     setExerciseData(response.data).catch((error) => {
+  //       console.log(error.message);
+  //     });
+  //   };
+  //   getExercises();
+  // }, [category])
 
   const onAdd = (exercise) => {
-    setExerciseCart([...exerciseCart, { ...exercise }])
+    // console.log('INPUT: exercise param', exercise)
+    const singleExercise = backExercises.find(erex => erex.id === exercise)
+    // console.log('Match singleExercise', singleExercise)
+    const exists = exerciseCart.find(erex => erex.id === exercise)
+    if (exists) {
+      return null
+    } else {
+      setExerciseCart([...exerciseCart, { ...singleExercise }])
+      // setExerciseCart(prev => ({
+      //    ...prev, singleExercise
+      // }))
+    }
   }
+  console.log(exerciseCart)
+
+  exerciseCart.map((exercise) => {
+    console.log('Map exer name', exercise.name)
+  })
 
   const exerciseItem = backExercises.map((exercise) => {
+
     return (
       <ExerciseListItem
+        {...exercise}
         key={exercise.id}
         gif={exercise.gifUrl}
         name={exercise.name}
@@ -170,13 +188,17 @@ export default function ExerciseList() {
                               </form>
                               <FontAwesomeIcon className="trashIcon" icon={faTrash} />
                             </div>
-                            { exerciseCart.length === 0 && <div style={{ color: "black" }}> C'mon Add an Exercise </div>}
-
-                            { exerciseCart.map((exercise) => {
-                              <div key={exercise.id} style={{ color: "black" }}>
-                                <div>{exercise.name}</div>
-                              </div>
-                            }) }
+                            {exerciseCart.map((exercise) => {
+                              return (
+                                <div key={exercise.id} style={{ color: "black" }}>
+                                  <ul>
+                                    <li style={{ color: "black" }}>
+                                      {exercise.name}
+                                    </li>
+                                  </ul>
+                                </div>
+                              )
+                            })}
                           </div>
                           <div className="flex-1 flex align-items-end justify-content-between fs-5">
                             <div className="flex">

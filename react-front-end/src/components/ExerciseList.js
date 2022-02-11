@@ -137,7 +137,6 @@ export default function ExerciseList() {
 
         {exerciseItem}
       
-
           <div className="col-5">
             <div className='flex bg-light flex flex-column overflow-scroll boxstyle'>
               <div className="flex-1 py-6 overflow-auto px-4 sm:px-6">
@@ -149,14 +148,12 @@ export default function ExerciseList() {
                 </div>
                 <div className="mt-4">
                   <div className="flow-root">
-
                     {/* Begining of Exercise List */}
                     <ul className="list-group mt-4">
                       <li className="py-6 flex list-group-item purple">
                         <div className="flex-shrink-0 ps-1">
                           {/* <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" className="rounded-0 mrg-right sizeImg"></img> */}
                         </div>
-
                         <div className="ms-4 flex-1 flex flex-column">
                           <div>
                             <div className="flex justify-content-between text-close">
@@ -170,7 +167,6 @@ export default function ExerciseList() {
                               <FontAwesomeIcon className="trashIcon" icon={faTrash} />
                             </div>
                           </div>
-
                           <div className="flex-1 flex align-items-end justify-content-between fs-5">
                             <div className="flex">
                             </div>
@@ -179,16 +175,12 @@ export default function ExerciseList() {
                       </li>
                     </ul>
                     {/* End of Exercise List */}
-                    <a className="mv btn btn-primary">Save</a>
-
-
+                    <button className="mv btn btn-primary">Save</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
 

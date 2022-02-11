@@ -76,13 +76,13 @@ export default function ExerciseList() {
         bodyPart={exercise.bodyPart}
         target={exercise.target}
         equipment={exercise.equipment}
-      />
-    )
-  })
-
-  return (
-    <>
-      <div className="topWrapper">
+        />
+        )
+      })
+      
+      return (
+        <>
+       <div className="topWrapper">
         <div className="row">
           <div className="col-1 text-black sidebar fle flex-column boxstyle">
             <h3>Categories</h3>
@@ -134,10 +134,11 @@ export default function ExerciseList() {
               </li>
             </ul>
           </div>
-        </div>
-      </div>
-      {exerciseItem}
-      <div className="col-5">
+
+        {exerciseItem}
+      
+
+          <div className="col-5">
             <div className='flex bg-light flex flex-column overflow-scroll boxstyle'>
               <div className="flex-1 py-6 overflow-auto px-4 sm:px-6">
                 <div className="flex align-items-start justify-content-between">
@@ -186,6 +187,11 @@ export default function ExerciseList() {
               </div>
             </div>
           </div>
+
+
+        </div>
+      </div>
+
     </>
   );
 };

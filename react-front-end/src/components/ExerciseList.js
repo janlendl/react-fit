@@ -72,23 +72,23 @@ export default function ExerciseList() {
 
   const onAdd = (exercise) => {
     // console.log('INPUT: exercise param', exercise)
-    const singleExercise = backExercises.find(erex => erex.id === exercise)
+    const singleExercise = backExercises.find(erex => erex.id === exercise);
     // console.log('Match singleExercise', singleExercise)
-    const exists = exerciseCart.find(erex => erex.id === exercise)
+    const exists = exerciseCart.find(erex => erex.id === exercise);
     if (exists) {
-      return null
+      return null;
     } else {
-      setExerciseCart([...exerciseCart, { ...singleExercise }])
+      setExerciseCart([...exerciseCart, { ...singleExercise }]);
       // setExerciseCart(prev => ({
       //    ...prev, singleExercise
       // }))
     }
-  }
-  console.log(exerciseCart)
+  };
+  console.log(exerciseCart);
 
   exerciseCart.map((exercise) => {
-    console.log('Map exer name', exercise.name)
-  })
+    console.log('Map exer name', exercise.name);
+  });
 
   const exerciseItem = backExercises.map((exercise) => {
     return (
@@ -107,7 +107,7 @@ export default function ExerciseList() {
 
   return (
     <>
-    <div class="topWrapper"></div>
+      <div class="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
           <div class="col col-2">
@@ -166,44 +166,38 @@ export default function ExerciseList() {
           </div>
 
           <div class="col col-lg-4">
-              <div class="card d-grid">
-                <div class="card-header">
-                  <h5 className="card-title capitalize">Create Custom Workout</h5>
-                </div>
-                <div class="card-body">
-                {exerciseCart.map((exercise) => {
-                   return (
-                    <div key={exercise.id}>
-                      <ul>
-                        <li>
-                          {exercise.name}
-                        </li>
-                      </ul>
-                    </div>
-                  )
-                })}
-                  <h5>Exercise Name</h5>
-                  <ul class="card-text">
-                    <li >
-                      <form>
-                        <label for="Sets" class="form-label">Sets</label>
-                        <input type="text" class="form-control"></input>
-                        <label for="Sets" class="form-label">Reps</label>
-                        <input type="text" class="form-control"></input>
-                      </form>
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="card-footer d-flex justify-content-between">
-                  <FontAwesomeIcon icon={faSquarePlus} />
-                  <FontAwesomeIcon icon={faTrash} />
-                </div>
-
+            <div class="card d-grid">
+              <div class="card-header">
+                <h5 className="card-title capitalize">Create Custom Workout</h5>
               </div>
+              {exerciseCart.map((exercise) => {
+                return (
+                  <div class="card-body" key={exercise.id}>
+
+                    <h5 class="capitalize">{exercise.name}</h5>
+                    <ul class="card-text">
+                      <li >
+                        <form>
+                          <label for="Sets" class="form-label">Sets</label>
+                          <input type="text" class="form-control"></input>
+                          <label for="Sets" class="form-label">Reps</label>
+                          <input type="text" class="form-control"></input>
+                        </form>
+                      </li>
+                    </ul>
+                    <FontAwesomeIcon icon={faTrash} />
+                  </div>
+                );
+              })}
+              <div class="card-footer d-flex justify-content-between">
+                <FontAwesomeIcon icon={faSquarePlus} />
+                <FontAwesomeIcon icon={faTrash} />
+              </div>
+
             </div>
           </div>
         </div>
+      </div>
 
 
     </>

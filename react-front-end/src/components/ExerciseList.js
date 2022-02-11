@@ -46,7 +46,8 @@ const backExercises = [
 export default function ExerciseList() {
   let { category } = useParams();
 
-  const [exerciseData, setExerciseData] = useState([])
+  const [exerciseData, setExerciseData] = useState([]);
+  const [exerciseCart, setExerciseCart] = useState([]);
 
   let apiExerciseByBodyPart = {
     method: 'GET',
@@ -67,6 +68,10 @@ export default function ExerciseList() {
     getExercises();
   }, [category])
 
+  const onAdd = (exercise) => {
+    setExerciseCart([...exerciseCart, { ...exercise }])
+  }
+
   const exerciseItem = backExercises.map((exercise) => {
     return (
       <ExerciseListItem
@@ -76,13 +81,15 @@ export default function ExerciseList() {
         bodyPart={exercise.bodyPart}
         target={exercise.target}
         equipment={exercise.equipment}
-        />
-        )
-      })
-      
-      return (
-        <>
-       <div className="topWrapper">
+        onAdd={onAdd}
+      />
+    )
+  })
+
+  return (
+    <>
+
+      <div className="topWrapper">
         <div className="row">
           <div className="col-1 text-black sidebar fle flex-column boxstyle">
             <h3>Categories</h3>
@@ -135,24 +142,21 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-        {exerciseItem}
-      
+          {exerciseItem}
+
           <div className="col-5">
             <div className='flex bg-light flex flex-column overflow-scroll boxstyle'>
               <div className="flex-1 py-6 overflow-auto px-4 sm:px-6">
                 <div className="flex align-items-start justify-content-between">
                   <h2 className="fw-bold text-black">Selected Exercises</h2>
                   <div className="ms-3 h-7 flex align-items-center">
-                    {/* <button type="button" className="btn-close">X</button> */}
                   </div>
                 </div>
                 <div className="mt-4">
                   <div className="flow-root">
-                    {/* Begining of Exercise List */}
                     <ul className="list-group mt-4">
                       <li className="py-6 flex list-group-item purple">
                         <div className="flex-shrink-0 ps-1">
-                          {/* <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" className="rounded-0 mrg-right sizeImg"></img> */}
                         </div>
                         <div className="ms-4 flex-1 flex flex-column">
                           <div>
@@ -166,6 +170,13 @@ export default function ExerciseList() {
                               </form>
                               <FontAwesomeIcon className="trashIcon" icon={faTrash} />
                             </div>
+                            { exerciseCart.length === 0 && <div style={{ color: "black" }}> C'mon Add an Exercise </div>}
+
+                            { exerciseCart.map((exercise) => {
+                              <div key={exercise.id} style={{ color: "black" }}>
+                                <div>{exercise.name}</div>
+                              </div>
+                            }) }
                           </div>
                           <div className="flex-1 flex align-items-end justify-content-between fs-5">
                             <div className="flex">
@@ -174,7 +185,6 @@ export default function ExerciseList() {
                         </div>
                       </li>
                     </ul>
-                    {/* End of Exercise List */}
                     <button className="mv btn btn-primary">Save</button>
                   </div>
                 </div>

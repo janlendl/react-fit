@@ -2,7 +2,7 @@ import "./Exercises.scss";
 
 export default function ExerciseListItem(props) {
 
-  const { gif, name, bodyPart, target, equipment } = props
+  const { gif, name, bodyPart, target, equipment, onAdd } = props
 
   return (
     <>
@@ -32,7 +32,7 @@ export default function ExerciseListItem(props) {
                             </li>
                           </ul>
                         </div>
-                        <button className="btn btn-primary">Add</button>
+                        <button onClick={()=>onAdd()} className="btn btn-primary">Add</button>
                       </div>
                     </div>
                   </td>

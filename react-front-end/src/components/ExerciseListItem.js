@@ -5,17 +5,8 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function ExerciseListItem(props) {
 
-  const { gif, name, bodyPart, target, equipment } = props;
+  const { id, gif, name, bodyPart, target, equipment, onAdd } = props
 
-  const [addToWorkout, setaddToWorkout] = useState({});
-
-  // const addToWorkouts = () => {
-  //   setaddToWorkout([...addToWorkout, item]);
-  // };
-
-
-
-  console.log("this is props", props);
 
 
   return (
@@ -41,7 +32,8 @@ export default function ExerciseListItem(props) {
               </ul>
             </div>
             <div class="card-footer d-flex align-items-end">
-              <button className="btn btn-primary"><FontAwesomeIcon icon={faPlus} /></button>
+            <button className="btn btn-primary" onClick={()=>onAdd(id)}><FontAwesomeIcon icon={faPlus}/></button>
+              {/* <button className="btn btn-primary"><FontAwesomeIcon icon={faPlus} /></button> */}
             </div>
           </div>
         </div>

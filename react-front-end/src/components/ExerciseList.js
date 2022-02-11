@@ -49,35 +49,58 @@ export default function ExerciseList() {
   let { category } = useParams();
 
   const [exerciseData, setExerciseData] = useState([]);
+  const [exerciseCart, setExerciseCart] = useState([]);
 
-  let apiExerciseByBodyPart = {
-    method: 'GET',
-    url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
-    headers: {
-      'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
-      'x-rapidapi-key': 'c2c9da1eb8msh17b3797bf1980ddp197370jsn45878d3b3863'
+  // let apiExerciseByBodyPart = {
+  //   method: 'GET',
+  //   url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
+  //   headers: {
+  //     'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
+  //     'x-rapidapi-key': 'c2c9da1eb8msh17b3797bf1980ddp197370jsn45878d3b3863'
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const getExercises = async () => {
+  //     const response = await axios.request(apiExerciseByBodyPart);
+  //     setExerciseData(response.data).catch((error) => {
+  //       console.log(error.message);
+  //     });
+  //   };
+  //   getExercises();
+  // }, [category]);
+
+  const onAdd = (exercise) => {
+    // console.log('INPUT: exercise param', exercise)
+    const singleExercise = backExercises.find(erex => erex.id === exercise)
+    // console.log('Match singleExercise', singleExercise)
+    const exists = exerciseCart.find(erex => erex.id === exercise)
+    if (exists) {
+      return null
+    } else {
+      setExerciseCart([...exerciseCart, { ...singleExercise }])
+      // setExerciseCart(prev => ({
+      //    ...prev, singleExercise
+      // }))
     }
-  };
+  }
+  console.log(exerciseCart)
 
-  useEffect(() => {
-    const getExercises = async () => {
-      const response = await axios.request(apiExerciseByBodyPart);
-      setExerciseData(response.data).catch((error) => {
-        console.log(error.message);
-      });
-    };
-    getExercises();
-  }, [category]);
+  exerciseCart.map((exercise) => {
+    console.log('Map exer name', exercise.name)
+  })
 
   const exerciseItem = backExercises.map((exercise) => {
     return (
       <ExerciseListItem
+        {...exercise}
         key={exercise.id}
         gif={exercise.gifUrl}
         name={exercise.name}
         bodyPart={exercise.bodyPart}
         target={exercise.target}
         equipment={exercise.equipment}
+        onAdd={onAdd}
       />
     );
   });
@@ -148,6 +171,17 @@ export default function ExerciseList() {
                   <h5 className="card-title capitalize">Create Custom Workout</h5>
                 </div>
                 <div class="card-body">
+                {exerciseCart.map((exercise) => {
+                   return (
+                    <div key={exercise.id}>
+                      <ul>
+                        <li>
+                          {exercise.name}
+                        </li>
+                      </ul>
+                    </div>
+                  )
+                })}
                   <h5>Exercise Name</h5>
                   <ul class="card-text">
                     <li >

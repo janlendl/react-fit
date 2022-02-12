@@ -7,7 +7,8 @@ import ExerciseListItem from "./ExerciseListItem";
 import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faHeart} from "@fortawesome/free-solid-svg-icons";
 
 
 const backExercises = [
@@ -51,6 +52,11 @@ export default function ExerciseList() {
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
 
+  const [sets, setSets] = useState("");
+  const [reps, setReps] = useState("");
+
+  const [savedWorkout, setSavedWorkout] = useState(localStorage.getItem('cart'))
+
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
   //   url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
@@ -86,6 +92,15 @@ export default function ExerciseList() {
   };
   console.log(exerciseCart);
 
+  const onSave = (event) => {
+     event.preventDefault();
+    console.log("submission prevented");
+   };
+
+   const saveWorkout = () => {
+    setSavedWorkout()
+   };
+
   exerciseCart.map((exercise) => {
     console.log('Map exer name', exercise.name);
   });
@@ -105,12 +120,25 @@ export default function ExerciseList() {
     );
   });
 
+let cartCopy = {...exerciseCart}
+
+useEffect(() => {
+  localStorage.setItem('cartCopy', sets);
+}, [sets]);
+
+
+// const exerciseCartCopy = [...cart]
+  // console.log("the Copy",exerciseCartCopy)
+
+  // let cartString = JSON.stringify(exerciseCartCopy);
+  // localStorage.setItem('exerciseCart', cartString);
+
   return (
     <>
-      <div class="topWrapper"></div>
+      <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
-          <div class="col col-2">
+          <div className="col col-2">
             <h3>Categories</h3>
             <ul className="nav flex-column">
               <li className="nav-item">
@@ -161,37 +189,63 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-          <div class="col-md-auto">
+          <div className="col-md-auto">
             {exerciseItem}
           </div>
 
-          <div class="col col-lg-4">
-            <div class="card d-grid">
-              <div class="card-header">
-                <h5 className="card-title capitalize">Create Custom Workout</h5>
+          <div className="col col-lg-4">
+            <div className="card d-grid">
+              <div className="card-header">
+                <h5 className="card-title text-center capitalize">Create Workout</h5>
               </div>
+              <form>
+                <input>
+                
+                </input>
+              </form>
               {exerciseCart.map((exercise) => {
                 return (
-                  <div class="card-body" key={exercise.id}>
-
-                    <h5 class="capitalize">{exercise.name}</h5>
-                    <ul class="card-text">
-                      <li >
-                        <form>
-                          <label for="Sets" class="form-label">Sets</label>
-                          <input type="text" class="form-control"></input>
-                          <label for="Sets" class="form-label">Reps</label>
-                          <input type="text" class="form-control"></input>
-                        </form>
-                      </li>
-                    </ul>
-                    <FontAwesomeIcon icon={faTrash} />
+                  <div className="card-body w-0" key={exercise.id}>
+                    <h5 className="capitalize">{exercise.name}</h5>
+                    <div className="card-text flex align-items-center">
+                      <form > 
+                        <label htmlFor="Sets" className="form-label">Sets</label>
+                        <input
+                          type="text"
+                          pattern="[0-9]"
+                          name="sets"
+                          id='sets'
+                          onChange={(event) => setSets(event.target.value)}
+                          className="form-control" />
+                      </form>
+                      <form>
+                        <label htmlFor="Sets" className="form-label">Reps</label>
+                        <input
+                          type="text"
+                          pattern="[0-9]"
+                          name="reps"
+                          id="reps"
+                          onChange={(event) => setReps(event.target.value)}
+                          className="form-control" />
+                      </form>
+                    </div>
+                    <div className="d-flex card-text justify-content-end">
+                      <form>
+                        <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
+                      </form>
+                    
+                    <form>
+                        <button type="submit" className="btn-sm"><FontAwesomeIcon icon={faTrash} /></button>
+                      </form>
+                    </div>
                   </div>
                 );
               })}
-              <div class="card-footer d-flex justify-content-between">
-                <FontAwesomeIcon icon={faSquarePlus} />
-                <FontAwesomeIcon icon={faTrash} />
+              <div className="card-footer d-flex justify-content-between">
+                <form>
+                  <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faHeart} /></button>
+                </form>
+                <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
               </div>
 
             </div>

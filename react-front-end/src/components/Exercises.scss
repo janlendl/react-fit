@@ -84,8 +84,8 @@ display: flex;
 .flow-root{
   display: flow-root;
 }
-.w-24 {
-  width: 4rem;
+.w-0{
+  width: 100%!important;
 }
 .h-24 {
   height: 4rem;
@@ -130,6 +130,7 @@ span, form {
 
 .card-footer{
   background-color: white;
+  border-top: none;
 }
 
 .capitalize {
@@ -137,4 +138,8 @@ span, form {
 }
 .form-control{
   width:50%;
+}
+
+.bordergray {
+  border-bottom: rgb(0,0,0.125);
 }

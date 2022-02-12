@@ -11,13 +11,13 @@ export default function ExerciseListItem(props) {
 
   return (
     <>
-      <div class="row noMrg">
-        <div class="card mb-3">
-          <div class="row noMrg">
-            <div class="col-sm-3">
+      <div className="row noMrg">
+        <div className="card mb-3">
+          <div className="row noMrg">
+            <div className="col-sm-3">
               <img src={gif} className="img-fluid rounded-start" alt={name} />
             </div>
-            <div class="card-body">
+            <div className="card-body">
               <h5 className="card-title capitalize">{name}</h5>
               <ul className="card-text">
                 <li>
@@ -31,7 +31,7 @@ export default function ExerciseListItem(props) {
                 </li>
               </ul>
             </div>
-            <div class="card-footer d-flex align-items-end">
+            <div className="card-footer d-flex align-items-end">
             <button className="btn btn-primary" onClick={()=>onAdd(id)}><FontAwesomeIcon icon={faPlus}/></button>
               {/* <button className="btn btn-primary"><FontAwesomeIcon icon={faPlus} /></button> */}
             </div>

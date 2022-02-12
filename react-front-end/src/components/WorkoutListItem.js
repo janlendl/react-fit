@@ -1,39 +1,47 @@
 import './WorkoutListItem.scss';
 
 export default function WorkoutListItem(props) {
+  
   return (
     <>
       <h2>{props.workoutName}</h2>
       <li>Date Created: {props.dateCreated}</li>
-      <div className="workoutContainer col-4 clearfix">
-        <div className="card boxstyle">
-          <div className="row row-cols-2 flex-nowrap">
-            <table>
-              <tbody>
-                <tr>
-                  <td className="exerciseContainer">
-                    <div className="col-md-5">
-                      <h5 className="card-title">{props.exerciseName}</h5>
-                      <img src={props.gif} className="img-fluid rounded-start" alt={props.exerciseName} />
-                    </div>
-                    <div className="exerciseInfo col-md-10">
-                      <div className="card-body">
-                        <div className="exerciseContainer">
-                          <ul className="card-text">
-                            <li>Target: {props.equipment}</li>
-                            <li>Number of Sets: {props.numSets}</li>
-                            <li>Number of Reps: {props.numReps}</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+
+      {props.exercise.map((e,i) => {
+        return(
+          <div key={i} className="row noMrg">
+            <div className="card mb-3">
+              <div className="row noMrg">
+                <div className="col-sm-3">
+                  <img src={e.gifUrl} className="img-fluid rounded-start" alt={e.name} />
+                </div>
+                <div className="card-body">
+                  <h5 className="card-title capitalize">{e.name}</h5>
+                  <ul className="card-text">
+                    <li>
+                      Category: {e.body_part}
+                    </li>
+                    <li>
+                      Target: {e.target_muscle}
+                    </li>
+                    <li>
+                      Equipment: {e.equipment}
+                    </li>
+                    <li>
+                      Sets: {e.number_of_sets}
+                    </li>
+                    <li>
+                      Reps: {e.number_of_reps}
+                    </li>
+                  </ul>
+                </div>
+                <div className="card-footer d-flex align-items-end">
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        )
+      })}
     </>
   );
 }

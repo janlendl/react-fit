@@ -5,8 +5,10 @@ import { Link, useParams } from "react-router-dom";
 import ExerciseListItem from "./ExerciseListItem";
 
 import "./Exercises.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
+
 
 const backExercises = [
   {
@@ -41,50 +43,74 @@ const backExercises = [
     name: "assisted pull-up",
     target: "lats"
   }
-]
+];
 
 export default function ExerciseList() {
   let { category } = useParams();
 
-  const [exerciseData, setExerciseData] = useState([])
+  const [exerciseData, setExerciseData] = useState([]);
+  const [exerciseCart, setExerciseCart] = useState([]);
 
-  let apiExerciseByBodyPart = {
-    method: 'GET',
-    url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
-    headers: {
-      'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
-      'x-rapidapi-key': 'c2c9da1eb8msh17b3797bf1980ddp197370jsn45878d3b3863'
+  // let apiExerciseByBodyPart = {
+  //   method: 'GET',
+  //   url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
+  //   headers: {
+  //     'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
+  //     'x-rapidapi-key': 'c2c9da1eb8msh17b3797bf1980ddp197370jsn45878d3b3863'
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   const getExercises = async () => {
+  //     const response = await axios.request(apiExerciseByBodyPart);
+  //     setExerciseData(response.data).catch((error) => {
+  //       console.log(error.message);
+  //     });
+  //   };
+  //   getExercises();
+  // }, [category]);
+
+  const onAdd = (exercise) => {
+    // console.log('INPUT: exercise param', exercise)
+    const singleExercise = backExercises.find(erex => erex.id === exercise);
+    // console.log('Match singleExercise', singleExercise)
+    const exists = exerciseCart.find(erex => erex.id === exercise);
+    if (exists) {
+      return null;
+    } else {
+      setExerciseCart([...exerciseCart, { ...singleExercise }]);
+      // setExerciseCart(prev => ({
+      //    ...prev, singleExercise
+      // }))
     }
   };
+  console.log(exerciseCart);
 
-  useEffect(() => {
-    const getExercises = async () => {
-      const response = await axios.request(apiExerciseByBodyPart)
-      setExerciseData(response.data).catch((error) => {
-        console.log(error.message);
-      });
-    };
-    getExercises();
-  }, [category])
+  exerciseCart.map((exercise) => {
+    console.log('Map exer name', exercise.name);
+  });
 
   const exerciseItem = backExercises.map((exercise) => {
     return (
       <ExerciseListItem
+        {...exercise}
         key={exercise.id}
         gif={exercise.gifUrl}
         name={exercise.name}
         bodyPart={exercise.bodyPart}
         target={exercise.target}
         equipment={exercise.equipment}
-        />
-        )
-      })
-      
-      return (
-        <>
-       <div className="topWrapper">
-        <div className="row">
-          <div className="col-1 text-black sidebar fle flex-column boxstyle">
+        onAdd={onAdd}
+      />
+    );
+  });
+
+  return (
+    <>
+      <div class="topWrapper"></div>
+      <div className="container-lg mt-4 pt-4">
+        <div className="row noMrg justify-content-md-center">
+          <div class="col col-2">
             <h3>Categories</h3>
             <ul className="nav flex-column">
               <li className="nav-item">
@@ -135,55 +161,46 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-        {exerciseItem}
-      
-          <div className="col-5">
-            <div className='flex bg-light flex flex-column overflow-scroll boxstyle'>
-              <div className="flex-1 py-6 overflow-auto px-4 sm:px-6">
-                <div className="flex align-items-start justify-content-between">
-                  <h2 className="fw-bold text-black">Selected Exercises</h2>
-                  <div className="ms-3 h-7 flex align-items-center">
-                    {/* <button type="button" className="btn-close">X</button> */}
-                  </div>
-                </div>
-                <div className="mt-4">
-                  <div className="flow-root">
-                    {/* Begining of Exercise List */}
-                    <ul className="list-group mt-4">
-                      <li className="py-6 flex list-group-item purple">
-                        <div className="flex-shrink-0 ps-1">
-                          {/* <img src="https://fitonapp.com/wp-content/themes/fiton-20201105/images/Rectangle-7.png" className="rounded-0 mrg-right sizeImg"></img> */}
-                        </div>
-                        <div className="ms-4 flex-1 flex flex-column">
-                          <div>
-                            <div className="flex justify-content-between text-close">
-                              <span>
-                                Exercise Name
-                              </span>
-                              <form>
-                                Sets
-                                Reps
-                              </form>
-                              <FontAwesomeIcon className="trashIcon" icon={faTrash} />
-                            </div>
-                          </div>
-                          <div className="flex-1 flex align-items-end justify-content-between fs-5">
-                            <div className="flex">
-                            </div>
-                          </div>
-                        </div>
+          <div class="col-md-auto">
+            {exerciseItem}
+          </div>
+
+          <div class="col col-lg-4">
+            <div class="card d-grid">
+              <div class="card-header">
+                <h5 className="card-title capitalize">Create Custom Workout</h5>
+              </div>
+              {exerciseCart.map((exercise) => {
+                return (
+                  <div class="card-body" key={exercise.id}>
+
+                    <h5 class="capitalize">{exercise.name}</h5>
+                    <ul class="card-text">
+                      <li >
+                        <form>
+                          <label for="Sets" class="form-label">Sets</label>
+                          <input type="text" class="form-control"></input>
+                          <label for="Sets" class="form-label">Reps</label>
+                          <input type="text" class="form-control"></input>
+                        </form>
                       </li>
                     </ul>
-                    {/* End of Exercise List */}
-                    <button className="mv btn btn-primary">Save</button>
+                    <FontAwesomeIcon icon={faTrash} />
                   </div>
-                </div>
+                );
+              })}
+              <div class="card-footer d-flex justify-content-between">
+                <FontAwesomeIcon icon={faSquarePlus} />
+                <FontAwesomeIcon icon={faTrash} />
               </div>
+
             </div>
           </div>
         </div>
       </div>
 
+
     </>
   );
 };
+

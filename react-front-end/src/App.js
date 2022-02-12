@@ -5,6 +5,7 @@ import ExerciseList from "./components/ExerciseList";
 import Navbar from "./components/Navbar";
 import WorkoutList from "./components/WorkoutList";
 import About from "./components/About";
+import WorkoutsListsItems from "./components/WorkoutsListsItems";
 
 function App() {
 
@@ -15,7 +16,12 @@ function App() {
         <Route index element={<Categories/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/exercises/:category" element={<ExerciseList/>}/>
+<<<<<<< HEAD
         <Route path="/workouts" element={<WorkoutList/>}/>
+=======
+        <Route path="/workouts" element={<Workouts/>}/>
+        <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/>
+>>>>>>> 3a79182d028edb4c899939ea91565aa21e16ac78
         </Route>
       </Routes>
     </BrowserRouter>

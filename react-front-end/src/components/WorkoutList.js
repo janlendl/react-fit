@@ -67,6 +67,7 @@ const workoutData = [
 export default function WorkoutList() {
 
   const workoutList = workoutData.map((workout) => {
+    console.log("EXERCISE DATA",workout.exercise);
     return (
       <WorkoutListItem
         key={workout.workout_id}
@@ -77,8 +78,23 @@ export default function WorkoutList() {
     )
   })
 
+  // const exerciseList = workoutData.exercise.map((exercise, i) => {
+  //   return (
+  //     <WorkoutListItem
+  //       key={i}
+  //       name={exercise.name}
+  //       gif={exercise.gifUrl}
+  //       body_part={exercise.body_part}
+  //       equipment={exercise.equipment}
+  //       target_muscle={exercise.target_muscle}
+  //       number_of_sets={exercise.number_of_sets}
+  //       number_of_reps={exercise.number_of_reps}
+  //     />
+  //   )
+  // })
+
   return (
-    <div>
+    <div className="workoutlist">
     {workoutList}
     </div>
   )

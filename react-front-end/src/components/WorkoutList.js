@@ -73,7 +73,7 @@ export default function WorkoutList() {
         key={workout.workout_id}
         workoutName={workout.workout_name}
         dateCreated={workout.created_date}
-        exercise={workout.exercise}
+        exercises={workout.exercise}
       />
     )
   })

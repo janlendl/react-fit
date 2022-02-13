@@ -13,6 +13,7 @@ const db = require("./db");
 const categories = require("./routes/categories");
 const exercises = require("./routes/exercises");
 const users = require("./routes/users");
+const workouts = require("./routes/workouts");
 
 module.exports = function application( ENV/*, actions = { updateAppointment: () => {} } */) {
   app.use(cors());
@@ -22,6 +23,7 @@ module.exports = function application( ENV/*, actions = { updateAppointment: () 
   app.use("/api", categories(db));
   app.use("/api", exercises(db));
   app.use("/api", users(db));
+  app.use("/api", workouts(db));
   // app.use("/api", appointments(db, actions.updateAppointment));
 
   // if (ENV === "development" || ENV === "test") {

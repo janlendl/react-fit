@@ -120,9 +120,9 @@ export default function ExerciseList() {
   
   // {data: JSON.stringify(workoutData),  headers: {'Content-Type': 'application/json'}}
 
-  // exerciseCart.map((exercise) => {
-  //   console.log('Map exer name', exercise.name);
-  // });
+  exerciseCart.map((exercise) => {
+    console.log('Map exer name', exercise.name);
+  });
 
   const exerciseItem = backExercises.map((exercise) => {
 

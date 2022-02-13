@@ -1,6 +1,3 @@
-const { response } = require("express");
-
-// this will query all the exercises based on the workout name
 const router = require("express").Router();
 
 module.exports = db => {
@@ -63,7 +60,7 @@ module.exports = db => {
     )
       .then(() => {
         setTimeout(() => {
-          response.status(204).json({res});
+          res.status(204).json({});
           console.log("New Workout Created!");
         }, 1000);
       })
@@ -75,12 +72,15 @@ module.exports = db => {
     const {workout} = req.body.workout;
     
     db.query(`
-      DELETE FROM workouts WHERE workouts.id = $1::int; 
-    `, [req.params.id]
+    WITH delete_exercise as (
+      DELETE FROM exercises WHERE id = (SELECT exercise_id FROM exercise_workouts WHERE workout_id = $1::int) 
+    )
+    DELETE FROM workouts where workouts.id = $1::int; 
+    `, [Number(req.params.id)]
     )
       .then(() => {
         setTimeout(() => {
-          response.status(204).json({res});
+          res.status(204).json({});
           console.log("Workout Deleted!");
         }, 1000);      
       })

@@ -1,4 +1,3 @@
-// this will query all exercises
 const router = require("express").Router();
 
 module.exports = db => {
@@ -21,7 +20,7 @@ module.exports = db => {
     )
     .then(() => {
       setTimeout(() => {
-        response.status(204).json({res});
+        res.status(204).json({res});
         console.log("Exercise Reps and Sets Updated!");
       }, 1000);      
     })

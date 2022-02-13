@@ -7,17 +7,15 @@ export default function ExerciseListItem(props) {
 
   const { id, gif, name, bodyPart, target, equipment, onAdd, sets, reps } = props
 
-
-
   return (
     <>
-      <div class="row noMrg">
-        <div class="card mb-3">
-          <div class="row noMrg">
-            <div class="col-sm-3">
+      <div className="row noMrg">
+        <div className="card mb-3">
+          <div className="row noMrg">
+            <div className="col-sm-3">
               <img src={gif} className="img-fluid rounded-start" alt={name} />
             </div>
-            <div class="card-body">
+            <div className="card-body">
               <h5 className="card-title capitalize">{name}</h5>
               <ul className="card-text">
                 <li>Category: {bodyPart}</li>
@@ -27,9 +25,8 @@ export default function ExerciseListItem(props) {
                 {reps && (<li>Reps: {reps}</li>)}
               </ul>
             </div>
-            {onAdd && (<div class="card-footer d-flex align-items-end">
+            {onAdd && (<div className="card-footer d-flex align-items-end">
             <button className="btn btn-primary" onClick={()=>onAdd(id)}><FontAwesomeIcon icon={faPlus}/></button>
-              {/* <button className="btn btn-primary"><FontAwesomeIcon icon={faPlus} /></button> */}
             </div>)}
           </div>
         </div>
@@ -37,11 +34,3 @@ export default function ExerciseListItem(props) {
     </>
   );
 }
-
-// Mimi API request for List Exercise By Body Part = Back
-
-
-
-// Mimic API request for List All Body Parts
-
-// const allBodyParts = ["back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist"]

@@ -45,6 +45,9 @@ const backExercises = [
   }
 ];
 
+// Mimic API request for List All Body Parts
+// const allBodyParts = ["back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist"]
+
 export default function ExerciseList() {
   let { category } = useParams();
 
@@ -60,15 +63,27 @@ export default function ExerciseList() {
   //   }
   // };
 
-  // useEffect(() => {
-  //   const getExercises = async () => {
-  //     const response = await axios.request(apiExerciseByBodyPart);
-  //     setExerciseData(response.data).catch((error) => {
-  //       console.log(error.message);
-  //     });
-  //   };
-  //   getExercises();
-  // }, [category]);
+  // Loads previous state from Local Storage (from broswer)
+  useEffect(() => {
+    const data = localStorage.getItem('exercise-cart');
+    if (data) {
+      // console.log('I am saved exercise-cart data', data)
+      setExerciseCart(JSON.parse(data))
+    }
+  }, [])
+
+  useEffect(() => {
+    // const getExercises = async () => {
+    //   const response = await axios.request(apiExerciseByBodyPart);
+    //   setExerciseData(response.data).catch((error) => {
+    //     console.log(error.message);
+    //   });
+    // };
+    // getExercises();
+
+    // Saved exercise cart items to Local Storage (from browser)
+    localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
+  }, [category]);
 
   const onAdd = (exercise) => {
     // console.log('INPUT: exercise param', exercise)
@@ -80,7 +95,7 @@ export default function ExerciseList() {
     } else {
       setExerciseCart([...exerciseCart, { ...singleExercise }]);
       // setExerciseCart(prev => ({
-      //    ...prev, singleExercise
+      //    ...prev, ...singleExercise
       // }))
     }
   };
@@ -88,7 +103,6 @@ export default function ExerciseList() {
   // exerciseCart.map((exercise) => {
   //   console.log('Map exer name', exercise.name);
   // });
-
   const onDelete = (exercise) => {
     // console.log('This is a working button')
     // console.log('single exercise', exercise)
@@ -98,7 +112,6 @@ export default function ExerciseList() {
     )
     // console.log('POST entire exercisecart', exerciseCart)
   }
-
   const exerciseItem = backExercises.map((exercise) => {
     return (
       <ExerciseListItem
@@ -116,10 +129,10 @@ export default function ExerciseList() {
 
   return (
     <>
-      <div class="topWrapper"></div>
+      <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
-          <div class="col col-2">
+          <div className="col col-2">
             <h3>Categories</h3>
             <ul className="nav flex-column">
               <li className="nav-item">
@@ -170,27 +183,27 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-          <div class="col-md-auto">
+          <div className="col-md-auto">
             {exerciseItem}
           </div>
 
-          <div class="col col-lg-4">
-            <div class="card d-grid">
-              <div class="card-header">
+          <div className="col col-lg-4">
+            <div className="card d-grid">
+              <div className="card-header">
                 <h5 className="card-title capitalize">Create Custom Workout</h5>
               </div>
               {exerciseCart.map((exercise) => {
                 return (
-                  <div class="card-body" key={exercise.id}>
+                  <div className="card-body" key={exercise.id}>
 
-                    <h5 class="capitalize">{exercise.name}</h5>
-                    <ul class="card-text">
+                    <h5 className="capitalize">{exercise.name}</h5>
+                    <ul className="card-text">
                       <li >
                         <form>
-                          <label for="Sets" class="form-label">Sets</label>
-                          <input type="text" class="form-control"></input>
-                          <label for="Sets" class="form-label">Reps</label>
-                          <input type="text" class="form-control"></input>
+                          <label for="Sets" className="form-label">Sets</label>
+                          <input type="text" className="form-control"></input>
+                          <label for="Sets" className="form-label">Reps</label>
+                          <input type="text" className="form-control"></input>
                         </form>
                       </li>
                     </ul>
@@ -198,7 +211,7 @@ export default function ExerciseList() {
                   </div>
                 );
               })}
-              <div class="card-footer d-flex justify-content-between">
+              <div className="card-footer d-flex justify-content-between">
                 <FontAwesomeIcon icon={faSquarePlus} />
                 <FontAwesomeIcon icon={faTrash} />
               </div>

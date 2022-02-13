@@ -63,15 +63,27 @@ export default function ExerciseList() {
   //   }
   // };
 
-  // useEffect(() => {
-  //   const getExercises = async () => {
-  //     const response = await axios.request(apiExerciseByBodyPart);
-  //     setExerciseData(response.data).catch((error) => {
-  //       console.log(error.message);
-  //     });
-  //   };
-  //   getExercises();
-  // }, [category]);
+  // Loads previous state from Local Storage (from broswer)
+  useEffect(() => {
+    const data = localStorage.getItem('exercise-cart');
+    if (data) {
+      // console.log('I am saved exercise-cart data', data)
+      setExerciseCart(JSON.parse(data))
+    }
+  }, [])
+
+  useEffect(() => {
+    // const getExercises = async () => {
+    //   const response = await axios.request(apiExerciseByBodyPart);
+    //   setExerciseData(response.data).catch((error) => {
+    //     console.log(error.message);
+    //   });
+    // };
+    // getExercises();
+
+    // Saved exercise cart items to Local Storage (from browser)
+    localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
+  }, [category]);
 
   const onAdd = (exercise) => {
     // console.log('INPUT: exercise param', exercise)
@@ -83,15 +95,15 @@ export default function ExerciseList() {
     } else {
       setExerciseCart([...exerciseCart, { ...singleExercise }]);
       // setExerciseCart(prev => ({
-      //    ...prev, singleExercise
+      //    ...prev, ...singleExercise
       // }))
     }
   };
-  console.log(exerciseCart);
 
-  exerciseCart.map((exercise) => {
-    console.log('Map exer name', exercise.name);
-  });
+  // console.log(exerciseCart);
+  // exerciseCart.map((exercise) => {
+  //   console.log('Map exer name', exercise.name);
+  // });
 
   const exerciseItem = backExercises.map((exercise) => {
     return (

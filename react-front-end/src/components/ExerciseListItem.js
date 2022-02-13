@@ -26,9 +26,10 @@ export default function ExerciseListItem(props) {
               </ul>
             </div>
             <div className="card-footer d-flex align-items-end">
-            {onAdd && (<div className="card-footer d-flex align-items-end">
-            <button className="btn btn-primary" onClick={()=>onAdd(id)}><FontAwesomeIcon icon={faPlus}/></button>
-            </div>)}
+              {onAdd && (<div className="card-footer d-flex align-items-end">
+              <button className="btn btn-primary" onClick={()=>onAdd(id)}><FontAwesomeIcon icon={faPlus}/></button>
+              </div>)}
+            </div>
           </div>
         </div>
       </div>

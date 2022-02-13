@@ -7,6 +7,7 @@ import WorkoutList from "./components/WorkoutList";
 import About from "./components/About";
 import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import CreateWorkout from "./components/CreateWorkout";
+import Workouts from "./components/Workouts"
 
 
 function App() {

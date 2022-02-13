@@ -99,12 +99,19 @@ export default function ExerciseList() {
       // }))
     }
   };
-
   // console.log(exerciseCart);
   // exerciseCart.map((exercise) => {
   //   console.log('Map exer name', exercise.name);
   // });
-
+  const onDelete = (exercise) => {
+    // console.log('This is a working button')
+    // console.log('single exercise', exercise)
+    // console.log('PRE entire exercisecart', exerciseCart)
+    setExerciseCart(
+      exerciseCart.filter(item => item !== exercise)
+    )
+    // console.log('POST entire exercisecart', exerciseCart)
+  }
   const exerciseItem = backExercises.map((exercise) => {
     return (
       <ExerciseListItem
@@ -200,7 +207,7 @@ export default function ExerciseList() {
                         </form>
                       </li>
                     </ul>
-                    <FontAwesomeIcon icon={faTrash} />
+                    <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
                   </div>
                 );
               })}

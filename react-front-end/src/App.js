@@ -3,9 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Categories from "./components/Categories";
 import ExerciseList from "./components/ExerciseList";
 import Navbar from "./components/Navbar";
-import Workouts from "./components/Workouts";
+import WorkoutList from "./components/WorkoutList";
 import About from "./components/About";
-import WorkoutsListsItems from "./components/WorkoutsListsItems";
 
 function App() {
 
@@ -16,8 +15,7 @@ function App() {
         <Route index element={<Categories/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/exercises/:category" element={<ExerciseList/>}/>
-        <Route path="/workouts" element={<Workouts/>}/>
-        <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/>
+        <Route path="/workouts" element={<WorkoutList/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

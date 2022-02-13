@@ -20,21 +20,11 @@ export default function ExerciseListItem(props) {
             <div class="card-body">
               <h5 className="card-title capitalize">{name}</h5>
               <ul className="card-text">
-                <li>
-                  Category: {bodyPart}
-                </li>
-                <li>
-                  Target: {target}
-                </li>
-                <li>
-                  Equipment: {equipment}
-                </li>
-                {sets && (<li>
-                  Sets: {sets}
-                </li>)}
-                {reps && (<li>
-                  Reps: {reps}
-                </li>)}
+                <li>Category: {bodyPart}</li>
+                <li>Target: {target}</li>
+                <li>Equipment: {equipment}</li>
+                {sets && (<li>Sets: {sets}</li>)}
+                {reps && (<li>Reps: {reps}</li>)}
               </ul>
             </div>
             {onAdd && (<div class="card-footer d-flex align-items-end">

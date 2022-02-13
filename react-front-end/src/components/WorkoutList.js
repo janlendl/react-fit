@@ -67,7 +67,6 @@ const workoutData = [
 export default function WorkoutList() {
 
   const workoutList = workoutData.map((workout) => {
-    console.log("EXERCISE DATA",workout.exercise);
     return (
       <WorkoutListItem
         key={workout.workout_id}

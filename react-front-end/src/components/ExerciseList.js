@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 
 import ExerciseListItem from "./ExerciseListItem";
 
@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart} from "@fortawesome/free-solid-svg-icons";
+
 
 
 const backExercises = [
@@ -49,13 +50,13 @@ const backExercises = [
 export default function ExerciseList() {
   let { category } = useParams();
 
+
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
 
   const [sets, setSets] = useState("");
   const [reps, setReps] = useState("");
-
-  const [savedWorkout, setSavedWorkout] = useState(localStorage.getItem('cart'))
+  const [workoutName, setWorkoutName] = useState("");
 
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
@@ -97,15 +98,34 @@ export default function ExerciseList() {
     console.log("submission prevented");
    };
 
-   const saveWorkout = () => {
-    setSavedWorkout()
-   };
+   const onSubmit = () => {
+     const workoutData = {
+        workoutName,
+        sets,
+        reps,
+        workouts: exerciseCart
+     }
 
-  exerciseCart.map((exercise) => {
-    console.log('Map exer name', exercise.name);
-  });
+     console.log(workoutData);
+     
+     axios.put('http://localhost:8001/api/workouts', workoutData)
+      .then((res) => {
+        console.log(res.data)
+      }).catch((error) => {
+        console.log(error)
+      });
+    // setnewWorkout({...exerciseCart})
+  };
+  console.log(onSubmit)
+  
+  // {data: JSON.stringify(workoutData),  headers: {'Content-Type': 'application/json'}}
+
+  // exerciseCart.map((exercise) => {
+  //   console.log('Map exer name', exercise.name);
+  // });
 
   const exerciseItem = backExercises.map((exercise) => {
+
     return (
       <ExerciseListItem
         {...exercise}
@@ -120,18 +140,6 @@ export default function ExerciseList() {
     );
   });
 
-let cartCopy = {...exerciseCart}
-
-useEffect(() => {
-  localStorage.setItem('cartCopy', sets);
-}, [sets]);
-
-
-// const exerciseCartCopy = [...cart]
-  // console.log("the Copy",exerciseCartCopy)
-
-  // let cartString = JSON.stringify(exerciseCartCopy);
-  // localStorage.setItem('exerciseCart', cartString);
 
   return (
     <>
@@ -193,22 +201,29 @@ useEffect(() => {
             {exerciseItem}
           </div>
 
+            
           <div className="col col-lg-4">
             <div className="card d-grid">
               <div className="card-header">
-                <h5 className="card-title text-center capitalize">Create Workout</h5>
+                <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>
-              <form>
-                <input>
-                
-                </input>
-              </form>
+              <div>
+              <div>
+                <input
+                  type="text"
+                  name="workout_name"
+                  id="workout_id"
+                  placeholder="Add Workout Name"
+                  onChange={(event) => setWorkoutName(event.target.value)}
+                  className="form-control w100"/>
+              </div>
+              </div>
               {exerciseCart.map((exercise) => {
                 return (
                   <div className="card-body w-0" key={exercise.id}>
                     <h5 className="capitalize">{exercise.name}</h5>
                     <div className="card-text flex align-items-center">
-                      <form > 
+                      <div > 
                         <label htmlFor="Sets" className="form-label">Sets</label>
                         <input
                           type="text"
@@ -217,8 +232,8 @@ useEffect(() => {
                           id='sets'
                           onChange={(event) => setSets(event.target.value)}
                           className="form-control" />
-                      </form>
-                      <form>
+                      </div>
+                      <div>
                         <label htmlFor="Sets" className="form-label">Reps</label>
                         <input
                           type="text"
@@ -227,24 +242,24 @@ useEffect(() => {
                           id="reps"
                           onChange={(event) => setReps(event.target.value)}
                           className="form-control" />
-                      </form>
+                      </div>
                     </div>
                     <div className="d-flex card-text justify-content-end">
-                      <form>
+                      <div>
                         <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
-                      </form>
+                      </div>
                     
-                    <form>
+                    <div>
                         <button type="submit" className="btn-sm"><FontAwesomeIcon icon={faTrash} /></button>
-                      </form>
+                      </div>
                     </div>
                   </div>
                 );
               })}
               <div className="card-footer d-flex justify-content-between">
-                <form>
-                  <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faHeart} /></button>
-                </form>
+                <div>
+                  <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
+                </div>
                 <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
               </div>
 

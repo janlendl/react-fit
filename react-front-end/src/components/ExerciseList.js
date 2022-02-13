@@ -107,10 +107,10 @@ export default function ExerciseList() {
 
   return (
     <>
-      <div class="topWrapper"></div>
+      <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
-          <div class="col col-2">
+          <div className="col col-2">
             <h3>Categories</h3>
             <ul className="nav flex-column">
               <li className="nav-item">
@@ -161,27 +161,27 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-          <div class="col-md-auto">
+          <div className="col-md-auto">
             {exerciseItem}
           </div>
 
-          <div class="col col-lg-4">
-            <div class="card d-grid">
-              <div class="card-header">
+          <div className="col col-lg-4">
+            <div className="card d-grid">
+              <div className="card-header">
                 <h5 className="card-title capitalize">Create Custom Workout</h5>
               </div>
               {exerciseCart.map((exercise) => {
                 return (
-                  <div class="card-body" key={exercise.id}>
+                  <div className="card-body" key={exercise.id}>
 
-                    <h5 class="capitalize">{exercise.name}</h5>
-                    <ul class="card-text">
+                    <h5 className="capitalize">{exercise.name}</h5>
+                    <ul className="card-text">
                       <li >
                         <form>
-                          <label for="Sets" class="form-label">Sets</label>
-                          <input type="text" class="form-control"></input>
-                          <label for="Sets" class="form-label">Reps</label>
-                          <input type="text" class="form-control"></input>
+                          <label for="Sets" className="form-label">Sets</label>
+                          <input type="text" className="form-control"></input>
+                          <label for="Sets" className="form-label">Reps</label>
+                          <input type="text" className="form-control"></input>
                         </form>
                       </li>
                     </ul>
@@ -189,7 +189,7 @@ export default function ExerciseList() {
                   </div>
                 );
               })}
-              <div class="card-footer d-flex justify-content-between">
+              <div className="card-footer d-flex justify-content-between">
                 <FontAwesomeIcon icon={faSquarePlus} />
                 <FontAwesomeIcon icon={faTrash} />
               </div>

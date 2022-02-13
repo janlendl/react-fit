@@ -47,6 +47,9 @@ const backExercises = [
   }
 ];
 
+// Mimic API request for List All Body Parts
+// const allBodyParts = ["back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist"]
+
 export default function ExerciseList() {
   let { category } = useParams();
 
@@ -67,15 +70,27 @@ export default function ExerciseList() {
   //   }
   // };
 
-  // useEffect(() => {
-  //   const getExercises = async () => {
-  //     const response = await axios.request(apiExerciseByBodyPart);
-  //     setExerciseData(response.data).catch((error) => {
-  //       console.log(error.message);
-  //     });
-  //   };
-  //   getExercises();
-  // }, [category]);
+  // Loads previous state from Local Storage (from broswer)
+  useEffect(() => {
+    const data = localStorage.getItem('exercise-cart');
+    if (data) {
+      // console.log('I am saved exercise-cart data', data)
+      setExerciseCart(JSON.parse(data))
+    }
+  }, [])
+
+  useEffect(() => {
+    // const getExercises = async () => {
+    //   const response = await axios.request(apiExerciseByBodyPart);
+    //   setExerciseData(response.data).catch((error) => {
+    //     console.log(error.message);
+    //   });
+    // };
+    // getExercises();
+
+    // Saved exercise cart items to Local Storage (from browser)
+    localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
+  }, [category]);
 
   const onAdd = (exercise) => {
     // console.log('INPUT: exercise param', exercise)
@@ -87,10 +102,11 @@ export default function ExerciseList() {
     } else {
       setExerciseCart([...exerciseCart, { ...singleExercise }]);
       // setExerciseCart(prev => ({
-      //    ...prev, singleExercise
+      //    ...prev, ...singleExercise
       // }))
     }
   };
+
   console.log(exerciseCart);
 
   const onSave = (event) => {
@@ -123,6 +139,21 @@ export default function ExerciseList() {
   exerciseCart.map((exercise) => {
     console.log('Map exer name', exercise.name);
   });
+
+
+  // console.log(exerciseCart);
+  // exerciseCart.map((exercise) => {
+  //   console.log('Map exer name', exercise.name);
+  // });
+  const onDelete = (exercise) => {
+    // console.log('This is a working button')
+    // console.log('single exercise', exercise)
+    // console.log('PRE entire exercisecart', exerciseCart)
+    setExerciseCart(
+      exerciseCart.filter(item => item !== exercise)
+    )
+    // console.log('POST entire exercisecart', exerciseCart)
+  }
 
   const exerciseItem = backExercises.map((exercise) => {
 
@@ -200,8 +231,7 @@ export default function ExerciseList() {
           <div className="col-md-auto">
             {exerciseItem}
           </div>
-
-            
+          
           <div className="col col-lg-4">
             <div className="card d-grid">
               <div className="card-header">
@@ -243,6 +273,7 @@ export default function ExerciseList() {
                           onChange={(event) => setReps(event.target.value)}
                           className="form-control" />
                       </div>
+                    <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
                     </div>
                     <div className="d-flex card-text justify-content-end">
                       <div>

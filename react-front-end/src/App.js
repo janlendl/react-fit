@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Categories from "./components/Categories";
 import ExerciseList from "./components/ExerciseList";
 import Navbar from "./components/Navbar";
-import Workouts from "./components/Workouts";
+import WorkoutList from "./components/WorkoutList";
 import About from "./components/About";
 import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import CreateWorkout from "./components/CreateWorkout";
+
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
         <Route path="/createWorkout" element={<CreateWorkout/>}/>
         <Route path="/workouts" element={<Workouts/>}/>
         <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/>
+        <Route path="/workoutsLendl" element={<WorkoutList/>}/>
+          
         </Route>
       </Routes>
     </BrowserRouter>

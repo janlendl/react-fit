@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link, useParams} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import ExerciseListItem from "./ExerciseListItem";
 
@@ -8,7 +8,7 @@ import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { faHeart} from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -107,24 +107,25 @@ export default function ExerciseList() {
     }
   };
 
-  console.log(exerciseCart);
+  // console.log(exerciseCart);
 
-  const onSave = (event) => {
-     event.preventDefault();
-    console.log("submission prevented");
-   };
+  //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
+  // const onSave = (event) => {
+  //    event.preventDefault();
+  //   console.log("submission prevented");
+  //  };
+  //=============================================
+  const onSubmit = () => {
+    const workoutData = {
+      workoutName,
+      sets,
+      reps,
+      workouts: exerciseCart
+    }
 
-   const onSubmit = () => {
-     const workoutData = {
-        workoutName,
-        sets,
-        reps,
-        workouts: exerciseCart
-     }
+    console.log(workoutData);
 
-     console.log(workoutData);
-     
-     axios.put('http://localhost:8001/api/workouts', workoutData)
+    axios.put('http://localhost:8001/api/workouts', workoutData)
       .then((res) => {
         console.log(res.data)
       }).catch((error) => {
@@ -133,26 +134,13 @@ export default function ExerciseList() {
     // setnewWorkout({...exerciseCart})
   };
   console.log(onSubmit)
-  
+
   // {data: JSON.stringify(workoutData),  headers: {'Content-Type': 'application/json'}}
 
-  exerciseCart.map((exercise) => {
-    console.log('Map exer name', exercise.name);
-  });
-
-
-  // console.log(exerciseCart);
-  // exerciseCart.map((exercise) => {
-  //   console.log('Map exer name', exercise.name);
-  // });
   const onDelete = (exercise) => {
-    // console.log('This is a working button')
-    // console.log('single exercise', exercise)
-    // console.log('PRE entire exercisecart', exerciseCart)
     setExerciseCart(
       exerciseCart.filter(item => item !== exercise)
     )
-    // console.log('POST entire exercisecart', exerciseCart)
   }
 
   const exerciseItem = backExercises.map((exercise) => {
@@ -231,29 +219,31 @@ export default function ExerciseList() {
           <div className="col-md-auto">
             {exerciseItem}
           </div>
-          
+
           <div className="col col-lg-4">
             <div className="card d-grid">
               <div className="card-header">
                 <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>
               <div>
-              <div>
-                <input
-                  type="text"
-                  name="workout_name"
-                  id="workout_id"
-                  placeholder="Add Workout Name"
-                  onChange={(event) => setWorkoutName(event.target.value)}
-                  className="form-control w100"/>
+                <div>
+                  <input
+                    type="text"
+                    name="workout_name"
+                    id="workout_id"
+                    placeholder="Add Workout Name"
+                    onChange={(event) => setWorkoutName(event.target.value)}
+                    className="form-control w100" />
+                </div>
               </div>
-              </div>
+
               {exerciseCart.map((exercise) => {
                 return (
+
                   <div className="card-body w-0" key={exercise.id}>
                     <h5 className="capitalize">{exercise.name}</h5>
                     <div className="card-text flex align-items-center">
-                      <div > 
+                      <div >
                         <label htmlFor="Sets" className="form-label">Sets</label>
                         <input
                           type="text"
@@ -273,20 +263,23 @@ export default function ExerciseList() {
                           onChange={(event) => setReps(event.target.value)}
                           className="form-control" />
                       </div>
-                    <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
+                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
                     </div>
                     <div className="d-flex card-text justify-content-end">
-                      <div>
+                      {/*======= FOR REVIEW BY GABY============ */}
+                      {/* <div>
                         <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
-                      </div>
-                    
-                    <div>
+                      </div> */}
+                      {/* <div>
                         <button type="submit" className="btn-sm"><FontAwesomeIcon icon={faTrash} /></button>
-                      </div>
+                      </div> */}
+                      {/* ==================================== */}
                     </div>
                   </div>
+
                 );
               })}
+              
               <div className="card-footer d-flex justify-content-between">
                 <div>
                   <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>

@@ -45,6 +45,9 @@ const backExercises = [
   }
 ];
 
+// Mimic API request for List All Body Parts
+// const allBodyParts = ["back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist"]
+
 export default function ExerciseList() {
   let { category } = useParams();
 

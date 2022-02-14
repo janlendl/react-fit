@@ -38,10 +38,15 @@ module.exports = db => {
   });
 
 
-  router.put("/workouts/:id", (req, res) => {
-    
-    const {newWorkout} = req.body.createWorkout;
-
+  router.put("/createWorkout/", (req, res) => {
+    console.log('FROM FE', req.body);
+    const newWorkout = req.body.workoutData;
+    const workout_name = newWorkout.workoutName;
+    const date = newWorkout.date;
+    const sets = newWorkout.sets;
+    const reps = newWorkout.reps;
+    const bodyPart = newWorkout.exercises[0].bodyPart;
+    console.log("exercises:::", bodyPart);
     db.query(`
       WITH new_workout as (
         INSERT INTO workouts (workout_name, created_date) VALUES ($1::varchar, $2::date)
@@ -56,7 +61,7 @@ module.exports = db => {
       )
       INSERT INTO exercise_workouts (exercise_id, workout_id) VALUES((SELECT id from new_exercise), (SELECT id from new_workout));
       `, 
-      [newWorkout]
+      [workout_name, date, ]
     )
       .then(() => {
         setTimeout(() => {

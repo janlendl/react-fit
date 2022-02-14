@@ -5,7 +5,7 @@ import ExerciseList from "./components/ExerciseList";
 import Navbar from "./components/Navbar";
 import WorkoutList from "./components/WorkoutList";
 import About from "./components/About";
-import WorkoutsListsItems from "./components/WorkoutsListsItems";
+// import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import CreateWorkout from "./components/CreateWorkout";
 // import Workouts from "./components/Workouts"
 
@@ -21,7 +21,7 @@ function App() {
         <Route path="/exercises/:category" element={<ExerciseList/>}/>
         <Route path="/createWorkout" element={<CreateWorkout/>}/>
         {/* <Route path="/workouts" element={<Workouts/>}/> */}
-        <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/>
+        {/* <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/> */}
         <Route path="/workouts" element={<WorkoutList/>}/>
           
         </Route>

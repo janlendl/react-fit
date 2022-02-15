@@ -50,8 +50,8 @@ module.exports = db => {
     `, [workoutName, date])
     
     newWorkout.exercises.forEach(exercise => {
-      const sets = newWorkout.sets;
-      const reps = newWorkout.reps;
+      const sets = exercise.sets;
+      const reps = exercise.reps;
       const exerciseName = exercise.name;
       const gif = exercise.gifUrl;
       const target = exercise.target;

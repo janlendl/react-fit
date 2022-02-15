@@ -7,7 +7,7 @@ import WorkoutList from "./components/WorkoutList";
 import About from "./components/About";
 import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import CreateWorkout from "./components/CreateWorkout";
-// import Workouts from "./components/Workouts"
+import EditWorkout from "./components/EditWorkout"
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="/exercises/:category" element={<ExerciseList/>}/>
         <Route path="/createWorkout" element={<CreateWorkout/>}/>
-        {/* <Route path="/workouts" element={<Workouts/>}/> */}
+        <Route path="/editWorkout" element={<EditWorkout/>}/>
         <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/>
         <Route path="/workouts" element={<WorkoutList/>}/>
           

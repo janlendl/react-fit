@@ -2,6 +2,8 @@ import WorkoutListItem from "./WorkoutListItem";
 import "./Exercises.scss";
 import "./Workouts.scss";
 
+
+
 const workoutData = [
   {
     workout_id: 1,
@@ -130,11 +132,13 @@ const workoutData = [
 export default function WorkoutList() {
 
   const workoutList = workoutData.map((workout) => {
+    
     return (
+    
       <WorkoutListItem
         key={workout.workout_id}
         workoutName={workout.workout_name}
-        dateCreated={workout.created_date}
+        dateCreated={new Date(workout.created_date).toLocaleString()}
         exercises={workout.exercise}
       />
     );
@@ -144,8 +148,8 @@ export default function WorkoutList() {
     <>
       <div className="topWrapper"></div>
       <div className="container-md">
-      <div classname="row noMrg">
-        <div className="col-lg-7 d-flex">
+      <div className="row noMrg">
+        <div className="col-lg-12 d-flex">
           
             <div className="card-text d-flex">
               {workoutList}

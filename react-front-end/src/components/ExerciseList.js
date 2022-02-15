@@ -185,7 +185,7 @@ export default function ExerciseList() {
       <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
-          <div className="col col-2">
+          <div className="col-auto me-auto">
             <h3>Categories</h3>
             <ul className="nav flex-column">
               <li className="nav-item">
@@ -242,8 +242,8 @@ export default function ExerciseList() {
 
           <div className="col col-lg-4">
             <div className="card d-grid">
-              <div className="card-header">
-                <h5 className="card-title text-center capitalize">Create Your Workout</h5>
+              <div className="card-header background">
+                <h4 className="card-title text-center capitalize ">Create Your Workout</h4>
               </div>
               <div>
                 <input
@@ -253,9 +253,9 @@ export default function ExerciseList() {
                   placeholder="Add Workout Name"
                   value={workoutName}
                   onChange={(event) => setWorkoutName(event.target.value)}
-                  className="form-control w100" />
+                  className="form-control w100 inputborder" />
               </div>
-              <form onSubmit={onSubmit}>
+              <form >
                 {exerciseCart.map((exercise) => {
                   return (
                     <div className="card-body w-0" key={exercise.id}>

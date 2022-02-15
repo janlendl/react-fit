@@ -1,13 +1,20 @@
 import './WorkoutListItem.scss';
 import ExerciseListItem from './ExerciseListItem';
+import "./Exercises.scss";
+
 export default function WorkoutListItem(props) {
 
   
   return (
     <>
-      <h2>{props.workoutName}</h2>
-      <li>Date Created: {props.dateCreated}</li>
+    <div className="container background margin-2">
+    <div className="card-header text-center">
+      <h2 className="capitalize">{props.workoutName}</h2>
 
+      <sm>Date Created: {props.dateCreated}</sm>
+    
+    </div>
+    <div className="card-text align-center px-4">
       {props.exercises.map((exercise,i) => {
         return (
           <ExerciseListItem
@@ -22,6 +29,8 @@ export default function WorkoutListItem(props) {
           />
         )
       })}
+      </div>
+      </div>
     </>
   );
 }

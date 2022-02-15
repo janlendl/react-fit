@@ -43,29 +43,39 @@ module.exports = db => {
     const newWorkout = req.body.workoutData;
     const workout_name = newWorkout.workoutName;
     const date = newWorkout.date;
-    const sets = newWorkout.sets;
-    const reps = newWorkout.reps;
-    const exercise_name = newWorkout.exercises[0].name;
-    const gif = newWorkout.exercises[0].gifUrl;
-    const target = newWorkout.exercises[0].target;
-    const equipment = newWorkout.exercises[0].equipment;
-    const bodyPart = newWorkout.exercises[0].bodyPart;
+    // const exercise_name = newWorkout.exercises[0].name;
+    // const gif = newWorkout.exercises[0].gifUrl;
+    // const target = newWorkout.exercises[0].target;
+    // const equipment = newWorkout.exercises[0].equipment;
+    // const bodyPart = newWorkout.exercises[0].bodyPart;
     console.log('WORKOUT NAME:::', workout_name);
+
     db.query(`
-      WITH new_workout as (
-        INSERT INTO workouts (workout_name, created_date) VALUES ($1::varchar, $2::date)
+    INSERT INTO workouts (workout_name, created_date) VALUES ($1::varchar, $2::date)
+    RETURNING id;
+    `, [workout_name, date])
+    
+    newWorkout.exercises.forEach(exercise => {
+      const sets = newWorkout.sets;
+      const reps = newWorkout.reps;
+      const exercise_name = exercise.name;
+      const gif = exercise.gifUrl;
+      const target = exercise.target;
+      const equipment = exercise.equipment;
+      const bodyPart = exercise.bodyPart;
+    
+      db.query(`
+      WITH new_exercise as (
+        INSERT INTO exercises (exercise_name, gifUrl, target_muscle, equipment, number_of_sets, number_of_reps, category_id) VALUES ($1::varchar, $2::varchar, $3::varchar, $4::varchar, $5::int, $6::int, (SELECT id FROM categories WHERE category_name = $7::varchar))
         RETURNING id
       )
-      ,new_exercise as (
-        INSERT INTO exercises (exercise_name, gifUrl, target_muscle, equipment, number_of_sets, number_of_reps, category_id) VALUES ($3::varchar, $4::varchar, $5::varchar, $6::varchar, $7::int, $8::int, (SELECT id FROM categories WHERE category_name = $9::varchar))
-        RETURNING id
-      )
-      ,new_user_workout as (
-        INSERT INTO user_workouts (user_id, workout_id) VALUES (1, (SELECT id from new_workout))
-      )
-      INSERT INTO exercise_workouts (exercise_id, workout_id) VALUES((SELECT id from new_exercise), (SELECT id from new_workout));
-      `, 
-      [workout_name, date, exercise_name, gif, target, equipment, sets, reps, bodyPart]
+      INSERT INTO exercise_workouts (exercise_id, workout_id) VALUES((SELECT id from new_exercise), (SELECT id FROM workouts WHERE workout_name = $8::varchar));
+      `,[exercise_name, gif, target, equipment, sets, reps, bodyPart, workout_name])
+    });
+
+    db.query(`
+        INSERT INTO user_workouts (user_id, workout_id) VALUES (1, (SELECT id FROM workouts WHERE workout_name = $1::varchar));
+      `,[workout_name]
     )
       .then(() => {
         setTimeout(() => {

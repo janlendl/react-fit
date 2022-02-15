@@ -116,16 +116,18 @@ export default function ExerciseList() {
   //  };
   //=============================================
   const onSubmit = () => {
+    const date = new Date().toLocaleDateString('en-CA');
     const workoutData = {
       workoutName,
+      date,
       sets,
       reps,
-      workouts: exerciseCart
+      exercises: exerciseCart
     }
 
     console.log(workoutData);
 
-    axios.put('http://localhost:8001/api/workouts', workoutData)
+    axios.put('/api/createWorkout', {workoutData})
       .then((res) => {
         console.log(res.data)
       }).catch((error) => {

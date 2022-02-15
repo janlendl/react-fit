@@ -41,24 +41,18 @@ module.exports = db => {
   router.put("/createWorkout", (req, res) => {
     console.log('FROM FE', req.body);
     const newWorkout = req.body.workoutData;
-    const workout_name = newWorkout.workoutName;
+    const workoutName = newWorkout.workoutName;
     const date = newWorkout.date;
-    // const exercise_name = newWorkout.exercises[0].name;
-    // const gif = newWorkout.exercises[0].gifUrl;
-    // const target = newWorkout.exercises[0].target;
-    // const equipment = newWorkout.exercises[0].equipment;
-    // const bodyPart = newWorkout.exercises[0].bodyPart;
-    console.log('WORKOUT NAME:::', workout_name);
-
+    
     db.query(`
     INSERT INTO workouts (workout_name, created_date) VALUES ($1::varchar, $2::date)
     RETURNING id;
-    `, [workout_name, date])
+    `, [workoutName, date])
     
     newWorkout.exercises.forEach(exercise => {
       const sets = newWorkout.sets;
       const reps = newWorkout.reps;
-      const exercise_name = exercise.name;
+      const exerciseName = exercise.name;
       const gif = exercise.gifUrl;
       const target = exercise.target;
       const equipment = exercise.equipment;
@@ -70,12 +64,12 @@ module.exports = db => {
         RETURNING id
       )
       INSERT INTO exercise_workouts (exercise_id, workout_id) VALUES((SELECT id from new_exercise), (SELECT id FROM workouts WHERE workout_name = $8::varchar));
-      `,[exercise_name, gif, target, equipment, sets, reps, bodyPart, workout_name])
+      `,[exerciseName, gif, target, equipment, sets, reps, bodyPart, workoutName])
     });
 
     db.query(`
         INSERT INTO user_workouts (user_id, workout_id) VALUES (1, (SELECT id FROM workouts WHERE workout_name = $1::varchar));
-      `,[workout_name]
+      `,[workoutName]
     )
       .then(() => {
         setTimeout(() => {

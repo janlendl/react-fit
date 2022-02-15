@@ -57,8 +57,8 @@ export default function ExerciseList() {
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
 
-  const [sets, setSets] = useState("");
-  const [reps, setReps] = useState("");
+  const [sets, setSets] = useState(0);
+  const [reps, setReps] = useState(0);
   const [workoutName, setWorkoutName] = useState("");
 
   // let apiExerciseByBodyPart = {
@@ -75,9 +75,9 @@ export default function ExerciseList() {
     const data = localStorage.getItem('exercise-cart');
     if (data) {
       // console.log('I am saved exercise-cart data', data)
-      setExerciseCart(JSON.parse(data))
+      setExerciseCart(JSON.parse(data));
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     // const getExercises = async () => {
@@ -89,7 +89,7 @@ export default function ExerciseList() {
     // getExercises();
 
     // Saved exercise cart items to Local Storage (from browser)
-    localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
+    localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart));
   }, [category]);
 
   const onAdd = (exercise) => {
@@ -107,41 +107,62 @@ export default function ExerciseList() {
     }
   };
 
-  // console.log(exerciseCart);
 
-  //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
-  // const onSave = (event) => {
-  //    event.preventDefault();
-  //   console.log("submission prevented");
-  //  };
-  //=============================================
-  const onSubmit = () => {
+  const handleChangeInputSets = (event) => {
+    const numberofSets = event.target.value;
+    setSets(numberofSets);
+    console.log(numberofSets);
+  };
+
+  const handleChangeInputReps = (event) => {
+    const numberofReps = event.target.value;
+    setReps(numberofReps);
+    console.log(numberofReps);
+  };
+
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    const setsReps = {
+      sets, reps
+    };
     const workoutData = {
       workoutName,
-      sets,
-      reps,
-      workouts: exerciseCart
-    }
+    };
 
-    console.log(workoutData);
+    const newWorkoutData = exerciseCart.map((workout) => {
+      console.log("do you exist?", workoutData.workoutName);
+      return ([
+        workout.id,
+        workout.name,
+        workout.gifUrl,
+        workout.bodyPart,
+        workout.target,
+        workoutData.workoutName,
+        setsReps
+      ]);
+    });
 
-    axios.put('http://localhost:8001/api/workouts', workoutData)
+    console.log(newWorkoutData);
+
+
+    axios.put('http://localhost:8001/api/workouts', [workoutData, newWorkoutData])
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
       }).catch((error) => {
-        console.log(error)
+        console.log(error);
       });
     // setnewWorkout({...exerciseCart})
   };
-  console.log(onSubmit)
+  console.log(onSubmit);
 
   // {data: JSON.stringify(workoutData),  headers: {'Content-Type': 'application/json'}}
 
   const onDelete = (exercise) => {
     setExerciseCart(
       exerciseCart.filter(item => item !== exercise)
-    )
-  }
+    );
+  };
 
   const exerciseItem = backExercises.map((exercise) => {
 
@@ -158,7 +179,6 @@ export default function ExerciseList() {
       />
     );
   });
-
 
   return (
     <>
@@ -226,67 +246,63 @@ export default function ExerciseList() {
                 <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>
               <div>
-                <div>
-                  <input
-                    type="text"
-                    name="workout_name"
-                    id="workout_id"
-                    placeholder="Add Workout Name"
-                    onChange={(event) => setWorkoutName(event.target.value)}
-                    className="form-control w100" />
-                </div>
+                <input
+                  type="text"
+                  name="workout_name"
+                  id="workout_id"
+                  placeholder="Add Workout Name"
+                  value={workoutName}
+                  onChange={(event) => setWorkoutName(event.target.value)}
+                  className="form-control w100" />
               </div>
-
-              {exerciseCart.map((exercise) => {
-                return (
-
-                  <div className="card-body w-0" key={exercise.id}>
-                    <h5 className="capitalize">{exercise.name}</h5>
-                    <div className="card-text flex align-items-center">
-                      <div >
-                        <label htmlFor="Sets" className="form-label">Sets</label>
-                        <input
-                          type="text"
-                          pattern="[0-9]"
-                          name="sets"
-                          id='sets'
-                          onChange={(event) => setSets(event.target.value)}
-                          className="form-control" />
+              <form onSubmit={onSubmit}>
+                {exerciseCart.map((exercise) => {
+                  return (
+                    <div className="card-body w-0" key={exercise.id}>
+                      <h5 className="capitalize">{exercise.name}</h5>
+                      <div className="card-text flex align-items-center">
+                        {/* <CreateWorkout label={"Sets"} /> */}
+                        <div >
+                          <label htmlFor="Sets" className="form-label">Sets</label>
+                          <input
+                            type="text"
+                            sets={sets}
+                            onChange={handleChangeInputSets}
+                            className="form-control" />
+                        </div>
+                        <div>
+                          <label htmlFor="Sets" className="form-label">Reps</label>
+                          {/* <CreateWorkout label={"Reps"} /> */}
+                          <input
+                            type="text"
+                            reps={reps}
+                            onChange={handleChangeInputReps}
+                            className="form-control" />
+                        </div>
+                        <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
                       </div>
-                      <div>
-                        <label htmlFor="Sets" className="form-label">Reps</label>
-                        <input
-                          type="text"
-                          pattern="[0-9]"
-                          name="reps"
-                          id="reps"
-                          onChange={(event) => setReps(event.target.value)}
-                          className="form-control" />
-                      </div>
-                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
-                    </div>
-                    <div className="d-flex card-text justify-content-end">
-                      {/*======= FOR REVIEW BY GABY============ */}
-                      {/* <div>
-                        <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
-                      </div> */}
-                      {/* <div>
+                      <div className="d-flex card-text justify-content-end">
+                        {/*======= FOR REVIEW BY GABY============ */}
+                        {/* <div>
+                          <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
+                        </div> */}
+                        {/* <div>
                         <button type="submit" className="btn-sm"><FontAwesomeIcon icon={faTrash} /></button>
                       </div> */}
-                      {/* ==================================== */}
+                        {/* ==================================== */}
+                      </div>
                     </div>
+
+                  );
+                })}
+
+                <div className="card-footer d-flex justify-content-between">
+                  <div>
+                    <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                   </div>
-
-                );
-              })}
-              
-              <div className="card-footer d-flex justify-content-between">
-                <div>
-                  <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
+                  <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
                 </div>
-                <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
-              </div>
-
+              </form>
             </div>
           </div>
         </div>

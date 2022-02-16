@@ -238,7 +238,7 @@ export default function ExerciseList() {
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
           <div className="col col-2">
-
+            {/* Inserted: position-fixed */}
             <ul className="nav flex-column position-fixed">
               <h3>Categories</h3>
               <li className="nav-item">
@@ -294,7 +294,8 @@ export default function ExerciseList() {
           </div>
 
           <div className="col col-lg-4">
-            <div className="card d-grid">
+            {/* Inserted: position-fixed, width: 37.9rem; */}
+            <div className="card d-grid position-fixed" style={{ width:"37.9rem" }}>
               <div className="card-header bg-light">
                 <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>

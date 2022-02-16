@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const backExercises = [
   {
@@ -100,6 +101,10 @@ export default function ExerciseList() {
     }
   };
 
+  const reset = () => {
+    setExerciseCart([]);
+  };
+
   //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
   // const onSave = (event) => {
   //    event.preventDefault();
@@ -122,6 +127,8 @@ export default function ExerciseList() {
       }).catch((error) => {
         console.log(error)
       });
+
+      reset();
   };
   // console.log(onSubmit)
 
@@ -221,7 +228,7 @@ export default function ExerciseList() {
 
           <div className="col col-lg-4">
             <div className="card d-grid">
-              <div className="card-header">
+              <div className="card-header bg-light">
                 <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>
               <div>
@@ -264,7 +271,7 @@ export default function ExerciseList() {
                           onChange={(event) => updateHandler(index, { reps: event.target.value })}
                           className="form-control" />
                       </div>
-                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
+                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faMinus} /></button>
                     </div>
                     <div className="d-flex card-text justify-content-end">
                       {/* ======= FOR REVIEW BY GABY============ */}
@@ -281,11 +288,11 @@ export default function ExerciseList() {
                 );
               })}
 
-              <div className="card-footer d-flex justify-content-between">
+              <div className="card-footer d-flex justify-content-between bg-light">
                 <div>
                   <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
-                <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
+                <button type="submit" className="btn btn-primary" onClick={() => {reset()}}><FontAwesomeIcon icon={faTrash} /></button>
               </div>
 
             </div>

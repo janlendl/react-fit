@@ -16,7 +16,7 @@ const backExercises = [
     bodyPart: "back",
     equipment: "cable",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-    id: "0007",
+    id: "1",
     name: "alternate lateral pulldown",
     target: "lats"
   },
@@ -24,7 +24,7 @@ const backExercises = [
     bodyPart: "back",
     equipment: "body weight",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
-    id: "3293",
+    id: "2",
     name: "archer pull up",
     target: "lats"
   },
@@ -32,7 +32,7 @@ const backExercises = [
     bodyPart: "back",
     equipment: "leverage machine",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
-    id: "0015",
+    id: "3",
     name: "assisted parallel close grip pull-up",
     target: "lats"
   },
@@ -40,7 +40,69 @@ const backExercises = [
     bodyPart: "back",
     equipment: "leverage machine",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
-    id: "0017",
+    id: "4",
+    name: "assisted pull-up",
+    target: "lats"
+  }, {
+    bodyPart: "back",
+    equipment: "cable",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+    id: "5",
+    name: "alternate lateral pulldown",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "body weight",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+    id: "6",
+    name: "archer pull up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+    id: "7",
+    name: "assisted parallel close grip pull-up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+    id: "8",
+    name: "assisted pull-up",
+    target: "lats"
+  }, {
+    bodyPart: "back",
+    equipment: "cable",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+    id: "9",
+    name: "alternate lateral pulldown",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "body weight",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+    id: "10",
+    name: "archer pull up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+    id: "11",
+    name: "assisted parallel close grip pull-up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+    id: "12",
     name: "assisted pull-up",
     target: "lats"
   }
@@ -132,7 +194,7 @@ export default function ExerciseList() {
         console.log(error)
       });
 
-      reset();
+    reset();
   };
   // console.log(onSubmit)
 
@@ -171,13 +233,14 @@ export default function ExerciseList() {
 
   return (
     <>
-    
+
       <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
           <div className="col col-2">
-            <h3>Categories</h3>
-            <ul className="nav flex-column">
+
+            <ul className="nav flex-column position-fixed">
+              <h3>Categories</h3>
               <li className="nav-item">
                 <Link to="/exercises/back">
                   <span className="nav-link">Back</span>

@@ -102,8 +102,8 @@ export default function ExerciseList() {
   };
 
   const reset = () => {
-    setExerciseCart([])
-  }
+    setExerciseCart([]);
+  };
 
   //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
   // const onSave = (event) => {
@@ -127,6 +127,8 @@ export default function ExerciseList() {
       }).catch((error) => {
         console.log(error)
       });
+
+      reset();
   };
   // console.log(onSubmit)
 
@@ -269,7 +271,7 @@ export default function ExerciseList() {
                           onChange={(event) => updateHandler(index, { reps: event.target.value })}
                           className="form-control" />
                       </div>
-                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}>{/* <FontAwesomeIcon icon={faTrash} /> */}<FontAwesomeIcon icon={faMinus} /></button>
+                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faMinus} /></button>
                     </div>
                     <div className="d-flex card-text justify-content-end">
                       {/* ======= FOR REVIEW BY GABY============ */}
@@ -290,7 +292,7 @@ export default function ExerciseList() {
                 <div>
                   <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
-                <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
+                <button type="submit" className="btn btn-primary" onClick={() => {reset()}}><FontAwesomeIcon icon={faTrash} /></button>
               </div>
 
             </div>

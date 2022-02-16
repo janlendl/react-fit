@@ -51,7 +51,7 @@ export default function ExerciseList() {
 
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
-  const [workoutName, setWorkoutName] = useState("");
+  const [workoutName, setWorkoutName] = useState("Add Workout Name");
 
   // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
@@ -77,15 +77,18 @@ export default function ExerciseList() {
   // ----- PERSISTENT STATE pt2 ----- Loads previous state from Local Storage (from broswer)
   // Note: pt2 must stay above pt1 or State will be overwritten.
   useEffect(() => {
+    const data2 = localStorage.getItem('workout-name')
     const data = localStorage.getItem('exercise-cart');
     if (data) {
       // console.log('I am saved exercise-cart data', data)
+      setWorkoutName(JSON.parse(data2))
       setExerciseCart(JSON.parse(data))
     }
   }, [])
 
   // ----- PERSISTENT STATE pt1 ----- Save exercise cart items to Local Storage
   useEffect(() => {
+    localStorage.setItem('workout-name', JSON.stringify(workoutName))
     localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
   })
 
@@ -103,6 +106,7 @@ export default function ExerciseList() {
 
   const reset = () => {
     setExerciseCart([]);
+    setWorkoutName("Add Workout Name");
   };
 
   //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
@@ -237,7 +241,7 @@ export default function ExerciseList() {
                     type="text"
                     name="workout_name"
                     id="workout_id"
-                    placeholder="Add Workout Name"
+                    value={workoutName}
                     onChange={(event) => setWorkoutName(event.target.value)}
                     className="form-control w100" />
                 </div>
@@ -292,7 +296,7 @@ export default function ExerciseList() {
                 <div>
                   <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={() => {reset()}}><FontAwesomeIcon icon={faTrash} /></button>
+                <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
               </div>
 
             </div>

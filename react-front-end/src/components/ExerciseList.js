@@ -224,7 +224,7 @@ const updateHandler = (index, data) => {
 
           <div className="col col-lg-4">
             <div className="card d-grid">
-              <div className="card-header">
+              <div className="card-header background">
                 <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>
               <div>
@@ -235,7 +235,7 @@ const updateHandler = (index, data) => {
                     id="workout_id"
                     placeholder="Add Workout Name"
                     onChange={(event) => setWorkoutName(event.target.value)}
-                    className="form-control w100" />
+                    className="form-control w100 inputborder" />
                 </div>
               </div>
 
@@ -267,17 +267,9 @@ const updateHandler = (index, data) => {
                           onChange={(event) => updateHandler(index, {reps: event.target.value})}
                           className="form-control" />
                       </div>
-                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
+                      <button className="btn btn-primary mt-4" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
                     </div>
                     <div className="d-flex card-text justify-content-end">
-                      {/*======= FOR REVIEW BY GABY============ */}
-                      {/* <div>
-                        <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
-                      </div> */}
-                      {/* <div>
-                        <button type="submit" className="btn-sm"><FontAwesomeIcon icon={faTrash} /></button>
-                      </div> */}
-                      {/* ==================================== */}
                     </div>
                   </div>
 

@@ -56,9 +56,6 @@ export default function ExerciseList() {
 
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
-
-  const [sets, setSets] = useState("");
-  const [reps, setReps] = useState("");
   const [workoutName, setWorkoutName] = useState("");
 
   // let apiExerciseByBodyPart = {
@@ -100,10 +97,7 @@ export default function ExerciseList() {
     if (exists) {
       return null;
     } else {
-      setExerciseCart([...exerciseCart, { ...singleExercise }]);
-      // setExerciseCart(prev => ({
-      //    ...prev, ...singleExercise
-      // }))
+      setExerciseCart([...exerciseCart, {...singleExercise, sets: "", reps: ""} ]);
     }
   };
 
@@ -116,26 +110,24 @@ export default function ExerciseList() {
   //  };
   //=============================================
   const onSubmit = () => {
+    const date = new Date().toLocaleDateString('en-CA');
     const workoutData = {
       workoutName,
-      sets,
-      reps,
-      workouts: exerciseCart
+      date,
+      exercises: exerciseCart  
     }
 
     console.log(workoutData);
 
-    axios.put('http://localhost:8001/api/workouts', workoutData)
+    axios.put('/api/createWorkout', {workoutData})
       .then((res) => {
         console.log(res.data)
       }).catch((error) => {
         console.log(error)
       });
-    // setnewWorkout({...exerciseCart})
   };
   console.log(onSubmit)
 
-  // {data: JSON.stringify(workoutData),  headers: {'Content-Type': 'application/json'}}
 
   const onDelete = (exercise) => {
     setExerciseCart(
@@ -159,6 +151,16 @@ export default function ExerciseList() {
     );
   });
 
+// handler to update the sets and reps to the cart
+const updateHandler = (index, data) => {
+
+  setExerciseCart((carts) => carts.map((cart, i) => {
+    if(index === i) {
+      return  {...cart, ...data}; 
+    }
+    return cart;
+  }));
+}
 
   return (
     <>
@@ -237,7 +239,7 @@ export default function ExerciseList() {
                 </div>
               </div>
 
-              {exerciseCart.map((exercise) => {
+              {exerciseCart.map((exercise, index) => {
                 return (
 
                   <div className="card-body w-0" key={exercise.id}>
@@ -250,7 +252,8 @@ export default function ExerciseList() {
                           pattern="[0-9]"
                           name="sets"
                           id='sets'
-                          onChange={(event) => setSets(event.target.value)}
+                          value={exercise.sets}
+                          onChange={(event) => updateHandler(index, {sets: event.target.value})}
                           className="form-control" />
                       </div>
                       <div>
@@ -260,7 +263,8 @@ export default function ExerciseList() {
                           pattern="[0-9]"
                           name="reps"
                           id="reps"
-                          onChange={(event) => setReps(event.target.value)}
+                          value={exercise.reps}
+                          onChange={(event) => updateHandler(index, {reps: event.target.value})}
                           className="form-control" />
                       </div>
                       <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>

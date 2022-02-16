@@ -38,25 +38,38 @@ module.exports = db => {
   });
 
 
-  router.put("/workouts/:id", (req, res) => {
+  router.put("/createWorkout", (req, res) => {
+    console.log('FROM FE', req.body);
+    const newWorkout = req.body.workoutData;
+    const workoutName = newWorkout.workoutName;
+    const date = newWorkout.date;
     
-    const {newWorkout} = req.body.createWorkout;
+    db.query(`
+    INSERT INTO workouts (workout_name, created_date) VALUES ($1::varchar, $2::date)
+    RETURNING id;
+    `, [workoutName, date])
+    
+    newWorkout.exercises.forEach(exercise => {
+      const sets = exercise.sets;
+      const reps = exercise.reps;
+      const exerciseName = exercise.name;
+      const gif = exercise.gifUrl;
+      const target = exercise.target;
+      const equipment = exercise.equipment;
+      const bodyPart = exercise.bodyPart;
+    
+      db.query(`
+      WITH new_exercise as (
+        INSERT INTO exercises (exercise_name, gifUrl, target_muscle, equipment, number_of_sets, number_of_reps, category_id) VALUES ($1::varchar, $2::varchar, $3::varchar, $4::varchar, $5::int, $6::int, (SELECT id FROM categories WHERE category_name = $7::varchar))
+        RETURNING id
+      )
+      INSERT INTO exercise_workouts (exercise_id, workout_id) VALUES((SELECT id from new_exercise), (SELECT id FROM workouts WHERE workout_name = $8::varchar));
+      `,[exerciseName, gif, target, equipment, sets, reps, bodyPart, workoutName])
+    });
 
     db.query(`
-      WITH new_workout as (
-        INSERT INTO workouts (workout_name, created_date) VALUES ($1::varchar, $2::date)
-        RETURNING id
-      )
-      ,new_exercise (
-        INSERT INTO exercises (exercise_name, gifUrl, target_muscle, equipment, number_of_sets, number_of_reps, category_id) VALUES ($3::varchar, $4::varchar, $5::varchar, $6::varchar, $7::int, $8::int, $9::int)
-        RETURNING id
-      )
-      ,new_user_workout (
-        INSERT INTO user_workouts (user_id, workout_id) VALUES (1, (SELECT id from new_workout))
-      )
-      INSERT INTO exercise_workouts (exercise_id, workout_id) VALUES((SELECT id from new_exercise), (SELECT id from new_workout));
-      `, 
-      [newWorkout]
+        INSERT INTO user_workouts (user_id, workout_id) VALUES (1, (SELECT id FROM workouts WHERE workout_name = $1::varchar));
+      `,[workoutName]
     )
       .then(() => {
         setTimeout(() => {

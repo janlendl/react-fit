@@ -243,7 +243,7 @@ export default function ExerciseList() {
           <div className="col col-lg-4">
             <div className="card d-grid">
               <div className="card-header background">
-                <h4 className="card-title text-center capitalize ">Create Your Workout</h4>
+                <h4 className="card-title text-center capitalize">Create Your Workout</h4>
               </div>
               <div>
                 <input

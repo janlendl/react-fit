@@ -51,7 +51,7 @@ export default function ExerciseList() {
 
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
-  const [workoutName, setWorkoutName] = useState("");
+  const [workoutName, setWorkoutName] = useState("Add Workout Name");
 
   // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
@@ -103,7 +103,9 @@ export default function ExerciseList() {
 
   const reset = () => {
     setExerciseCart([]);
+    setWorkoutName("");
   };
+  console.log('I am workoutName after reset', workoutName)
 
   //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
   // const onSave = (event) => {
@@ -237,7 +239,7 @@ export default function ExerciseList() {
                     type="text"
                     name="workout_name"
                     id="workout_id"
-                    placeholder="Add Workout Name"
+                    value={workoutName}
                     onChange={(event) => setWorkoutName(event.target.value)}
                     className="form-control w100" />
                 </div>
@@ -292,7 +294,7 @@ export default function ExerciseList() {
                 <div>
                   <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={() => {reset()}}><FontAwesomeIcon icon={faTrash} /></button>
+                <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
               </div>
 
             </div>

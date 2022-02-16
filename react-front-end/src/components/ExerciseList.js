@@ -103,7 +103,7 @@ export default function ExerciseList() {
 
   const reset = () => {
     setExerciseCart([]);
-    setWorkoutName("");
+    setWorkoutName("Add Workout Name");
   };
   console.log('I am workoutName after reset', workoutName)
 

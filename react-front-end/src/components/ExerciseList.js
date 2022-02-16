@@ -77,15 +77,18 @@ export default function ExerciseList() {
   // ----- PERSISTENT STATE pt2 ----- Loads previous state from Local Storage (from broswer)
   // Note: pt2 must stay above pt1 or State will be overwritten.
   useEffect(() => {
+    const data2 = localStorage.getItem('workout-name')
     const data = localStorage.getItem('exercise-cart');
     if (data) {
       // console.log('I am saved exercise-cart data', data)
+      setWorkoutName(JSON.parse(data2))
       setExerciseCart(JSON.parse(data))
     }
   }, [])
 
   // ----- PERSISTENT STATE pt1 ----- Save exercise cart items to Local Storage
   useEffect(() => {
+    localStorage.setItem('workout-name', JSON.stringify(workoutName))
     localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
   })
 
@@ -105,7 +108,6 @@ export default function ExerciseList() {
     setExerciseCart([]);
     setWorkoutName("Add Workout Name");
   };
-  console.log('I am workoutName after reset', workoutName)
 
   //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
   // const onSave = (event) => {

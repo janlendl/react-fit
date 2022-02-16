@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const backExercises = [
   {
@@ -268,7 +269,7 @@ export default function ExerciseList() {
                           onChange={(event) => updateHandler(index, { reps: event.target.value })}
                           className="form-control" />
                       </div>
-                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
+                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}>{/* <FontAwesomeIcon icon={faTrash} /> */}<FontAwesomeIcon icon={faMinus} /></button>
                     </div>
                     <div className="d-flex card-text justify-content-end">
                       {/* ======= FOR REVIEW BY GABY============ */}

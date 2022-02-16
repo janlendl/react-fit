@@ -10,8 +10,6 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-
-
 const backExercises = [
   {
     bodyPart: "back",
@@ -47,17 +45,14 @@ const backExercises = [
   }
 ];
 
-// Mimic API request for List All Body Parts
-// const allBodyParts = ["back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist"]
-
 export default function ExerciseList() {
   let { category } = useParams();
-
 
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
   const [workoutName, setWorkoutName] = useState("");
 
+  // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
   //   url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
@@ -67,7 +62,19 @@ export default function ExerciseList() {
   //   }
   // };
 
-  // Loads previous state from Local Storage (from broswer)
+  // ----- CALL API, DEPENDENT ON CATEGORY (URL) CHANGE -----
+  // useEffect(() => {
+  // const getExercises = async () => {
+  //   const response = await axios.request(apiExerciseByBodyPart);
+  //   setExerciseData(response.data).catch((error) => {
+  //     console.log(error.message);
+  //   });
+  // };
+  // getExercises();
+  // }, [category]);
+
+  // ----- PERSISTENT STATE pt2 ----- Loads previous state from Local Storage (from broswer)
+  // Note: pt2 must stay above pt1 or State will be overwritten.
   useEffect(() => {
     const data = localStorage.getItem('exercise-cart');
     if (data) {
@@ -76,18 +83,10 @@ export default function ExerciseList() {
     }
   }, [])
 
+  // ----- PERSISTENT STATE pt1 ----- Save exercise cart items to Local Storage
   useEffect(() => {
-    // const getExercises = async () => {
-    //   const response = await axios.request(apiExerciseByBodyPart);
-    //   setExerciseData(response.data).catch((error) => {
-    //     console.log(error.message);
-    //   });
-    // };
-    // getExercises();
-
-    // Saved exercise cart items to Local Storage (from browser)
     localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
-  }, [category]);
+  })
 
   const onAdd = (exercise) => {
     // console.log('INPUT: exercise param', exercise)
@@ -97,36 +96,34 @@ export default function ExerciseList() {
     if (exists) {
       return null;
     } else {
-      setExerciseCart([...exerciseCart, {...singleExercise, sets: "", reps: ""} ]);
+      setExerciseCart([...exerciseCart, { ...singleExercise, sets: "", reps: "" }]);
     }
   };
-
-  // console.log(exerciseCart);
 
   //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
   // const onSave = (event) => {
   //    event.preventDefault();
   //   console.log("submission prevented");
   //  };
-  //=============================================
+  //===============================================
+
   const onSubmit = () => {
     const date = new Date().toLocaleDateString('en-CA');
     const workoutData = {
       workoutName,
       date,
-      exercises: exerciseCart  
+      exercises: exerciseCart
     }
+    // console.log(workoutData);
 
-    console.log(workoutData);
-
-    axios.put('/api/createWorkout', {workoutData})
+    axios.put('/api/createWorkout', { workoutData })
       .then((res) => {
         console.log(res.data)
       }).catch((error) => {
         console.log(error)
       });
   };
-  console.log(onSubmit)
+  // console.log(onSubmit)
 
 
   const onDelete = (exercise) => {
@@ -151,19 +148,19 @@ export default function ExerciseList() {
     );
   });
 
-// handler to update the sets and reps to the cart
-const updateHandler = (index, data) => {
-
-  setExerciseCart((carts) => carts.map((cart, i) => {
-    if(index === i) {
-      return  {...cart, ...data}; 
-    }
-    return cart;
-  }));
-}
+  // handler to update the sets and reps to the cart
+  const updateHandler = (index, data) => {
+    setExerciseCart((carts) => carts.map((cart, i) => {
+      if (index === i) {
+        return { ...cart, ...data };
+      }
+      return cart;
+    }));
+  }
 
   return (
     <>
+    
       <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
@@ -253,7 +250,7 @@ const updateHandler = (index, data) => {
                           name="sets"
                           id='sets'
                           value={exercise.sets}
-                          onChange={(event) => updateHandler(index, {sets: event.target.value})}
+                          onChange={(event) => updateHandler(index, { sets: event.target.value })}
                           className="form-control" />
                       </div>
                       <div>
@@ -264,26 +261,26 @@ const updateHandler = (index, data) => {
                           name="reps"
                           id="reps"
                           value={exercise.reps}
-                          onChange={(event) => updateHandler(index, {reps: event.target.value})}
+                          onChange={(event) => updateHandler(index, { reps: event.target.value })}
                           className="form-control" />
                       </div>
                       <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
                     </div>
                     <div className="d-flex card-text justify-content-end">
-                      {/*======= FOR REVIEW BY GABY============ */}
+                      {/* ======= FOR REVIEW BY GABY============ */}
                       {/* <div>
                         <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
                       </div> */}
                       {/* <div>
                         <button type="submit" className="btn-sm"><FontAwesomeIcon icon={faTrash} /></button>
                       </div> */}
-                      {/* ==================================== */}
+                      {/* ====================================== */}
                     </div>
                   </div>
 
                 );
               })}
-              
+
               <div className="card-footer d-flex justify-content-between">
                 <div>
                   <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
@@ -295,7 +292,6 @@ const updateHandler = (index, data) => {
           </div>
         </div>
       </div>
-
 
     </>
   );

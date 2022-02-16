@@ -100,6 +100,10 @@ export default function ExerciseList() {
     }
   };
 
+  const reset = () => {
+    setExerciseCart([])
+  }
+
   //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
   // const onSave = (event) => {
   //    event.preventDefault();
@@ -221,7 +225,7 @@ export default function ExerciseList() {
 
           <div className="col col-lg-4">
             <div className="card d-grid">
-              <div className="card-header">
+              <div className="card-header bg-light">
                 <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>
               <div>
@@ -281,7 +285,7 @@ export default function ExerciseList() {
                 );
               })}
 
-              <div className="card-footer d-flex justify-content-between">
+              <div className="card-footer d-flex justify-content-between bg-light">
                 <div>
                   <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                 </div>

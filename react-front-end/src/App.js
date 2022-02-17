@@ -1,10 +1,9 @@
-import axios from "axios";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Categories from "./components/Categories";
-import Exercises from "./components/Exercises";
+import ExerciseList from "./components/ExerciseList";
 import Navbar from "./components/Navbar";
-import Workouts from "./components/Workouts";
+import WorkoutList from "./components/WorkoutList";
 import About from "./components/About";
 import Profile from "./components/Profile";
 
@@ -15,8 +14,8 @@ function App() {
         <Route path="/" element={<Navbar />}>
           <Route index element={<Categories />} />
           <Route path="/about" element={<About />} />
-          <Route path="/exercises/:category" element={<Exercises />} />
-          <Route path="/workouts" element={<Workouts />} />
+          <Route path="/exercises/:category" element={<ExerciseList />} />
+          <Route path="/workouts" element={<WorkoutList />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>

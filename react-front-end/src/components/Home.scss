@@ -2,6 +2,7 @@ nav {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index:100;
 }
 
 .header {
@@ -61,7 +62,7 @@ nav {
   );
   border: 1px solid hsla(0, 0%, 100%, 0.59);
   border-radius: 9999px !important;
-  padding: 10px 40px;
+  padding: 5px 20px;
 }
 
 

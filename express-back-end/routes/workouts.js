@@ -6,7 +6,7 @@ module.exports = db => {
     SELECT workouts.id AS workout_id, workout_name, created_date,
     CASE WHEN exercises.id IS NULL
     THEN NULL
-    ELSE json_build_object('name', exercises.exercise_name, 'gifUrl', exercises.gifUrl, 'body_part', categories.category_name, 'equipment', exercises.equipment, 'target_muscle', exercises.target_muscle, 'number_of_sets', exercises.number_of_sets, 'number_of_reps', exercises.number_of_reps)
+    ELSE json_build_object('id', exercises.id, 'name', exercises.exercise_name, 'gifUrl', exercises.gifUrl, 'body_part', categories.category_name, 'equipment', exercises.equipment, 'target_muscle', exercises.target_muscle, 'number_of_sets', exercises.number_of_sets, 'number_of_reps', exercises.number_of_reps)
     END AS exercise
     FROM exercises
     LEFT JOIN exercise_workouts ON exercise_id = exercises.id

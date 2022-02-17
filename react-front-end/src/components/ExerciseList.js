@@ -9,8 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-
-
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const backExercises = [
   {
@@ -47,17 +46,14 @@ const backExercises = [
   }
 ];
 
-// Mimic API request for List All Body Parts
-// const allBodyParts = ["back", "cardio", "chest", "lower arms", "lower legs", "neck", "shoulders", "upper arms", "upper legs", "waist"]
-
 export default function ExerciseList() {
   let { category } = useParams();
 
-
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
-  const [workoutName, setWorkoutName] = useState("");
+  const [workoutName, setWorkoutName] = useState("Add Workout Name");
 
+  // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
   //   url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
@@ -67,27 +63,34 @@ export default function ExerciseList() {
   //   }
   // };
 
-  // Loads previous state from Local Storage (from broswer)
+  // ----- CALL API, DEPENDENT ON CATEGORY (URL) CHANGE -----
+  // useEffect(() => {
+  // const getExercises = async () => {
+  //   const response = await axios.request(apiExerciseByBodyPart);
+  //   setExerciseData(response.data).catch((error) => {
+  //     console.log(error.message);
+  //   });
+  // };
+  // getExercises();
+  // }, [category]);
+
+  // ----- PERSISTENT STATE pt2 ----- Loads previous state from Local Storage (from broswer)
+  // Note: pt2 must stay above pt1 or State will be overwritten.
   useEffect(() => {
+    const data2 = localStorage.getItem('workout-name')
     const data = localStorage.getItem('exercise-cart');
     if (data) {
       // console.log('I am saved exercise-cart data', data)
+      setWorkoutName(JSON.parse(data2))
       setExerciseCart(JSON.parse(data))
     }
   }, [])
 
+  // ----- PERSISTENT STATE pt1 ----- Save exercise cart items to Local Storage
   useEffect(() => {
-    // const getExercises = async () => {
-    //   const response = await axios.request(apiExerciseByBodyPart);
-    //   setExerciseData(response.data).catch((error) => {
-    //     console.log(error.message);
-    //   });
-    // };
-    // getExercises();
-
-    // Saved exercise cart items to Local Storage (from browser)
+    localStorage.setItem('workout-name', JSON.stringify(workoutName))
     localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
-  }, [category]);
+  })
 
   const onAdd = (exercise) => {
     // console.log('INPUT: exercise param', exercise)
@@ -97,29 +100,41 @@ export default function ExerciseList() {
     if (exists) {
       return null;
     } else {
-      setExerciseCart([...exerciseCart, {...singleExercise, sets: "", reps: ""} ]);
+      setExerciseCart([...exerciseCart, { ...singleExercise, sets: "", reps: "" }]);
     }
   };
 
- 
+  const reset = () => {
+    setExerciseCart([]);
+    setWorkoutName("Add Workout Name");
+  };
+
+  //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
+  // const onSave = (event) => {
+  //    event.preventDefault();
+  //   console.log("submission prevented");
+  //  };
+  //===============================================
+
   const onSubmit = () => {
     const date = new Date().toLocaleDateString('en-CA');
     const workoutData = {
       workoutName,
       date,
-      exercises: exerciseCart  
+      exercises: exerciseCart
     }
+    // console.log(workoutData);
 
-    console.log(workoutData);
-
-    axios.put('/api/createWorkout', {workoutData})
+    axios.put('/api/createWorkout', { workoutData })
       .then((res) => {
         console.log(res.data)
       }).catch((error) => {
         console.log(error)
       });
+
+      reset();
   };
-  console.log(onSubmit)
+  // console.log(onSubmit)
 
 
   const onDelete = (exercise) => {
@@ -144,19 +159,19 @@ export default function ExerciseList() {
     );
   });
 
-// handler to update the sets and reps to the cart
-const updateHandler = (index, data) => {
-
-  setExerciseCart((carts) => carts.map((cart, i) => {
-    if(index === i) {
-      return  {...cart, ...data}; 
-    }
-    return cart;
-  }));
-}
+  // handler to update the sets and reps to the cart
+  const updateHandler = (index, data) => {
+    setExerciseCart((carts) => carts.map((cart, i) => {
+      if (index === i) {
+        return { ...cart, ...data };
+      }
+      return cart;
+    }));
+  }
 
   return (
     <>
+    
       <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
@@ -217,7 +232,7 @@ const updateHandler = (index, data) => {
 
           <div className="col col-lg-4">
             <div className="card d-grid">
-              <div className="card-header background">
+              <div className="card-header bg-light">
                 <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>
               <div>
@@ -226,7 +241,7 @@ const updateHandler = (index, data) => {
                     type="text"
                     name="workout_name"
                     id="workout_id"
-                    placeholder="Add Workout Name"
+                    value={workoutName}
                     onChange={(event) => setWorkoutName(event.target.value)}
                     className="form-control w100 inputborder" />
                 </div>
@@ -246,7 +261,7 @@ const updateHandler = (index, data) => {
                           name="sets"
                           id='sets'
                           value={exercise.sets}
-                          onChange={(event) => updateHandler(index, {sets: event.target.value})}
+                          onChange={(event) => updateHandler(index, { sets: event.target.value })}
                           className="form-control" />
                       </div>
                       <div>
@@ -257,10 +272,10 @@ const updateHandler = (index, data) => {
                           name="reps"
                           id="reps"
                           value={exercise.reps}
-                          onChange={(event) => updateHandler(index, {reps: event.target.value})}
+                          onChange={(event) => updateHandler(index, { reps: event.target.value })}
                           className="form-control" />
                       </div>
-                      <button className="btn btn-primary mt-4" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faTrash} /></button>
+                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faMinus} /></button>
                     </div>
                     <div className="d-flex card-text justify-content-end">
                     </div>
@@ -268,19 +283,18 @@ const updateHandler = (index, data) => {
 
                 );
               })}
-              
-              <div className="card-footer d-flex justify-content-between">
+
+              <div className="card-footer d-flex justify-content-between bg-light">
                 <div>
                   <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
-                <button type="submit" className="btn btn-primary"><FontAwesomeIcon icon={faTrash} /></button>
+                <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
               </div>
 
             </div>
           </div>
         </div>
       </div>
-
 
     </>
   );

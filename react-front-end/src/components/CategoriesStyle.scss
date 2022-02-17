@@ -16,13 +16,41 @@
   margin: 0 1rem 2em;
   color: white;
   text-align: center;
-  font-weight: 700;
+  font-weight: 800;
   }
 
-.landingPageCategories img {
+.landingPageCategories img{
   width: auto;
-  height: 10rem;
-  border: 0.125rem solid whitesmoke;
+  height: 11.25rem;
+  border: 0.175rem solid whitesmoke;
   padding: 0.063rem;
   border-radius: 1.563rem;
+  opacity: 0.8;
+}
+
+.landingPageCategories img:hover{
+  border-color: rgb(224, 54, 148);
+}
+
+
+.topleft{
+  position:absolute;
+  left:30%;
+  top:40%;
+  font-size: 1.5rem;
+}
+
+.topleftSM{
+  position:absolute;
+  left:40%;
+  top:40%;
+  font-size: 1.5rem;
+}
+
+
+a:hover {
+  background:linear-gradient(90deg, rgba(224,54,148,1) 27%, rgba(244,114,83,1) 97%);
+  border: 0.1rem solid rgba(244,114,83,1);
+  border-radius: 1.563rem;
+  color:#fc6f00;
 }

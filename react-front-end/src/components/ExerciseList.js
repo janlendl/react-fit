@@ -7,8 +7,9 @@ import ExerciseListItem from "./ExerciseListItem";
 import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { faSquarePlus } from "@fortawesome/free-solid-svg-icons";
-
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const backExercises = [
   {
@@ -50,7 +51,9 @@ export default function ExerciseList() {
 
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
+  const [workoutName, setWorkoutName] = useState("Add Workout Name");
 
+  // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
   //   url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
@@ -60,15 +63,34 @@ export default function ExerciseList() {
   //   }
   // };
 
+  // ----- CALL API, DEPENDENT ON CATEGORY (URL) CHANGE -----
   // useEffect(() => {
-  //   const getExercises = async () => {
-  //     const response = await axios.request(apiExerciseByBodyPart);
-  //     setExerciseData(response.data).catch((error) => {
-  //       console.log(error.message);
-  //     });
-  //   };
-  //   getExercises();
+  // const getExercises = async () => {
+  //   const response = await axios.request(apiExerciseByBodyPart);
+  //   setExerciseData(response.data).catch((error) => {
+  //     console.log(error.message);
+  //   });
+  // };
+  // getExercises();
   // }, [category]);
+
+  // ----- PERSISTENT STATE pt2 ----- Loads previous state from Local Storage (from broswer)
+  // Note: pt2 must stay above pt1 or State will be overwritten.
+  useEffect(() => {
+    const data2 = localStorage.getItem('workout-name')
+    const data = localStorage.getItem('exercise-cart');
+    if (data) {
+      // console.log('I am saved exercise-cart data', data)
+      setWorkoutName(JSON.parse(data2))
+      setExerciseCart(JSON.parse(data))
+    }
+  }, [])
+
+  // ----- PERSISTENT STATE pt1 ----- Save exercise cart items to Local Storage
+  useEffect(() => {
+    localStorage.setItem('workout-name', JSON.stringify(workoutName))
+    localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
+  })
 
   const onAdd = (exercise) => {
     // console.log('INPUT: exercise param', exercise)
@@ -78,19 +100,51 @@ export default function ExerciseList() {
     if (exists) {
       return null;
     } else {
-      setExerciseCart([...exerciseCart, { ...singleExercise }]);
-      // setExerciseCart(prev => ({
-      //    ...prev, singleExercise
-      // }))
+      setExerciseCart([...exerciseCart, { ...singleExercise, sets: "", reps: "" }]);
     }
   };
-  console.log(exerciseCart);
 
-  exerciseCart.map((exercise) => {
-    console.log('Map exer name', exercise.name);
-  });
+  const reset = () => {
+    setExerciseCart([]);
+    setWorkoutName("Add Workout Name");
+  };
+
+  //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
+  // const onSave = (event) => {
+  //    event.preventDefault();
+  //   console.log("submission prevented");
+  //  };
+  //===============================================
+
+  const onSubmit = () => {
+    const date = new Date().toLocaleDateString('en-CA');
+    const workoutData = {
+      workoutName,
+      date,
+      exercises: exerciseCart
+    }
+    // console.log(workoutData);
+
+    axios.put('/api/createWorkout', { workoutData })
+      .then((res) => {
+        console.log(res.data)
+      }).catch((error) => {
+        console.log(error)
+      });
+
+      reset();
+  };
+  // console.log(onSubmit)
+
+
+  const onDelete = (exercise) => {
+    setExerciseCart(
+      exerciseCart.filter(item => item !== exercise)
+    )
+  }
 
   const exerciseItem = backExercises.map((exercise) => {
+
     return (
       <ExerciseListItem
         {...exercise}
@@ -105,12 +159,23 @@ export default function ExerciseList() {
     );
   });
 
+  // handler to update the sets and reps to the cart
+  const updateHandler = (index, data) => {
+    setExerciseCart((carts) => carts.map((cart, i) => {
+      if (index === i) {
+        return { ...cart, ...data };
+      }
+      return cart;
+    }));
+  }
+
   return (
     <>
-      <div class="topWrapper"></div>
+    
+      <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center">
-          <div class="col col-2">
+          <div className="col col-2">
             <h3>Categories</h3>
             <ul className="nav flex-column">
               <li className="nav-item">
@@ -161,44 +226,83 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-          <div class="col-md-auto">
+          <div className="col-md-auto">
             {exerciseItem}
           </div>
 
-          <div class="col col-lg-4">
-            <div class="card d-grid">
-              <div class="card-header">
-                <h5 className="card-title capitalize">Create Custom Workout</h5>
+          <div className="col col-lg-4">
+            <div className="card d-grid">
+              <div className="card-header bg-light">
+                <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>
-              {exerciseCart.map((exercise) => {
-                return (
-                  <div class="card-body" key={exercise.id}>
+              <div>
+                <div>
+                  <input
+                    type="text"
+                    name="workout_name"
+                    id="workout_id"
+                    value={workoutName}
+                    onChange={(event) => setWorkoutName(event.target.value)}
+                    className="form-control w100" />
+                </div>
+              </div>
 
-                    <h5 class="capitalize">{exercise.name}</h5>
-                    <ul class="card-text">
-                      <li >
-                        <form>
-                          <label for="Sets" class="form-label">Sets</label>
-                          <input type="text" class="form-control"></input>
-                          <label for="Sets" class="form-label">Reps</label>
-                          <input type="text" class="form-control"></input>
-                        </form>
-                      </li>
-                    </ul>
-                    <FontAwesomeIcon icon={faTrash} />
+              {exerciseCart.map((exercise, index) => {
+                return (
+
+                  <div className="card-body w-0" key={exercise.id}>
+                    <h5 className="capitalize">{exercise.name}</h5>
+                    <div className="card-text flex align-items-center">
+                      <div >
+                        <label htmlFor="Sets" className="form-label">Sets</label>
+                        <input
+                          type="text"
+                          pattern="[0-9]"
+                          name="sets"
+                          id='sets'
+                          value={exercise.sets}
+                          onChange={(event) => updateHandler(index, { sets: event.target.value })}
+                          className="form-control" />
+                      </div>
+                      <div>
+                        <label htmlFor="Sets" className="form-label">Reps</label>
+                        <input
+                          type="text"
+                          pattern="[0-9]"
+                          name="reps"
+                          id="reps"
+                          value={exercise.reps}
+                          onChange={(event) => updateHandler(index, { reps: event.target.value })}
+                          className="form-control" />
+                      </div>
+                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faMinus} /></button>
+                    </div>
+                    <div className="d-flex card-text justify-content-end">
+                      {/* ======= FOR REVIEW BY GABY============ */}
+                      {/* <div>
+                        <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
+                      </div> */}
+                      {/* <div>
+                        <button type="submit" className="btn-sm"><FontAwesomeIcon icon={faTrash} /></button>
+                      </div> */}
+                      {/* ====================================== */}
+                    </div>
                   </div>
+
                 );
               })}
-              <div class="card-footer d-flex justify-content-between">
-                <FontAwesomeIcon icon={faSquarePlus} />
-                <FontAwesomeIcon icon={faTrash} />
+
+              <div className="card-footer d-flex justify-content-between bg-light">
+                <div>
+                  <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
+                </div>
+                <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
               </div>
 
             </div>
           </div>
         </div>
       </div>
-
 
     </>
   );

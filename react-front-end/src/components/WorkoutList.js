@@ -1,7 +1,8 @@
 import WorkoutListItem from "./WorkoutListItem";
 import "./Exercises.scss";
 import "./Workouts.scss";
-
+import { useState } from 'react';
+import Modal from "./Modal";
 
 
 const workoutData = [
@@ -131,16 +132,39 @@ const workoutData = [
 
 export default function WorkoutList() {
 
+
+  // useEffect(() => {
+  //   const daysData = '/api/days';
+  //   const apptData = '/api/appointments';
+  //   const interviewersData = '/api/interviewers';
+
+  // // use Promise all to get days and appointment data
+  // Promise.all([
+  //   axios.get(daysData),
+  //   axios.get(apptData),
+  //   axios.get(interviewersData)
+  // ]).then((all) => {
+  //   setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
+  //   console.log(all);
+  // })
+  //   .catch((error) => {
+  //     console.log('ERR status: ',error.status);
+  //     console.log('ERR message: ',error.message);
+  //   });
+  // }, []);
+
+
   const workoutList = workoutData.map((workout) => {
-    
+
     return (
-    
+
       <WorkoutListItem
         key={workout.workout_id}
         workoutName={workout.workout_name}
         dateCreated={new Date(workout.created_date).toLocaleString()}
         exercises={workout.exercise}
       />
+
     );
   });
 
@@ -148,16 +172,15 @@ export default function WorkoutList() {
     <>
       <div className="topWrapper"></div>
       <div className="container-md">
-      <div className="row noMrg">
-        <div className="col-lg-12 d-flex">
-          
+        <div className="row noMrg">
+          <div className="col-lg-12 d-flex">
+
             <div className="card-text d-flex">
               {workoutList}
 
-           
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </>
     // {/* 

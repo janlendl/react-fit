@@ -101,14 +101,7 @@ export default function ExerciseList() {
     }
   };
 
-  // console.log(exerciseCart);
-
-  //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
-  // const onSave = (event) => {
-  //    event.preventDefault();
-  //   console.log("submission prevented");
-  //  };
-  //=============================================
+ 
   const onSubmit = () => {
     const date = new Date().toLocaleDateString('en-CA');
     const workoutData = {

@@ -9,9 +9,9 @@ module.exports = db => {
   });
 
   // update exercise sets and reps
-  router.put("/exercises/:id", (req, res) => {
-
-    const {sets, reps, id} = req.body.exercise
+  router.put("/editExercise/", (req, res) => {
+    console.log("FE",req.body)
+    // const {values, id} = req.body.exercise
     db.query(`
     UPDATE exercises
     SET number_of_sets = $1::int, number_of_reps = $2::int

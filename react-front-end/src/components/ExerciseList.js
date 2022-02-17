@@ -243,7 +243,7 @@ export default function ExerciseList() {
                     id="workout_id"
                     value={workoutName}
                     onChange={(event) => setWorkoutName(event.target.value)}
-                    className="form-control w100" />
+                    className="form-control w100 inputborder" />
                 </div>
               </div>
 
@@ -307,4 +307,3 @@ export default function ExerciseList() {
     </>
   );
 };
-

@@ -162,8 +162,7 @@ export default function Profile() {
   );
 }
 
-
-const Profile = props => {
+/* const Profile = props => {
   console.log("props",props)
   if (!props.show) {
     return null
@@ -180,4 +179,4 @@ const Profile = props => {
   )
 }
 
-export default  Profile
+export default  Profile */

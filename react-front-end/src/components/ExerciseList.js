@@ -208,7 +208,6 @@ export default function ExerciseList() {
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
   const [workoutName, setWorkoutName] = useState("Add Workout Name");
-
   // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
@@ -330,7 +329,7 @@ export default function ExerciseList() {
 
       <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
-        <div className="row noMrg justify-content-md-center">
+        <div className="row noMrg justify-content-md-center rounded-2">
           <div className="col col-2">
             {/* Inserted: position-fixed */}
             <ul className="nav flex-column position-fixed">
@@ -386,14 +385,13 @@ export default function ExerciseList() {
           {/* Inserted: 'section' tag to contain exerciseItem and exerciseCart */}
           <section className="d-flex">
 
-            <div className="col-md-auto">
+            <div className="col-md-auto rounded-2">
               {exerciseItem}
             </div>
 
-            <div className="col col-lg-4">
-              {/* Inserted: position-fixed, width: 37.9rem; */}
-              <div className="card d-grid stick-cart">
-                <div className="card-header bg-light">
+            <div className="col col-lg-4 rounded-2">
+              <div className="card d-grid rounded-2 stick-cart">
+                <div className="card-header bg-light rounded-2">
                   <h5 className="card-title text-center capitalize">Create Your Workout</h5>
                 </div>
                 <div>
@@ -411,7 +409,8 @@ export default function ExerciseList() {
                     <div className="card-body w-0" key={exercise.id}>
                       <h5 className="capitalize">{exercise.name}</h5>
                       <div className="card-text flex align-items-center">
-                        <div >
+
+                        <div>
                           <label htmlFor="Sets" className="form-label">Sets</label>
                           <input
                             type="text"
@@ -422,6 +421,7 @@ export default function ExerciseList() {
                             onChange={(event) => updateHandler(index, { sets: event.target.value })}
                             className="form-control" />
                         </div>
+
                         <div>
                           <label htmlFor="Sets" className="form-label">Reps</label>
                           <input
@@ -433,23 +433,15 @@ export default function ExerciseList() {
                             onChange={(event) => updateHandler(index, { reps: event.target.value })}
                             className="form-control" />
                         </div>
+
                         <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faMinus} /></button>
-                      </div>
-                      <div className="d-flex card-text justify-content-end">
-                        {/* ======= FOR REVIEW BY GABY============ */}
-                        {/* <div>
-                        <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
-                      </div> */}
-                        {/* <div>
-                        <button type="submit" className="btn-sm"><FontAwesomeIcon icon={faTrash} /></button>
-                      </div> */}
-                        {/* ====================================== */}
                       </div>
                     </div>
 
                   );
                 })}
-                <div className="card-footer d-flex justify-content-between bg-light">
+
+                <div className="card-footer d-flex justify-content-between bg-light rounded-2">
                   <div>
                     <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                   </div>
@@ -459,7 +451,7 @@ export default function ExerciseList() {
               </div>
             </div>
 
-          </section>
+          </section >
 
         </div>
       </div>

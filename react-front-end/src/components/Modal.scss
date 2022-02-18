@@ -1,0 +1,45 @@
+.bg-theme {
+  background: rgb(224, 54, 148);
+  background: linear-gradient(
+    90deg,
+    rgba(224, 54, 148, 1) 27%,
+    rgba(244, 114, 83, 1) 97%
+  );
+  border: 3px solid rgb(224, 54, 148);
+  border-radius: 15px;;
+  
+}
+
+.modal-content {
+  border-radius: 15px;
+}
+
+
+.border-1 {
+  border-radius: 1rem!important;
+}
+
+// .transition {
+//   height: 100%;
+//   transition: 2s;
+// }
+
+.w35 {
+width:35rem;
+}
+
+.Modal_Overlay {
+  opacity:0;
+  transform: translateX(-100px);
+  transition: all 500ms ease-in-out;
+}
+
+.Modal_Overlay--after-open {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.Modal_Overlay--before-close {
+  opacity:0;
+  transform: translateX(-100px);
+}

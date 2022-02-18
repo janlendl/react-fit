@@ -49,6 +49,7 @@
 .exerciseCard {
 padding: 1.5rem;
 display: flex;
+border-radius: 1rem;
 }
 
 .card-text {
@@ -136,6 +137,7 @@ span, form {
   background-color: white;
   border-top: none;
   padding-bottom: 0.25rem;
+  border-radius: 1rem;
 }
 
 .capitalize {
@@ -180,4 +182,20 @@ span, form {
 
 .inputborder{
   border-color:#ced4da40
+}
+
+.card {
+border-radius: 1rem;
+}
+
+.border-1 {
+  border-radius: 1rem!important;
+}
+
+.widthModal {
+  width: 35rem!important;
+}
+
+.whitetxt{
+ color:white;
 }

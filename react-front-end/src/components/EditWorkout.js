@@ -30,21 +30,26 @@ export default function EditWorkout(props) {
 
   return (
     <>
-      <div className="d-flex col-auto">
-        <form onSubmit={onSubmit}>
+      <div className="d-flex col-auto widthModal">
+        <form onSubmit={onSubmit} >
+
+          <label>Sets</label>
+ 
           <input
             type="text"
             defaultValue={sets}
             onChange={(event) => setSets(event.target.value)}
             name="sets"
             className=" d-inline-flex col-3 mx-1" />
+
+          <label>Reps</label>
           <input
             type="text"
             defaultValue={reps}
             onChange={(event) => setReps(event.target.value)}
             name="reps"
             className="d-inline col-3 mx-1 mb-3" />
-          <button type="submit" className="btn">Submit</button>
+          <button type="submit" className="btn whitetxt">Submit</button>
         </form>
       </div>
     </>

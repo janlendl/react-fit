@@ -289,82 +289,86 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-          <div className="col-md-auto">
-            {exerciseItem}
-          </div>
+          {/* Inserted: 'section' tag to contain exerciseItem and exerciseCart */}
+          <section className="d-flex">
 
-          <div className="col col-lg-4">
-            {/* Inserted: position-fixed, width: 37.9rem; */}
-            <div className="card d-grid position-fixed" style={{ width:"37.9rem" }}>
-              <div className="card-header bg-light">
-                <h5 className="card-title text-center capitalize">Create Your Workout</h5>
-              </div>
-              <div>
-                <div>
-                  <input
-                    type="text"
-                    name="workout_name"
-                    id="workout_id"
-                    value={workoutName}
-                    onChange={(event) => setWorkoutName(event.target.value)}
-                    className="form-control w100" />
+            <div className="col-md-auto">
+              {exerciseItem}
+            </div>
+
+            <div className="col col-lg-4">
+              {/* Inserted: position-fixed, width: 37.9rem; */}
+              <div className="card d-grid stick-cart">
+                <div className="card-header bg-light">
+                  <h5 className="card-title text-center capitalize">Create Your Workout</h5>
                 </div>
-              </div>
+                <div>
+                  <div>
+                    <input
+                      type="text"
+                      name="workout_name"
+                      id="workout_id"
+                      value={workoutName}
+                      onChange={(event) => setWorkoutName(event.target.value)}
+                      className="form-control w100" />
+                  </div>
+                </div>
+                {exerciseCart.map((exercise, index) => {
+                  return (
 
-              {exerciseCart.map((exercise, index) => {
-                return (
-
-                  <div className="card-body w-0" key={exercise.id}>
-                    <h5 className="capitalize">{exercise.name}</h5>
-                    <div className="card-text flex align-items-center">
-                      <div >
-                        <label htmlFor="Sets" className="form-label">Sets</label>
-                        <input
-                          type="text"
-                          pattern="[0-9]"
-                          name="sets"
-                          id='sets'
-                          value={exercise.sets}
-                          onChange={(event) => updateHandler(index, { sets: event.target.value })}
-                          className="form-control" />
+                    <div className="card-body w-0" key={exercise.id}>
+                      <h5 className="capitalize">{exercise.name}</h5>
+                      <div className="card-text flex align-items-center">
+                        <div >
+                          <label htmlFor="Sets" className="form-label">Sets</label>
+                          <input
+                            type="text"
+                            pattern="[0-9]"
+                            name="sets"
+                            id='sets'
+                            value={exercise.sets}
+                            onChange={(event) => updateHandler(index, { sets: event.target.value })}
+                            className="form-control" />
+                        </div>
+                        <div>
+                          <label htmlFor="Sets" className="form-label">Reps</label>
+                          <input
+                            type="text"
+                            pattern="[0-9]"
+                            name="reps"
+                            id="reps"
+                            value={exercise.reps}
+                            onChange={(event) => updateHandler(index, { reps: event.target.value })}
+                            className="form-control" />
+                        </div>
+                        <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faMinus} /></button>
                       </div>
-                      <div>
-                        <label htmlFor="Sets" className="form-label">Reps</label>
-                        <input
-                          type="text"
-                          pattern="[0-9]"
-                          name="reps"
-                          id="reps"
-                          value={exercise.reps}
-                          onChange={(event) => updateHandler(index, { reps: event.target.value })}
-                          className="form-control" />
-                      </div>
-                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faMinus} /></button>
-                    </div>
-                    <div className="d-flex card-text justify-content-end">
-                      {/* ======= FOR REVIEW BY GABY============ */}
-                      {/* <div>
+                      <div className="d-flex card-text justify-content-end">
+                        {/* ======= FOR REVIEW BY GABY============ */}
+                        {/* <div>
                         <button type="submit" className="btn-sm" onClick={onSave}><FontAwesomeIcon icon={faPlus} /></button>
                       </div> */}
-                      {/* <div>
+                        {/* <div>
                         <button type="submit" className="btn-sm"><FontAwesomeIcon icon={faTrash} /></button>
                       </div> */}
-                      {/* ====================================== */}
+                        {/* ====================================== */}
+                      </div>
                     </div>
+
+                  );
+                })}
+                <div className="card-footer d-flex justify-content-between bg-light">
+                  <div>
+                    <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                   </div>
-
-                );
-              })}
-
-              <div className="card-footer d-flex justify-content-between bg-light">
-                <div>
-                  <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
+                  <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
-              </div>
 
+              </div>
             </div>
-          </div>
+
+          </section>
+
         </div>
       </div>
 

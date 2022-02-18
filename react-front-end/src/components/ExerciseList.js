@@ -127,7 +127,7 @@ export default function ExerciseList() {
 
     axios.put('/api/createWorkout', { workoutData })
       .then((res) => {
-        console.log(res.data)
+        console.log("Sending New Workout data to Backend: ", res.data);
       }).catch((error) => {
         console.log(error)
       });
@@ -243,7 +243,7 @@ export default function ExerciseList() {
                     id="workout_id"
                     value={workoutName}
                     onChange={(event) => setWorkoutName(event.target.value)}
-                    className="form-control w100" />
+                    className="form-control w100 inputborder" />
                 </div>
               </div>
 
@@ -307,4 +307,3 @@ export default function ExerciseList() {
     </>
   );
 };
-

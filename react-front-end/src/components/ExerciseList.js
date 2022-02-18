@@ -52,7 +52,6 @@ export default function ExerciseList() {
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
   const [workoutName, setWorkoutName] = useState("Add Workout Name");
-
   // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
@@ -174,7 +173,7 @@ export default function ExerciseList() {
     
       <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
-        <div className="row noMrg justify-content-md-center">
+        <div className="row noMrg justify-content-md-center rounded-2">
           <div className="col col-2">
             <h3>Categories</h3>
             <ul className="nav flex-column">
@@ -226,13 +225,13 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-          <div className="col-md-auto">
+          <div className="col-md-auto rounded-2">
             {exerciseItem}
           </div>
 
-          <div className="col col-lg-4">
-            <div className="card d-grid">
-              <div className="card-header bg-light">
+          <div className="col col-lg-4 rounded-2">
+            <div className="card d-grid rounded-2">
+              <div className="card-header bg-light rounded-2">
                 <h5 className="card-title text-center capitalize">Create Your Workout</h5>
               </div>
               <div>
@@ -284,7 +283,7 @@ export default function ExerciseList() {
                 );
               })}
 
-              <div className="card-footer d-flex justify-content-between bg-light">
+              <div className="card-footer d-flex justify-content-between bg-light rounded-2">
                 <div>
                   <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                 </div>

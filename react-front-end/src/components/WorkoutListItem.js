@@ -31,7 +31,6 @@ export default function WorkoutListItem(props) {
               />
 
             );
-            
           })}
 
         </div>

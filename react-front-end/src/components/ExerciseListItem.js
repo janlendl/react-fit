@@ -8,10 +8,6 @@ import Modal from "./Modal";
 export default function ExerciseListItem(props) {
 
   const [show, setModalShow] = useState(false);
-
-
-  console.log("modal", show);
-
   const { id, gif, name, bodyPart, target, equipment, onAdd, sets, reps } = props;
 
   return (
@@ -30,9 +26,10 @@ export default function ExerciseListItem(props) {
                 <li>Equipment: {equipment}</li>
                 {sets && (<li>Sets: {sets}</li>)}
                 {reps && (<li>Reps: {reps}</li>)}
+               
               </ul>
             </div>
-            <div className="card-footer d-flex align-items-end px-1 border-1 ">
+            <div className="card-footer d-flex align-items-end px-1 border-1">
               {sets && <button className="btn btn-primary p-0sides" onClick={() => setModalShow(true)}><FontAwesomeIcon icon={faPenToSquare} /></button>}
               {onAdd && (<div className="card-footer d-flex align-items-end px-1 border-1">
                 <button className="btn btn-primary" onClick={() => onAdd(id)}><FontAwesomeIcon icon={faPlus} /></button>

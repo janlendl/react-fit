@@ -126,7 +126,7 @@ export default function ExerciseList() {
 
     axios.put('/api/createWorkout', { workoutData })
       .then((res) => {
-        console.log(res.data)
+        console.log("Sending New Workout data to Backend: ", res.data);
       }).catch((error) => {
         console.log(error)
       });

@@ -5,8 +5,6 @@ import "./Exercises.scss";
 
 export default function WorkoutListItem(props) {
 
-  console.log("WorkoutListItem", props)
-
   return (
     <>
       <div className="container background margin-2">
@@ -16,11 +14,12 @@ export default function WorkoutListItem(props) {
         </div>
 
         <div className="card-text align-center px-4">
-          {props.exercises.map((exercise, i) => {
+          {props.exercises.map((exercise,i) => {
 
             return (
               <ExerciseListItem
-                key={exercise.id}
+                key={i}
+                id={exercise.id}
                 gif={exercise.gifUrl}
                 name={exercise.name}
                 bodyPart={exercise.body_part}
@@ -32,11 +31,9 @@ export default function WorkoutListItem(props) {
 
             );
           })}
-
         </div>
       </div>
     </>
-
   );
 }
 

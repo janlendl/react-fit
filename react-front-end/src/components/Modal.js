@@ -4,7 +4,6 @@ import EditWorkout from "./EditWorkout"
 import "./Modal.scss";
 
 const Modal = props => {
-  console.log("props",props)
   if (!props.show) {
     return null
   }
@@ -16,8 +15,9 @@ const Modal = props => {
           <h4 className="modal-title">Edit Workout</h4>
           <button className="btn-sm" onClick={props.onClose}><FontAwesomeIcon icon={faXmark} /></button>
         </div>
-        <div className="card-body px-0 w35 ">
-        {<EditWorkout/>}
+        <div className="card-body px-0">
+          {<EditWorkout id={props.id} sets={props.sets} reps={props.reps} />}
+
         </div>
         {/* <div className="modal-footer border-1">
           
@@ -27,4 +27,4 @@ const Modal = props => {
   )
 }
 
-export default  Modal
+export default Modal

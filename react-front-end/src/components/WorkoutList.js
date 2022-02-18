@@ -4,7 +4,8 @@ import axios from "axios";
 import "./Exercises.scss";
 import "./Workouts.scss";
 
-export default function WorkoutList() {
+
+export default function WorkoutList(props) {
 
   const [workoutData, setworkoutData] = useState([]);
 

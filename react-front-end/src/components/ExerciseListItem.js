@@ -12,11 +12,11 @@ export default function ExerciseListItem(props) {
 
   return (
     <>
-      <div className="row noMrg">
-        <div className="card mb-4 d-flex">
-          <div className="row noMrg">
-            <div className="col-sm-4 padding0 ">
-              <img src={gif} className="img-fluid rounded-start" alt={name} />
+      <div className="row noMrg border-1 ">
+        <div className="card mb-4 d-flex border-1 ">
+          <div className="row noMrg border-1 ">
+            <div className="col-sm-4 padding0 border-1 ">
+              <img src={gif} className="img-fluid border-1 " alt={name} />
             </div>
             <div className="card-body col-auto">
               <h6 className="card-title capitalize text-break">{name}</h6>
@@ -26,14 +26,12 @@ export default function ExerciseListItem(props) {
                 <li>Equipment: {equipment}</li>
                 {sets && (<li>Sets: {sets}</li>)}
                 {reps && (<li>Reps: {reps}</li>)}
-                <div>
-                  <Modal onClose={() => setModalShow(false)} show={show} id={id} sets={sets} reps={reps} />
-                </div>
+               
               </ul>
             </div>
-            <div className="card-footer d-flex align-items-end p-0sides">
+            <div className="card-footer d-flex align-items-end px-1 border-1">
               {sets && <button className="btn btn-primary p-0sides" onClick={() => setModalShow(true)}><FontAwesomeIcon icon={faPenToSquare} /></button>}
-              {onAdd && (<div className="card-footer d-flex align-items-end px-1">
+              {onAdd && (<div className="card-footer d-flex align-items-end px-1 border-1">
                 <button className="btn btn-primary" onClick={() => onAdd(id)}><FontAwesomeIcon icon={faPlus} /></button>
 
               </div>)}
@@ -42,6 +40,12 @@ export default function ExerciseListItem(props) {
           </div>
         </div>
       </div>
+
+      <div className="mb-4 shadow border-1">
+        <Modal onClose={() => setModalShow(false)} show={show} id={id} set={sets} reps={reps} />
+      </div>
+
+
     </>
   );
 }

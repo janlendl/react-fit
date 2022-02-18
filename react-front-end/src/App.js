@@ -7,6 +7,9 @@ import WorkoutList from "./components/WorkoutList";
 import About from "./components/About";
 // import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import EditWorkout from "./components/EditWorkout"
+import Footer from "./components/Footer";
+
+
 
 
 function App() {
@@ -26,6 +29,9 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+
+
+
   );
 }
 export default App;

@@ -28,7 +28,8 @@ export default function WorkoutListItem(props) {
                 sets={exercise.number_of_sets}
                 reps={exercise.number_of_reps}
               />
-            );           
+
+            );
           })}
         </div>
       </div>

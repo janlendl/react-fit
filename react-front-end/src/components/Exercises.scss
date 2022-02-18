@@ -49,6 +49,7 @@
 .exerciseCard {
 padding: 1.5rem;
 display: flex;
+border-radius: 1rem;
 }
 
 .card-text {
@@ -128,9 +129,15 @@ span, form {
   width:12rem;
 }
 
+.card-title {
+  padding-right:10px;
+}
+
 .card-footer{
   background-color: white;
   border-top: none;
+  padding-bottom: 0.25rem;
+  border-radius: 1rem;
 }
 
 .capitalize {
@@ -146,4 +153,42 @@ span, form {
 
 .w100{
   width:100%;
+}
+
+.paddingSides0{
+  padding:1rem;
+}
+
+.padding0 {
+  padding:0px;
+}
+
+.p-0sides{
+  padding-right:0px;
+  padding-left:0px;
+}
+
+.background{
+  border-radius: 15px;
+  background-color:#F3F1F5;
+}
+
+.inputborder{
+  border-color:#ced4da40
+}
+
+.card {
+border-radius: 1rem;
+}
+
+.border-1 {
+  border-radius: 1rem!important;
+}
+
+.widthModal {
+  width: 35rem!important;
+}
+
+.whitetxt{
+ color:white;
 }

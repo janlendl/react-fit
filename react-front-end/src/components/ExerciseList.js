@@ -189,7 +189,7 @@ export default function ExerciseList() {
 
     axios.put('/api/createWorkout', { workoutData })
       .then((res) => {
-        console.log(res.data)
+        console.log("Sending New Workout data to Backend: ", res.data);
       }).catch((error) => {
         console.log(error)
       });
@@ -303,15 +303,13 @@ export default function ExerciseList() {
                   <h5 className="card-title text-center capitalize">Create Your Workout</h5>
                 </div>
                 <div>
-                  <div>
-                    <input
-                      type="text"
-                      name="workout_name"
-                      id="workout_id"
-                      value={workoutName}
-                      onChange={(event) => setWorkoutName(event.target.value)}
-                      className="form-control w100" />
-                  </div>
+                  <input
+                    type="text"
+                    name="workout_name"
+                    id="workout_id"
+                    value={workoutName}
+                    onChange={(event) => setWorkoutName(event.target.value)}
+                    className="form-control w100 inputborder" />
                 </div>
                 {exerciseCart.map((exercise, index) => {
                   return (
@@ -375,4 +373,3 @@ export default function ExerciseList() {
     </>
   );
 };
-

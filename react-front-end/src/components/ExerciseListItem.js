@@ -8,10 +8,6 @@ import Modal from "./Modal";
 export default function ExerciseListItem(props) {
 
   const [show, setModalShow] = useState(false);
-
-
-console.log("modal", show)
-
   const { id, gif, name, bodyPart, target, equipment, onAdd, sets, reps } = props;
 
   return (
@@ -31,23 +27,21 @@ console.log("modal", show)
                 {sets && (<li>Sets: {sets}</li>)}
                 {reps && (<li>Reps: {reps}</li>)}
                 <div>
-                <Modal onClose={() => setModalShow(false)} show={show}/>
+                  <Modal onClose={() => setModalShow(false)} show={show} id={id} sets={sets} reps={reps} />
                 </div>
               </ul>
             </div>
             <div className="card-footer d-flex align-items-end p-0sides">
-              {sets && <button className="btn btn-primary p-0sides" onClick ={() => setModalShow(true)}><FontAwesomeIcon icon={faPenToSquare} /></button>}
+              {sets && <button className="btn btn-primary p-0sides" onClick={() => setModalShow(true)}><FontAwesomeIcon icon={faPenToSquare} /></button>}
               {onAdd && (<div className="card-footer d-flex align-items-end px-1">
                 <button className="btn btn-primary" onClick={() => onAdd(id)}><FontAwesomeIcon icon={faPlus} /></button>
-                
+
               </div>)}
             </div>
 
           </div>
         </div>
       </div>
-
-
     </>
   );
 }

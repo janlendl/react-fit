@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import "./Home.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 
 export default function Navbar(children) {
@@ -23,7 +23,10 @@ export default function Navbar(children) {
               <Link to="/workouts">Workouts</Link>
             </li>
             <li className="btn">
-              <Link to="/Signup">Signup</Link>
+              <Link to="/Signup">Log out</Link>
+            </li>
+            <li>
+              <Link to="/Profile">Alice Wonderland</Link>
             </li>
           </ul>
         </nav>
@@ -31,7 +34,6 @@ export default function Navbar(children) {
 
         <Footer />
       </header>
-
     </>
   );
 }

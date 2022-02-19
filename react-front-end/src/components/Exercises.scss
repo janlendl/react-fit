@@ -162,10 +162,41 @@ span, form {
   margin-bottom: 3rem;
 }
 
+.custom-scroll {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0.8rem;;
+  }
+
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    
+  }
+
+  ::-webkit-scrollbar-track-piece {
+
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+      // background: rgba(0,0,0,.125); 
+      background: linear-gradient(90deg, #e03694 27%, #f47253 97%);
+      border-radius: 100rem;
+  }
+    
+  /* Handle on hover rgba(0,0,0,.125); */
+  ::-webkit-scrollbar-thumb:hover {
+    // background: linear-gradient(90deg, #e03694 27%, #f47253 97%);
+    }
+}
+
 .scroll {
   overflow-y: scroll;
   height: 38rem;
 }
+
+
 
 .paddingSides0{
   padding:1rem;
@@ -204,3 +235,4 @@ border-radius: 1rem;
 .whitetxt{
  color:white;
 }
+

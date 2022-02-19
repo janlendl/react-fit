@@ -1,0 +1,64 @@
+.background {
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(224, 54, 148, 1) 27%,
+    rgba(244, 114, 83, 1) 97%
+  );
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  //flex-wrap: wrap;
+  color: black;
+  font-weight: 700;
+  font-family: Poppins, sans-serif;
+  padding-top: 3rem;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+  color: black;
+}
+
+.activity {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+.exercise {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.streak-img {
+  width: 150px;
+  height: 150px;
+}
+
+.count-img {
+  width: 150px;
+  height: 150px;
+}
+
+.minute-img {
+  width: 150px;
+  height: 150px;
+}

@@ -157,9 +157,14 @@ span, form {
 
 .stick-cart {
   position: sticky;
-  top: 16%;
-  width: 37.9rem;
+  top: 14.5%;
+  width: 32.9rem;
   margin-bottom: 3rem;
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 38rem;
 }
 
 .paddingSides0{

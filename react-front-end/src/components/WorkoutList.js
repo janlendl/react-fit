@@ -1,5 +1,6 @@
 import WorkoutListItem from "./WorkoutListItem";
 import { useState, useEffect } from 'react';
+import { motion } from "framer-motion"
 import axios from "axios";
 import "./Exercises.scss";
 import "./Workouts.scss";

@@ -390,7 +390,7 @@ export default function ExerciseList() {
             </div>
 
             <div className="col col-lg-4 rounded-2">
-              <div className="card d-grid rounded-2 stick-cart">
+              <div className="card d-grid rounded-2 stick-cart scroll">
                 <div className="card-header bg-light rounded-2">
                   <h5 className="card-title text-center capitalize">Create Your Workout</h5>
                 </div>

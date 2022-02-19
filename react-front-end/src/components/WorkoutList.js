@@ -24,12 +24,13 @@ export default function WorkoutList(props) {
 
   }, []);
 
-  const workoutList = workoutData.map((workout) => {
+  const workoutList = workoutData.map((workout, i) => {
 
     return (
 
       <WorkoutListItem
-        key={workout.workout_id}
+        key = {i}
+        id={workout.workout_id}
         workoutName={workout.workout_name}
         dateCreated={new Date(workout.created_date).toLocaleString()}
         exercises={workout.exercise}

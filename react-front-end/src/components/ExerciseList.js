@@ -16,7 +16,7 @@ const backExercises = [
     bodyPart: "back",
     equipment: "cable",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-    id: "0007",
+    id: "1",
     name: "alternate lateral pulldown",
     target: "lats"
   },
@@ -24,7 +24,7 @@ const backExercises = [
     bodyPart: "back",
     equipment: "body weight",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
-    id: "3293",
+    id: "2",
     name: "archer pull up",
     target: "lats"
   },
@@ -32,7 +32,7 @@ const backExercises = [
     bodyPart: "back",
     equipment: "leverage machine",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
-    id: "0015",
+    id: "3",
     name: "assisted parallel close grip pull-up",
     target: "lats"
   },
@@ -40,7 +40,163 @@ const backExercises = [
     bodyPart: "back",
     equipment: "leverage machine",
     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
-    id: "0017",
+    id: "4",
+    name: "assisted pull-up",
+    target: "lats"
+  }, {
+    bodyPart: "back",
+    equipment: "cable",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+    id: "5",
+    name: "alternate lateral pulldown",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "body weight",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+    id: "6",
+    name: "archer pull up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+    id: "7",
+    name: "assisted parallel close grip pull-up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+    id: "8",
+    name: "assisted pull-up",
+    target: "lats"
+  }, {
+    bodyPart: "back",
+    equipment: "cable",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+    id: "9",
+    name: "alternate lateral pulldown",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "body weight",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+    id: "10",
+    name: "archer pull up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+    id: "11",
+    name: "assisted parallel close grip pull-up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+    id: "12",
+    name: "assisted pull-up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "cable",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+    id: "13",
+    name: "alternate lateral pulldown",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "body weight",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+    id: "14",
+    name: "archer pull up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+    id: "15",
+    name: "assisted parallel close grip pull-up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+    id: "16",
+    name: "assisted pull-up",
+    target: "lats"
+  }, {
+    bodyPart: "back",
+    equipment: "cable",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+    id: "17",
+    name: "alternate lateral pulldown",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "body weight",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+    id: "18",
+    name: "archer pull up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+    id: "19",
+    name: "assisted parallel close grip pull-up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+    id: "20",
+    name: "assisted pull-up",
+    target: "lats"
+  }, {
+    bodyPart: "back",
+    equipment: "cable",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+    id: "21",
+    name: "alternate lateral pulldown",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "body weight",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+    id: "22",
+    name: "archer pull up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+    id: "23",
+    name: "assisted parallel close grip pull-up",
+    target: "lats"
+  },
+  {
+    bodyPart: "back",
+    equipment: "leverage machine",
+    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+    id: "24",
     name: "assisted pull-up",
     target: "lats"
   }
@@ -131,7 +287,7 @@ export default function ExerciseList() {
         console.log(error)
       });
 
-      reset();
+    reset();
   };
   // console.log(onSubmit)
 
@@ -170,13 +326,14 @@ export default function ExerciseList() {
 
   return (
     <>
-    
+
       <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center rounded-2">
           <div className="col col-2">
-            <h3>Categories</h3>
-            <ul className="nav flex-column">
+            {/* Inserted: position-fixed */}
+            <ul className="nav flex-column position-fixed">
+              <h3>Categories</h3>
               <li className="nav-item">
                 <Link to="/exercises/back">
                   <span className="nav-link">Back</span>
@@ -225,16 +382,18 @@ export default function ExerciseList() {
             </ul>
           </div>
 
-          <div className="col-md-auto rounded-2">
-            {exerciseItem}
-          </div>
+          {/* Inserted: 'section' tag to contain exerciseItem and exerciseCart */}
+          <section className="d-flex">
 
-          <div className="col col-lg-4 rounded-2">
-            <div className="card d-grid rounded-2">
-              <div className="card-header bg-light rounded-2">
-                <h5 className="card-title text-center capitalize">Create Your Workout</h5>
-              </div>
-              <div>
+            <div className="col-md-auto rounded-2">
+              {exerciseItem}
+            </div>
+
+            <div className="col col-lg-4 rounded-2 custom-scroll">
+              <div className="card d-grid rounded-2 stick-cart scroll">
+                <div className="card-header bg-light rounded-2">
+                  <h5 className="card-title text-center capitalize">Create Your Workout</h5>
+                </div>
                 <div>
                   <input
                     type="text"
@@ -244,54 +403,56 @@ export default function ExerciseList() {
                     onChange={(event) => setWorkoutName(event.target.value)}
                     className="form-control w100 inputborder" />
                 </div>
-              </div>
+                {exerciseCart.map((exercise, index) => {
+                  return (
 
-              {exerciseCart.map((exercise, index) => {
-                return (
+                    <div className="card-body w-0" key={exercise.id}>
+                      <h5 className="capitalize">{exercise.name}</h5>
+                      <div className="card-text flex align-items-center">
 
-                  <div className="card-body w-0" key={exercise.id}>
-                    <h5 className="capitalize">{exercise.name}</h5>
-                    <div className="card-text flex align-items-center">
-                      <div >
-                        <label htmlFor="Sets" className="form-label">Sets</label>
-                        <input
-                          type="text"
-                          pattern="[0-9]"
-                          name="sets"
-                          id='sets'
-                          value={exercise.sets}
-                          onChange={(event) => updateHandler(index, { sets: event.target.value })}
-                          className="form-control" />
+                        <div>
+                          <label htmlFor="Sets" className="form-label">Sets</label>
+                          <input
+                            type="text"
+                            pattern="[0-9]"
+                            name="sets"
+                            id='sets'
+                            value={exercise.sets}
+                            onChange={(event) => updateHandler(index, { sets: event.target.value })}
+                            className="form-control" />
+                        </div>
+
+                        <div>
+                          <label htmlFor="Sets" className="form-label">Reps</label>
+                          <input
+                            type="text"
+                            pattern="[0-9]"
+                            name="reps"
+                            id="reps"
+                            value={exercise.reps}
+                            onChange={(event) => updateHandler(index, { reps: event.target.value })}
+                            className="form-control" />
+                        </div>
+
+                        <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faMinus} /></button>
                       </div>
-                      <div>
-                        <label htmlFor="Sets" className="form-label">Reps</label>
-                        <input
-                          type="text"
-                          pattern="[0-9]"
-                          name="reps"
-                          id="reps"
-                          value={exercise.reps}
-                          onChange={(event) => updateHandler(index, { reps: event.target.value })}
-                          className="form-control" />
-                      </div>
-                      <button className="btn btn-primary" onClick={() => onDelete(exercise)}><FontAwesomeIcon icon={faMinus} /></button>
                     </div>
-                    <div className="d-flex card-text justify-content-end">
-                    </div>
+
+                  );
+                })}
+
+                <div className="card-footer d-flex justify-content-between bg-light rounded-2">
+                  <div>
+                    <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                   </div>
-
-                );
-              })}
-
-              <div className="card-footer d-flex justify-content-between bg-light rounded-2">
-                <div>
-                  <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
+                  <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
-              </div>
 
+              </div>
             </div>
-          </div>
+
+          </section >
+
         </div>
       </div>
 

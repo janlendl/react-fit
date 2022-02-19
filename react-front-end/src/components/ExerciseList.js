@@ -208,6 +208,7 @@ export default function ExerciseList() {
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
   const [workoutName, setWorkoutName] = useState("Add Workout Name");
+  
   // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
@@ -263,13 +264,6 @@ export default function ExerciseList() {
     setExerciseCart([]);
     setWorkoutName("Add Workout Name");
   };
-
-  //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
-  // const onSave = (event) => {
-  //    event.preventDefault();
-  //   console.log("submission prevented");
-  //  };
-  //===============================================
 
   const onSubmit = () => {
     const date = new Date().toLocaleDateString('en-CA');

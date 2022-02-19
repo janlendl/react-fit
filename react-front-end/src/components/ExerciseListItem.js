@@ -42,7 +42,7 @@ export default function ExerciseListItem(props) {
       </div>
 
       <div className="mb-4 shadow border-1">
-        <Modal onClose={() => setModalShow(false)} show={show} id={id} set={sets} reps={reps} />
+        <Modal onClose={() => setModalShow(false)} show={show} id={id} sets={sets} reps={reps} />
       </div>
 
 

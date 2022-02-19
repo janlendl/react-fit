@@ -163,11 +163,10 @@ span, form {
 }
 
 .custom-scroll {
-  /* width */
+  /* Width */
   ::-webkit-scrollbar {
     width: 0.8rem;;
   }
-
 
   /* Track */
   ::-webkit-scrollbar-track {
@@ -175,19 +174,18 @@ span, form {
   }
 
   ::-webkit-scrollbar-track-piece {
-
+    background: #f8f9fa;
+    border-radius: 100rem;
   }
-
+  
   /* Handle */
   ::-webkit-scrollbar-thumb {
-      // background: rgba(0,0,0,.125); 
-      background: linear-gradient(90deg, #e03694 27%, #f47253 97%);
+    background: linear-gradient(90deg, #e03694 27%, #f47253 97%);
       border-radius: 100rem;
   }
     
-  /* Handle on hover rgba(0,0,0,.125); */
+  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    // background: linear-gradient(90deg, #e03694 27%, #f47253 97%);
     }
 }
 

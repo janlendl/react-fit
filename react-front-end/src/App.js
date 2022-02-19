@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 // import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import EditWorkout from "./components/EditWorkout";
 import Footer from "./components/Footer";
+import Dialogue from "./components/Dialogue";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           {/* <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/> */}
           <Route path="/workouts" element={<WorkoutList />} />
           <Route path="/profile" element={<Profile />} />
+
+          <Route path="/Dialogue" element={<Dialogue />} />
         </Route>
       </Routes>
     </BrowserRouter>

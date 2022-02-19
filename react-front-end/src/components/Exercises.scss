@@ -169,9 +169,8 @@ span, form {
   }
 
   /* Track */
-  ::-webkit-scrollbar-track {
-    
-  }
+  // ::-webkit-scrollbar-track { 
+  // }
 
   ::-webkit-scrollbar-track-piece {
     background: #f8f9fa;
@@ -185,8 +184,8 @@ span, form {
   }
     
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    }
+  // ::-webkit-scrollbar-thumb:hover {
+  //   }
 }
 
 .scroll {

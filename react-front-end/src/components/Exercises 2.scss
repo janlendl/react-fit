@@ -1,0 +1,235 @@
+.noMrg {
+  margin:0px;
+}
+
+.categoriesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  }
+
+.workoutCategories { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 20%;
+  height:125px;
+  margin: 0 0.75% 0.9375em;
+  background-color: white;
+  color:black;
+  font-weight: 700;
+}
+
+.workoutContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: black;
+}
+
+
+.exerciseContainer {
+  display: flex;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.exerciseInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -4rem;
+  margin-top: 3rem;
+}
+
+
+.exerciseCard {
+padding: 1.5rem;
+display: flex;
+border-radius: 1rem;
+}
+
+.card-text {
+  list-style-type: none; /* Remove bullets */
+  padding: 0rem;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.flex {
+  display: flex;
+}
+
+
+.ml-3{
+  margin-left: .75rem;
+}
+.h-7 {
+  height: 1.75rem;
+}
+
+.py-6 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.flow-root{
+  display: flow-root;
+}
+.w-0{
+  width: 100%!important;
+}
+.h-24 {
+  height: 4rem;
+}
+
+.sidebar {
+  display:flex;
+  align-items: center;
+  color:black;
+  min-width:225px;
+  margin-top: 38px;
+  height:100vh;
+  background:white;
+  border-radius: 10px;
+  z-index:1;
+}
+.topWrapper {
+  height:50px;
+  width:100%;
+  background: linear-gradient(90deg, rgba(224,54,148,1) 27%, rgba(244,114,83,1) 97%);
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.boxstyle {
+  padding:10px;
+  background:#fff;
+  border-radius: 14px;
+  box-sizing: border-box;
+  border: 1px solid #e8eefe;
+}
+
+span, form {
+  color: black
+}
+
+
+.card-body{
+  width:12rem;
+}
+
+.card-title {
+  padding-right:10px;
+}
+
+.card-footer{
+  background-color: white;
+  border-top: none;
+  padding-bottom: 0.25rem;
+  border-radius: 1rem;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+.form-control{
+  width:50%;
+}
+
+.bordergray {
+  border-bottom: rgb(0,0,0.125);
+}
+
+.w100{
+  width:100%;
+}
+
+.stick-cart {
+  position: sticky;
+  top: 14.5%;
+  width: 32.9rem;
+  margin-bottom: 3rem;
+}
+
+.custom-scroll {
+  /* Width */
+  ::-webkit-scrollbar {
+    width: 0.8rem;;
+  }
+
+  /* Track */
+  // ::-webkit-scrollbar-track { 
+  // }
+
+  ::-webkit-scrollbar-track-piece {
+    background: #f8f9fa;
+    border-radius: 100rem;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #e03694 27%, #f47253 97%);
+      border-radius: 100rem;
+  }
+    
+  /* Handle on hover */
+  // ::-webkit-scrollbar-thumb:hover {
+  //   }
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 38rem;
+}
+
+
+
+.paddingSides0{
+  padding:1rem;
+}
+
+.padding0 {
+  padding:0px;
+}
+
+.p-0sides{
+  padding-right:0px;
+  padding-left:0px;
+}
+
+.background{
+  border-radius: 15px;
+  background-color:#F3F1F5;
+}
+
+.inputborder{
+  border-color:#ced4da40
+}
+
+.card {
+border-radius: 1rem;
+}
+
+.border-1 {
+  border-radius: 1rem!important;
+}
+
+.widthModal {
+  width: 35rem!important;
+}
+
+.whitetxt{
+ color:white;
+}
+

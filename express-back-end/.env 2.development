@@ -1,0 +1,5 @@
+PGHOST=localhost
+PGUSER=labber
+PGDATABASE=fitnessdb
+PGPASSWORD=labber
+PGPORT=5432

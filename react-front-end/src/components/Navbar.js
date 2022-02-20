@@ -23,7 +23,7 @@ export default function Navbar(children) {
               <Link to="/workouts">Workouts</Link>
             </li>
             <li className="btn">
-              <Link to="/Signup">Log out</Link>
+              <Link to="/SignUp">Log out</Link>
             </li>
             <li>
               <Link to="/Profile">Alice Wonderland</Link>

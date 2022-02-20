@@ -42,7 +42,7 @@ export default function WorkoutList(props) {
     <>
       <div className="topWrapper"></div>
       <div className="container-lg">
-        <div className="row noMrg">
+        <div className="row m-0">
           <div className="col-auto d-flex flex-wrap">
             <div className="card-text d-flex">
               {workoutList}

@@ -7,7 +7,7 @@ export default function WorkoutListItem(props) {
 
   return (
     <>
-      <div className="container background margin-2">
+      <div className="container background  m-4">
         <div className="card-header text-center">
           <h2 className="capitalize">{props.workoutName}</h2>
           <sm>Date Created: {props.dateCreated}</sm>

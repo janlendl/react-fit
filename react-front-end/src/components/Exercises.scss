@@ -155,6 +155,46 @@ span, form {
   width:100%;
 }
 
+.stick-cart {
+  position: sticky;
+  top: 14.5%;
+  width: 32.9rem;
+  margin-bottom: 3rem;
+}
+
+.custom-scroll {
+  /* Width */
+  ::-webkit-scrollbar {
+    width: 0.8rem;;
+  }
+
+  /* Track */
+  // ::-webkit-scrollbar-track { 
+  // }
+
+  ::-webkit-scrollbar-track-piece {
+    background: #f8f9fa;
+    border-radius: 100rem;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #e03694 27%, #f47253 97%);
+      border-radius: 100rem;
+  }
+    
+  /* Handle on hover */
+  // ::-webkit-scrollbar-thumb:hover {
+  //   }
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 38rem;
+}
+
+
+
 .paddingSides0{
   padding:1rem;
 }

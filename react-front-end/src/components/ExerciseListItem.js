@@ -28,7 +28,7 @@ export default function ExerciseListItem(props) {
                 <li>Equipment: {equipment}</li>
                 {sets && (<li>Sets: {sets}</li>)}
                 {reps && (<li>Reps: {reps}</li>)}
-               
+
               </ul>
             </div>
             <div className="d-flex align-items-end p-1 border-1">
@@ -44,7 +44,15 @@ export default function ExerciseListItem(props) {
       </div>
 
       <div className="mb-4 shadow border-1">
-        <Modal onClose={() => setModalShow(false)} show={show} id={id} sets={sets} reps={reps} setSets={setSets} setReps={setReps}/>
+        <Modal onClose={() => setModalShow(false)}
+          show={show}
+          setModalShow={setModalShow}
+          id={id}
+          sets={sets}
+          reps={reps}
+          setSets={setSets}
+          setReps={setReps}
+           />
       </div>
 
 

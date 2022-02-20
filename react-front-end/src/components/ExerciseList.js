@@ -209,6 +209,7 @@ export default function ExerciseList() {
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
   const [workoutName, setWorkoutName] = useState("Add Workout Name");
+  const [showDialogue, setShowDialogue] = useState(false);
   
   // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
@@ -438,8 +439,8 @@ export default function ExerciseList() {
 
                 <div className="card-footer d-flex justify-content-between bg-light rounded-2">
                   <div>
-                    <Dialogue show={ false } />
-                    <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
+                    <Dialogue show={ showDialogue } />
+                    <button type="submit" className="btn btn-primary" onClick={() => {setShowDialogue(true)}} ><FontAwesomeIcon icon={faHeart} /></button>
                   </div>
                   <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
                 </div>

@@ -10,11 +10,6 @@ export default function Dialogue({ show, title, description, cancel, confirm, ca
 
     <>
 
-      {/* <div className="mt-10 text-center">
-        <button className="btn">Delete Task</button>
-        <button className="btn">Delete User</button>
-      </div> */}
-
       <div className="overlay">
         <div className="dialog">
           <div className="dialog__content">
@@ -23,9 +18,7 @@ export default function Dialogue({ show, title, description, cancel, confirm, ca
               {description}
             </p>
           </div>
-
           <hr />
-
           <div className="dialog__footer">
             <button onClick={cancel} className="dialog__cancel">{cancelMessage}</button>
             <button onClick={confirm} className="dialog__confirm">{confirmMessage}</button>

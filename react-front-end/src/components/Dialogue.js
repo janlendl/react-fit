@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import "./Dialogue.scss";
 
 export default function Dialogue({ show }) {

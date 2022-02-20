@@ -9,7 +9,7 @@ module.exports = db => {
   });
 
   // update exercise sets and reps
-  router.post("/editExercise/", (req, res) => {
+  router.put("/editExercise/", (req, res) => {
     console.log("Data passed from Front-End: ", req.body)
     const updateExercise = req.body.exerciseData;
     const sets = updateExercise.sets;

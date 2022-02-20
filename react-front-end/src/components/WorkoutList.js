@@ -16,7 +16,9 @@ export default function WorkoutList(props) {
   })
 
   const [workoutData, setworkoutData] = useState([]);
+  const [isUpdated, setisUpdated] = useState(null);
 
+  const idRef = useRef();
 
   // ----- CALL API, DEPENDENT ON CATEGORY (URL) CHANGE -----
   useEffect(() => {
@@ -32,15 +34,39 @@ export default function WorkoutList(props) {
 
   }, []);
 
-  const workoutList = workoutData.map((workout) => {
+  useEffect(() => {
+
+    axios.delete(`/api/deleteWorkout/${isUpdated}`)
+      .then(() => {
+        console.log("Sending data for deletion")
+        let newState = workoutData.filter((w) => w.workout_id !== isUpdated);
+        setworkoutData(newState);
+      })
+      .catch((error) => {
+        console.log("Error: ", error)
+      });
+
+  }, [isUpdated]);
+
+
+  const onDelete = (id) => {
+    idRef.current = id;
+    console.log("Deleting Workout ID: ", idRef)
+
+    setisUpdated(id);
+  };
+
+  const workoutList = workoutData.map((workout, i) => {
 
     return (
 
       <WorkoutListItem
-        key={workout.workout_id}
+        key={i}
+        id={workout.workout_id}
         workoutName={workout.workout_name}
         dateCreated={new Date(workout.created_date).toLocaleString()}
         exercises={workout.exercise}
+        onDelete={onDelete}
       />
 
     );
@@ -68,4 +94,6 @@ export default function WorkoutList(props) {
       </motion.div>
     </>
   );
+
+
 }

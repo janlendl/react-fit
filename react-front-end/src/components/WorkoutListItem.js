@@ -1,4 +1,8 @@
 import ExerciseListItem from './ExerciseListItem';
+import Dialogue from "./Dialogue";
+
+import { useEffect, useState } from 'react';
+
 import './WorkoutListItem.scss';
 import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,12 +10,23 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function WorkoutListItem(props) {
 
+console.log(props)
+
+
   const workout = props;
 
   return (
     <>
       <div className="container background margin-2">
-        <button className="btn btn-primary m-1 float-right" onClick={() => props.onDelete(workout.id)}><FontAwesomeIcon icon={faTrash} /></button>
+      <Dialogue show={props.showDeleteWorkout}
+      title="Delete Workout?"
+      description="Are you sure you want to delete this Workout?"
+      confirm={() => {props.onDelete(workout.id)}}
+      confirmMessage="Yes"
+      onCancel={() => {props.onCancel()}}
+      cancelMessage="No"
+      />
+        <button className="btn btn-primary m-1 float-right" onClick={() => { props.setShowDeleteWorkout(true)}}><FontAwesomeIcon icon={faTrash} /></button>
         <div className="card-header text-center">
           <h2 className="capitalize">{workout.workoutName}</h2>
           <p>Date Created: {workout.dateCreated}</p>

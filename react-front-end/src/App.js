@@ -9,7 +9,6 @@ import Profile from "./components/Profile";
 // import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import EditWorkout from "./components/EditWorkout";
 import Footer from "./components/Footer";
-import Dialogue from "./components/Dialogue";
 
 function App() {
   return (
@@ -19,13 +18,10 @@ function App() {
           <Route index element={<Categories />} />
           <Route path="/about" element={<About />} />
           <Route path="/exercises/:category" element={<ExerciseList />} />
-
           <Route path="/editworkout" element={<EditWorkout />} />
           {/* <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/> */}
           <Route path="/workouts" element={<WorkoutList />} />
           <Route path="/profile" element={<Profile />} />
-
-          <Route path="/Dialogue" element={<Dialogue />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -230,10 +230,12 @@ export default function ExerciseList() {
           </div>
 
           <div className="col col-lg-4 rounded-2">
-            <div className="card d-grid rounded-2">
-              <div className="card-header bg-light rounded-2">
-                <h5 className="card-title text-center capitalize">Create Your Workout</h5>
+            <div className="card d-grid rounded-2 border-1 bg-light">
+              <div className="bg-light">
               </div>
+                <h5 className="card-title text-center capitalize m-2">Create Your Workout</h5>
+                {/* <div className="card-header bg-light">
+              </div> */}
               <div>
                 <div>
                   <input
@@ -249,7 +251,7 @@ export default function ExerciseList() {
               {exerciseCart.map((exercise, index) => {
                 return (
 
-                  <div className="card-body w-0" key={exercise.id}>
+                  <div className="card-body w-0 " key={exercise.id}>
                     <h5 className="capitalize">{exercise.name}</h5>
                     <div className="card-text flex align-items-center">
                       <div >

@@ -9,13 +9,21 @@ import Profile from "./components/Profile";
 // import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import EditWorkout from "./components/EditWorkout";
 import Footer from "./components/Footer";
+import Signup from "./components/Singup";
+
+
+
 
 function App() {
+
+
   return (
+
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navbar />}>
+        <Route path="/" element={<Navbar/>}>
           <Route index element={<Categories />} />
+          <Route path="/logout" element={<Signup/>}/>
           <Route path="/about" element={<About />} />
           <Route path="/exercises/:category" element={<ExerciseList />} />
 

@@ -12,11 +12,14 @@ import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
 
 function App() {
+
+
   return (
+
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navbar />}>
-          <Route index element={<Categories />} />      
+        <Route path="/" element={<Navbar/>}>
+          <Route index element={<Categories />} />
           <Route path="/about" element={<About />} />
           <Route path="/exercises/:category" element={<ExerciseList />} />
           <Route path="/editworkout" element={<EditWorkout />} />

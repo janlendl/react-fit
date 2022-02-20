@@ -3,6 +3,7 @@ nav {
   position: sticky;
   top: 0;
   z-index:100;
+  
 }
 
 .header {
@@ -28,16 +29,18 @@ nav {
   padding: 0;
   display: flex;
   align-items: baseline;
+  
 }
 
 .header li {
   margin-left: 1rem;
+  
 }
 
 .header a {
   text-decoration: none;
   font-size: 1rem;
-  color: black;
+  color: purple;
 }
 
 .header a:hover,
@@ -82,12 +85,33 @@ nav {
   bottom: 0;
   width: 100%;
   height:40px;
-  background-color:whitesmoke;
+  border-top: 5px rgb(255, 255, 255) solid;
+  background: linear-gradient(270deg, #e03694 -24.77%, #f47253 95.41%);
   color: white;
   text-align: center;
   z-index:100;
 }
 
+.text_color {
+  color:white;
+}
+
+.purple{
+  color: purple;
+}
+
+
+.footer-white {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height:40px;
+  background:white;
+  color: purple;
+  text-align: center;
+  z-index:100;
+}
 
 
 

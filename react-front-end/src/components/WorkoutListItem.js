@@ -2,7 +2,6 @@ import './WorkoutListItem.scss';
 import ExerciseListItem from './ExerciseListItem';
 import "./Exercises.scss";
 
-
 export default function WorkoutListItem(props) {
 
   return (
@@ -13,8 +12,8 @@ export default function WorkoutListItem(props) {
           <sm>Date Created: {props.dateCreated}</sm>
         </div>
 
-        <div className="card-text align-center px-4">
-          {props.exercises.map((exercise,i) => {
+        <div className="card-text align-center px-4 border-1">
+          {props.exercises.map((exercise, i) => {
 
             return (
               <ExerciseListItem

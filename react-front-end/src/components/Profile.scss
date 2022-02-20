@@ -1,4 +1,12 @@
 
+.topWrapper {
+  height:50px;
+  width:100%;
+  background: linear-gradient(90deg, rgba(224,54,148,1) 27%, rgba(244,114,83,1) 97%);
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
 .profile {
   display: flex;
@@ -14,8 +22,8 @@
 
 .user-image {
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
 }
 
 .stats {
@@ -30,6 +38,7 @@
   flex-direction: column;
   align-items: center;
   color: black;
+  padding:15px;
 }
 
 .exercise {
@@ -37,17 +46,47 @@
   justify-content: space-evenly;
 }
 
-.streak-img {
-  width: 150px;
-  height: 150px;
+// .streak-img {
+//   width: 150px;
+//   height: 150px;
+// }
+
+// .count-img {
+//   width: 150px;
+//   height: 150px;
+// }
+
+.iconSize {
+  width: 80px;
+  height: 80px;
 }
 
-.count-img {
-  width: 150px;
-  height: 150px;
+.faUserClock {
+  color:darkslategrey;
 }
 
-.minute-img {
-  width: 150px;
-  height: 150px;
+.faFire {
+  color:  rgb(243, 128, 33)
 }
+
+.faDumbbell{
+  color:gray;
+}
+
+.hrLine{
+  height:5px;
+  width:100%;
+  background: linear-gradient(90deg, rgba(224,54,148,1) 27%, rgba(244,114,83,1) 97%);
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.txtColor{
+  color:white;
+}
+
+.mrg-bottom{
+  margin-bottom: 50px;
+}
+

@@ -1,11 +1,19 @@
 import WorkoutListItem from "./WorkoutListItem";
 import { useState, useEffect, useRef } from 'react';
+import { motion } from "framer-motion"
 import axios from "axios";
 import "./Exercises.scss";
 import "./Workouts.scss";
 
 
+
 export default function WorkoutList(props) {
+  const [width, setWidth] = useState(0);
+  const carousel = useRef();
+
+  useEffect(()=> {
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+  })
 
   const [workoutData, setworkoutData] = useState([]);
   const [isUpdated, setisUpdated] = useState(null);
@@ -66,16 +74,24 @@ export default function WorkoutList(props) {
 
   return (
     <>
-      <div className="topWrapper"></div>
-      <div className="container-lg">
+     <div className="topWrapper"></div>
+    <motion.div ref={carousel} className="carousel" whileTap={{cursor:'grabbing'}}>
+    <motion.div drag="x"
+          dragConstraints={{right: 0, left: -width}}
+          className="inner-carousel">
+     
+      <motion.div className="container-lg">
         <div className="row noMrg">
           <div className="col-auto d-flex flex-wrap">
-            <div className="card-text d-flex">
+            <div className="card-text d-flex mb-4">
               {workoutList}
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
+
+      </motion.div>
+      </motion.div>
     </>
   );
 

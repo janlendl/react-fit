@@ -4,7 +4,6 @@ import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-
 export default function WorkoutListItem(props) {
 
   const workout = props;
@@ -18,8 +17,8 @@ export default function WorkoutListItem(props) {
           <p>Date Created: {workout.dateCreated}</p>
         </div>
 
-        <div className="card-text align-center px-4">
-          {workout.exercises.map((exercise, i) => {
+        <div className="card-text align-center px-4 border-1">
+          {props.exercises.map((exercise, i) => {
 
             return (
               <ExerciseListItem

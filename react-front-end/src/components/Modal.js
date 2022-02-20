@@ -16,7 +16,7 @@ const Modal = props => {
           <button className="btn-sm" onClick={props.onClose}><FontAwesomeIcon icon={faXmark} /></button>
         </div>
         <div className="card-body px-0">
-          {<EditWorkout id={props.id} sets={props.sets} reps={props.reps} />}
+          {<EditWorkout id={props.id} sets={props.sets} reps={props.reps} setSets={props.setSets} setReps={props.setReps}/>}
 
         </div>
         {/* <div className="modal-footer border-1">

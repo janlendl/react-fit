@@ -61,7 +61,7 @@ export default function WorkoutList(props) {
   };
 
   const onCancel = () => {
-    props.setShowDeleteWorkout(false);
+    setShowDeleteWorkout(false);
   }
   
   const workoutList = workoutData.map((workout, i) => {

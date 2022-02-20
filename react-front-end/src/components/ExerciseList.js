@@ -210,7 +210,7 @@ export default function ExerciseList() {
   const [exerciseCart, setExerciseCart] = useState([]);
   const [workoutName, setWorkoutName] = useState("Add Workout Name");
   const [showDialogue, setShowDialogue] = useState(false);
-  
+
   // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
@@ -265,7 +265,12 @@ export default function ExerciseList() {
   const reset = () => {
     setExerciseCart([]);
     setWorkoutName("Add Workout Name");
+    setShowDialogue(false);
   };
+
+  const cancel = () => {
+    setShowDialogue(false);
+  }
 
   const onSubmit = () => {
     const date = new Date().toLocaleDateString('en-CA');
@@ -286,7 +291,6 @@ export default function ExerciseList() {
     reset();
   };
   // console.log(onSubmit)
-
 
   const onDelete = (exercise) => {
     setExerciseCart(
@@ -439,10 +443,23 @@ export default function ExerciseList() {
 
                 <div className="card-footer d-flex justify-content-between bg-light rounded-2">
                   <div>
-                    <Dialogue show={ showDialogue } />
-                    <button type="submit" className="btn btn-primary" onClick={() => {setShowDialogue(true)}} ><FontAwesomeIcon icon={faHeart} /></button>
+                    <Dialogue show={showDialogue}
+                      title="Worked Saved!"
+                      description="Visit the Workout Page to Edit Sets and Reps!"
+                      confirm={onSubmit}
+                      confirmMessage="close" />
+                    <button type="submit" className="btn btn-primary" onClick={() => { setShowDialogue(true) }} ><FontAwesomeIcon icon={faHeart} /></button>
                   </div>
-                  <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
+
+                  <Dialogue show={showDialogue}
+                    title="Delete Workout?"
+                    description="Are you sure you want to delete this Workout?"
+                    confirm={reset}
+                    confirmMessage="Yes"
+                    cancel={cancel}
+                    cancelMessage="No"
+                  />
+                  <button type="submit" className="btn btn-primary" onClick={() => { setShowDialogue(true) }}><FontAwesomeIcon icon={faTrash} /></button>
                 </div>
 
               </div>

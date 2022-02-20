@@ -208,7 +208,7 @@ export default function ExerciseList() {
 
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
-  const [workoutName, setWorkoutName] = useState("Add Workout Name");
+  const [workoutName, setWorkoutName] = useState("");
   const [showSaveDialogue, setShowSaveDialogue] = useState(false);
   const [showDeleteDialogue, setShowDeleteDialogue] = useState(false);
 
@@ -403,6 +403,7 @@ export default function ExerciseList() {
                     name="workout_name"
                     id="workout_id"
                     value={workoutName}
+                    placeholder="Add Workout Name"
                     onChange={(event) => setWorkoutName(event.target.value)}
                     className="form-control w100 inputborder" />
                 </div>

@@ -50,14 +50,20 @@ export default function WorkoutList(props) {
     }
   }, [isUpdated]);
 
+  const [showDeleteWorkout, setShowDeleteWorkout] = useState(false);
 
   const onDelete = (id) => {
     idRef.current = id;
     console.log("Deleting Workout ID: ", idRef)
 
     setisUpdated(id);
+    setShowDeleteWorkout(false);
   };
 
+  const onCancel = () => {
+    setShowDeleteWorkout(false);
+  }
+  
   const workoutList = workoutData.map((workout, i) => {
 
     return (
@@ -69,6 +75,9 @@ export default function WorkoutList(props) {
         dateCreated={new Date(workout.created_date).toLocaleString()}
         exercises={workout.exercise}
         onDelete={onDelete}
+        onCancel={onCancel}
+        showDeleteWorkout={showDeleteWorkout}
+        setShowDeleteWorkout={setShowDeleteWorkout}
       />
 
     );

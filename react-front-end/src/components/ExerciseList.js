@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import ExerciseListItem from "./ExerciseListItem";
+import Dialogue from "./Dialogue";
 
 import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -207,7 +208,10 @@ export default function ExerciseList() {
 
   const [exerciseData, setExerciseData] = useState([]);
   const [exerciseCart, setExerciseCart] = useState([]);
-  const [workoutName, setWorkoutName] = useState("Add Workout Name");
+  const [workoutName, setWorkoutName] = useState("");
+  const [showSaveDialogue, setShowSaveDialogue] = useState(false);
+  const [showDeleteDialogue, setShowDeleteDialogue] = useState(false);
+
   // ----- API REQUEST SETTINGS -----
   // let apiExerciseByBodyPart = {
   //   method: 'GET',
@@ -262,14 +266,14 @@ export default function ExerciseList() {
   const reset = () => {
     setExerciseCart([]);
     setWorkoutName("Add Workout Name");
+    setShowSaveDialogue(false);
+    setShowDeleteDialogue(false);
   };
 
-  //=====FOR REVIEW BY GABY IF KEEP OR DELETE======
-  // const onSave = (event) => {
-  //    event.preventDefault();
-  //   console.log("submission prevented");
-  //  };
-  //===============================================
+  const cancel = () => {
+    setShowSaveDialogue(false);
+    setShowDeleteDialogue(false);
+  }
 
   const onSubmit = () => {
     const date = new Date().toLocaleDateString('en-CA');
@@ -290,7 +294,6 @@ export default function ExerciseList() {
     reset();
   };
   // console.log(onSubmit)
-
 
   const onDelete = (exercise) => {
     setExerciseCart(
@@ -400,6 +403,7 @@ export default function ExerciseList() {
                     name="workout_name"
                     id="workout_id"
                     value={workoutName}
+                    placeholder="Add Workout Name"
                     onChange={(event) => setWorkoutName(event.target.value)}
                     className="form-control w100 inputborder" />
                 </div>
@@ -443,9 +447,24 @@ export default function ExerciseList() {
 
                 <div className="card-footer d-flex justify-content-between bg-light rounded-2">
                   <div>
-                    <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
+                    <Dialogue show={showSaveDialogue}
+                      title="Workout Saved!"
+                      description="Visit the Workout Page to Edit Sets and Reps!"
+                      confirm={onSubmit}
+                      confirmMessage="close" />
+                    <button type="submit" className="btn btn-primary" onClick={() => { setShowSaveDialogue(true) }} ><FontAwesomeIcon icon={faHeart} /></button>
                   </div>
-                  <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>
+
+                  <Dialogue show={showDeleteDialogue}
+                    title="Delete Workout?"
+                    description="Are you sure you want to delete this Workout?"
+                    confirm={reset}
+                    confirmMessage="Yes"
+                    cancel={cancel}
+                    cancelMessage="No"
+                  />
+
+                  <button type="submit" className="btn btn-primary" onClick={() => { setShowDeleteDialogue(true) }}><FontAwesomeIcon icon={faTrash} /></button>
                 </div>
 
               </div>

@@ -26,7 +26,6 @@ function App() {
           <Route path="/logout" element={<Signup/>}/>
           <Route path="/about" element={<About />} />
           <Route path="/exercises/:category" element={<ExerciseList />} />
-
           <Route path="/editworkout" element={<EditWorkout />} />
           {/* <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/> */}
           <Route path="/workouts" element={<WorkoutList />} />

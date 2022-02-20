@@ -1,7 +1,7 @@
 import ExerciseListItem from './ExerciseListItem';
 import Dialogue from "./Dialogue";
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import './WorkoutListItem.scss';
 import "./Exercises.scss";
@@ -10,8 +10,8 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function WorkoutListItem(props) {
 
-console.log(props)
 
+console.log(props.showDeleteWorkout)
 
   const workout = props;
 
@@ -23,7 +23,7 @@ console.log(props)
       description="Are you sure you want to delete this Workout?"
       confirm={() => {props.onDelete(workout.id)}}
       confirmMessage="Yes"
-      onCancel={() => {props.onCancel()}}
+      cancel={() => {props.onCancel()}}
       cancelMessage="No"
       />
         <button className="btn btn-primary m-1 float-right" onClick={() => { props.setShowDeleteWorkout(true)}}><FontAwesomeIcon icon={faTrash} /></button>

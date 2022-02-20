@@ -8,7 +8,6 @@ import About from "./components/About";
 import Profile from "./components/Profile";
 // import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import EditWorkout from "./components/EditWorkout";
-import Footer from "./components/Footer";
 import Signup from "./components/Singup";
 
 
@@ -26,7 +25,6 @@ function App() {
           <Route path="/logout" element={<Signup/>}/>
           <Route path="/about" element={<About />} />
           <Route path="/exercises/:category" element={<ExerciseList />} />
-
           <Route path="/editworkout" element={<EditWorkout />} />
           {/* <Route path="/workoutListsItems" element={<WorkoutsListsItems/>}/> */}
           <Route path="/workouts" element={<WorkoutList />} />

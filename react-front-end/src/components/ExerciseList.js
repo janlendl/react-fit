@@ -267,6 +267,7 @@ export default function ExerciseList() {
     setExerciseCart([]);
     setWorkoutName("Add Workout Name");
     setShowSaveDialogue(false);
+    setShowDeleteDialogue(false);
   };
 
   const cancel = () => {
@@ -446,7 +447,7 @@ export default function ExerciseList() {
                 <div className="card-footer d-flex justify-content-between bg-light rounded-2">
                   <div>
                     <Dialogue show={showSaveDialogue}
-                      title="Worked Saved!"
+                      title="Workout Saved!"
                       description="Visit the Workout Page to Edit Sets and Reps!"
                       confirm={onSubmit}
                       confirmMessage="close" />

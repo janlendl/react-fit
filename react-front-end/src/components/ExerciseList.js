@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import ExerciseListItem from "./ExerciseListItem";
+import Dialogue from "./Dialogue";
 
 import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -437,6 +438,7 @@ export default function ExerciseList() {
 
                 <div className="card-footer d-flex justify-content-between bg-light rounded-2">
                   <div>
+                    <Dialogue show={ false } />
                     <button type="submit" className="btn btn-primary" onClick={onSubmit} ><FontAwesomeIcon icon={faHeart} /></button>
                   </div>
                   <button type="submit" className="btn btn-primary" onClick={reset}><FontAwesomeIcon icon={faTrash} /></button>

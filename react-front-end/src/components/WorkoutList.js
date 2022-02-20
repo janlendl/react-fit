@@ -1,11 +1,12 @@
 import WorkoutListItem from "./WorkoutListItem";
+import Dialogue from "./Dialogue";
+
 import { useState, useEffect, useRef } from 'react';
 import { motion } from "framer-motion"
 import axios from "axios";
+
 import "./Exercises.scss";
 import "./Workouts.scss";
-
-
 
 export default function WorkoutList(props) {
   const [width, setWidth] = useState(0);
@@ -51,6 +52,8 @@ export default function WorkoutList(props) {
   }, [isUpdated]);
 
   const [showDeleteWorkout, setShowDeleteWorkout] = useState(false);
+  // Update workout state from child
+  const [workoutID, setWorkoutID] = useState("");
 
   const onDelete = (id) => {
     idRef.current = id;
@@ -63,7 +66,7 @@ export default function WorkoutList(props) {
   const onCancel = () => {
     setShowDeleteWorkout(false);
   }
-  
+
   const workoutList = workoutData.map((workout, i) => {
 
     return (
@@ -74,10 +77,8 @@ export default function WorkoutList(props) {
         workoutName={workout.workout_name}
         dateCreated={new Date(workout.created_date).toLocaleString()}
         exercises={workout.exercise}
-        onDelete={onDelete}
-        onCancel={onCancel}
-        showDeleteWorkout={showDeleteWorkout}
         setShowDeleteWorkout={setShowDeleteWorkout}
+        setWorkoutID={setWorkoutID}
       />
 
     );
@@ -86,6 +87,16 @@ export default function WorkoutList(props) {
   return (
     <>
       <div className="topWrapper"></div>
+
+      <Dialogue show={showDeleteWorkout}
+        title="Delete Workout?"
+        description="Are you sure you want to delete this Workout?"
+        confirm={() => { onDelete(workoutID) }}
+        confirmMessage="Yes"
+        cancel={() => { onCancel() }}
+        cancelMessage="No"
+      />
+
       <motion.div ref={carousel} className="carousel" whileTap={{ cursor: 'grabbing' }}>
         <motion.div drag="x"
           dragConstraints={{ right: 0, left: -width }}

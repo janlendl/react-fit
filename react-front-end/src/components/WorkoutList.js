@@ -13,7 +13,7 @@ export default function WorkoutList(props) {
 
   useEffect(()=> {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-  })
+  }, [])
 
   const [workoutData, setworkoutData] = useState([]);
   const [isUpdated, setisUpdated] = useState(null);

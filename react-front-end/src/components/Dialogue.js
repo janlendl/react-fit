@@ -1,6 +1,6 @@
 import "./Dialogue.scss";
 
-export default function Dialogue({ show }) {
+export default function Dialogue({ show, title, description, cancel, confirm, cancelMessage, confirmMessage }) {
 
   if (!show) {
     return <></>
@@ -18,17 +18,17 @@ export default function Dialogue({ show }) {
       <div className="overlay">
         <div className="dialog">
           <div className="dialog__content">
-            <h2 className="dialog__title">Delete a task?</h2>
+            <h2 className="dialog__title">{title}</h2>
             <p className="dialog__description">
-              Are you sure you want to delete this task?
+              {description}
             </p>
           </div>
 
           <hr />
 
           <div className="dialog__footer">
-            <button className="dialog__cancel">Cancel</button>
-            <button className="dialog__confirm">Yes, delete it</button>
+            <button onClick={cancel} className="dialog__cancel">{cancelMessage}</button>
+            <button onClick={confirm} className="dialog__confirm">{confirmMessage}</button>
           </div>
         </div>
       </div>

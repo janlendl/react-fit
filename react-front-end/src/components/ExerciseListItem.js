@@ -13,7 +13,7 @@ export default function ExerciseListItem(props) {
   return (
     <>
       <div className="row noMrg border-1 ">
-        <div className="card mb-4 d-flex border-1 ">
+        <div className="card d-flex border-1 ">
           <div className="row noMrg border-1 ">
             <div className="col-sm-4 padding0 border-1 ">
               <img src={gif} className="img-fluid border-1 " alt={name} />
@@ -29,10 +29,10 @@ export default function ExerciseListItem(props) {
                
               </ul>
             </div>
-            <div className="card-footer d-flex align-items-end px-1 border-1">
-              {sets && <button className="btn btn-primary p-0sides" onClick={() => setModalShow(true)}><FontAwesomeIcon icon={faPenToSquare} /></button>}
-              {onAdd && (<div className="card-footer d-flex align-items-end px-1 border-1">
-                <button className="btn btn-primary" onClick={() => onAdd(id)}><FontAwesomeIcon icon={faPlus} /></button>
+            <div className="d-flex align-items-end p-1 border-1">
+              {sets && <button className="btn btn-primary p-0sides border-1" onClick={() => setModalShow(true)}><FontAwesomeIcon icon={faPenToSquare} /></button>}
+              {onAdd && (<div className=" d-flex align-items-end px-1 border-1">
+                <button className="btn btn-primary border-1" onClick={() => onAdd(id)}><FontAwesomeIcon icon={faPlus} /></button>
 
               </div>)}
             </div>

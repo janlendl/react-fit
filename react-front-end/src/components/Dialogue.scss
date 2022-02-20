@@ -1,4 +1,4 @@
-@import url("//fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+// @import url("//fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -11,31 +11,31 @@ Document
 Use a better box model (opinionated).
 */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+// }
 
 /**
 Use a more readable tab size (opinionated).
 */
 
-:root {
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-     tab-size: 4;
-}
+// :root {
+//   -moz-tab-size: 4;
+//   -o-tab-size: 4;
+//      tab-size: 4;
+// }
 
 /**
 1. Correct the line height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
 */
 
-html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-}
+// html {
+//   line-height: 1.15; /* 1 */
+//   -webkit-text-size-adjust: 100%; /* 2 */
+// }
 
 /*
 Sections
@@ -46,26 +46,26 @@ Sections
 Remove the margin in all browsers.
 */
 
-body {
-  margin: 0;
-}
+// body {
+//   margin: 0;
+// }
 
 /**
 Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
 */
 
-body {
-  font-family:
-		system-ui,
-		-apple-system, /* Firefox supports this but not yet `system-ui` */
-		'Segoe UI',
-		Roboto,
-		Helvetica,
-		Arial,
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji';
-}
+// body {
+  // font-family:
+	// 	system-ui,
+	// 	-apple-system, /* Firefox supports this but not yet `system-ui` */
+	// 	'Segoe UI',
+	// 	Roboto,
+	// 	Helvetica,
+	// 	Arial,
+	// 	sans-serif,
+	// 	'Apple Color Emoji',
+	// 	'Segoe UI Emoji';
+// }
 
 /*
 Grouping content
@@ -77,10 +77,10 @@ Grouping content
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
 */
 
-hr {
-  height: 0; /* 1 */
-  color: inherit; /* 2 */
-}
+// hr {
+//   height: 0; /* 1 */
+//   color: inherit; /* 2 */
+// }
 
 /*
 Text-level semantics
@@ -110,19 +110,19 @@ strong {
 2. Correct the odd 'em' font sizing in all browsers.
 */
 
-code,
-kbd,
-samp,
-pre {
-  font-family:
-		ui-monospace,
-		SFMono-Regular,
-		Consolas,
-		'Liberation Mono',
-		Menlo,
-		monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
+// code,
+// kbd,
+// samp,
+// pre {
+//   font-family:
+// 		ui-monospace,
+// 		SFMono-Regular,
+// 		Consolas,
+// 		'Liberation Mono',
+// 		Menlo,
+// 		monospace; /* 1 */
+//   font-size: 1em; /* 2 */
+// }
 
 /**
 Add the correct font size in all browsers.
@@ -177,16 +177,16 @@ Forms
 2. Remove the margin in Firefox and Safari.
 */
 
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
+// button,
+// input,
+// optgroup,
+// select,
+// textarea {
+//   font-family: inherit; /* 1 */
+//   font-size: 100%; /* 1 */
+//   line-height: 1.15; /* 1 */
+//   margin: 0; /* 2 */
+// }
 
 /**
 Remove the inheritance of text transform in Edge and Firefox.
@@ -330,20 +330,20 @@ ul {
  *    to override it to ensure consistency even when using the default theme.
  */
 
-html {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
-  line-height: 1.5; /* 2 */
-}
+// html {
+//   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+//   line-height: 1.5; /* 2 */
+// }
 
 /**
  * Inherit font-family and line-height from `html` so users can set them as
  * a class directly on the `html` element.
  */
 
-body {
-  font-family: inherit;
-  line-height: inherit;
-}
+// body {
+//   font-family: inherit;
+//   line-height: inherit;
+// }
 
 /**
  * 1. Prevent padding and border from affecting element width.
@@ -427,15 +427,15 @@ table {
   border-collapse: collapse;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-size: inherit;
+//   font-weight: inherit;
+// }
 
 /**
  * Reset links to optimize for opt-in styling instead of
@@ -603,10 +603,10 @@ video {
   }
 }
 
-body {
-  background-color: #eee;
-  font-family: Poppins, sans-serif;
-}
+// body {
+  // background-color: #eee;
+  // font-family: Poppins, sans-serif;
+// }
 
 .btn {
   --tw-bg-opacity: 1;

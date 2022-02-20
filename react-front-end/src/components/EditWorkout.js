@@ -3,8 +3,10 @@ import { useState } from "react";
 import "./Exercises.scss";
 
 export default function EditWorkout(props) {
+
+  console.log('edit workout', props)
   
-  const { sets, reps, setSets, setReps } = props;
+  const { sets, reps, setSets, setReps, setModalShow } = props;
   const [inputSets, setInputSets] = useState(sets);
   const [inputReps, setInputReps] = useState(reps);
 
@@ -27,7 +29,8 @@ export default function EditWorkout(props) {
       }).catch((error) => {
         console.log(error);
       });
-
+      
+      setModalShow(false);
   };
   console.log(onSubmit);
 

@@ -11,7 +11,7 @@ export default function WorkoutList(props) {
   const [width, setWidth] = useState(0);
   const carousel = useRef();
 
-  useEffect(()=> {
+  useEffect(() => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   })
 
@@ -35,17 +35,19 @@ export default function WorkoutList(props) {
   }, []);
 
   useEffect(() => {
-
-    axios.delete(`/api/deleteWorkout/${isUpdated}`)
-      .then(() => {
-        console.log("Sending data for deletion")
-        let newState = workoutData.filter((w) => w.workout_id !== isUpdated);
-        setworkoutData(newState);
-      })
-      .catch((error) => {
-        console.log("Error: ", error)
-      });
-
+    if (isUpdated === null) {
+      return null
+    } else {
+      axios.delete(`/api/deleteWorkout/${isUpdated}`)
+        .then(() => {
+          console.log("Sending data for deletion")
+          let newState = workoutData.filter((w) => w.workout_id !== isUpdated);
+          setworkoutData(newState);
+        })
+        .catch((error) => {
+          console.log("Error: ", error)
+        });
+    }
   }, [isUpdated]);
 
 
@@ -74,23 +76,23 @@ export default function WorkoutList(props) {
 
   return (
     <>
-     <div className="topWrapper"></div>
-    <motion.div ref={carousel} className="carousel" whileTap={{cursor:'grabbing'}}>
-    <motion.div drag="x"
-          dragConstraints={{right: 0, left: -width}}
+      <div className="topWrapper"></div>
+      <motion.div ref={carousel} className="carousel" whileTap={{ cursor: 'grabbing' }}>
+        <motion.div drag="x"
+          dragConstraints={{ right: 0, left: -width }}
           className="inner-carousel">
-     
-      <motion.div className="container-lg">
-        <div className="row noMrg">
-          <div className="col-auto d-flex flex-wrap">
-            <div className="card-text d-flex mb-4">
-              {workoutList}
-            </div>
-          </div>
-        </div>
-      </motion.div>
 
-      </motion.div>
+          <motion.div className="container-lg">
+            <div className="row noMrg">
+              <div className="col-auto d-flex flex-wrap">
+                <div className="card-text d-flex mb-4">
+                  {workoutList}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+        </motion.div>
       </motion.div>
     </>
   );

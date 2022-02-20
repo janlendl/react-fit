@@ -8,12 +8,20 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function WorkoutListItem(props) {
 
+  console.log(props.id)
+
   const workout = props;
+
+  // Show Dialogue Box + Get Workout ID to WorkoutList onDelete
+  const passToParent = () => {
+    props.setShowDeleteWorkout(true)
+    props.setWorkoutID(props.id)
+  }
 
   return (
     <>
       <div className="container background margin-2">
-      {/* <Dialogue show={props.showDeleteWorkout}
+        {/* <Dialogue show={props.showDeleteWorkout}
       title="Delete Workout?"
       description="Are you sure you want to delete this Workout?"
       confirm={() => {props.onDelete(workout.id)}}
@@ -21,7 +29,7 @@ export default function WorkoutListItem(props) {
       cancel={() => {props.onCancel()}}
       cancelMessage="No"
       /> */}
-        <button className="btn btn-primary m-1 float-right" onClick={() => { props.setShowDeleteWorkout(true)}}><FontAwesomeIcon icon={faTrash} /></button>
+        <button className="btn btn-primary m-1 float-right" onClick={() => { passToParent() }}><FontAwesomeIcon icon={faTrash} /></button>
         <div className="card-header text-center">
           <h2 className="capitalize">{workout.workoutName}</h2>
           <p>Date Created: {workout.dateCreated}</p>

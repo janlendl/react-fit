@@ -5,7 +5,7 @@ import "./Modal.scss";
 
 const Modal = props => {
 
-  console.log('modal', props)
+  // console.log('modal', props)
 
   if (!props.show) {
     return null

@@ -1,13 +1,11 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Home.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUser, faDumbbell, faUserFriends } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
-import { useState } from "react";
 
 export default function Navbar(children) {
 
-  const [color, setColor] = useState('');
 
   return (
     <>
@@ -30,9 +28,7 @@ export default function Navbar(children) {
                 </span>
               </Link>
             </li>
-            <li className="btn">
-              <Link to="/SignUp">Log out</Link>
-            </li>
+            
             <li className="m-3">
               <Link to="/workouts">
                 <FontAwesomeIcon icon={faDumbbell} className="purple"/>
@@ -48,7 +44,7 @@ export default function Navbar(children) {
 
           </ul>
         </nav>
-        {/* <Outlet /> */}
+       
 
         <Footer />
       </header>

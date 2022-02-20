@@ -7,9 +7,7 @@ export default function Dialogue({ show, title, description, cancel, confirm, ca
   }
 
   return (
-
     <>
-
       <div className="overlay">
         <div className="dialog">
           <div className="dialog__content">
@@ -25,8 +23,6 @@ export default function Dialogue({ show, title, description, cancel, confirm, ca
           </div>
         </div>
       </div>
-
     </>
-
   )
 }

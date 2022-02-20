@@ -1,0 +1,29 @@
+.categoriesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  }
+
+  .landingPageCategories { 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    border-radius: 0.625rem;
+    height: 11.25rem;
+    margin: 0 1rem 2em;
+    color: white;
+    text-align: center;
+    font-weight: 800;
+    }
+  
+  .landingPageCategories img{
+    width: auto;
+    height: 11.25rem;
+    border: 0.175rem solid whitesmoke;
+    padding: 0.063rem;
+    border-radius: 1.563rem;
+    opacity: 0.8;
+  }

@@ -52,6 +52,9 @@ export default function WorkoutList(props) {
   }, [isUpdated]);
 
   const [showDeleteWorkout, setShowDeleteWorkout] = useState(false);
+  const [workoutID, setWorkoutID] = useState("");
+
+  console.log('id from workoutlist', workoutID)
 
   const onDelete = (id) => {
     idRef.current = id;
@@ -79,6 +82,8 @@ export default function WorkoutList(props) {
         // onCancel={onCancel}
         // showDeleteWorkout={showDeleteWorkout}
         setShowDeleteWorkout={setShowDeleteWorkout}
+        // workoutID={workoutID}
+        setWorkoutID={setWorkoutID}
       />
 
     );
@@ -91,7 +96,7 @@ export default function WorkoutList(props) {
       <Dialogue show={showDeleteWorkout}
       title="Delete Workout?"
       description="Are you sure you want to delete this Workout?"
-      confirm={() => {onDelete(idRef)}}
+      confirm={() => {onDelete(workoutID)}}
       confirmMessage="Yes"
       cancel={() => {onCancel()}}
       cancelMessage="No"

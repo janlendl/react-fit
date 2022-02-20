@@ -8,7 +8,6 @@ import About from "./components/About";
 import Profile from "./components/Profile";
 // import WorkoutsListsItems from "./components/WorkoutsListsItems";
 import EditWorkout from "./components/EditWorkout";
-import Footer from "./components/Footer";
 import Signup from "./components/Singup";
 
 

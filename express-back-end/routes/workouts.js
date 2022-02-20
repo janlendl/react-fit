@@ -80,16 +80,17 @@ module.exports = db => {
       .catch(error => console.log('Error: ', error)); 
   });
 
-  router.delete("/workouts/:id", (req, res) => {
+  router.delete("/deleteWorkout/:id", (req, res) => {
     
-    const {workout} = req.body.workout;
-    
+    console.log("Passing workout ID from front end: ", req.params);
+    const id = req.params.id;
+        
     db.query(`
     WITH delete_exercise as (
-      DELETE FROM exercises WHERE id = (SELECT exercise_id FROM exercise_workouts WHERE workout_id = $1::int) 
+      DELETE FROM exercises WHERE id IN (SELECT exercise_id FROM exercise_workouts WHERE workout_id = $1::int) 
     )
     DELETE FROM workouts where workouts.id = $1::int; 
-    `, [Number(req.params.id)]
+    `, [id]
     )
       .then(() => {
         setTimeout(() => {

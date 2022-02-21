@@ -8,7 +8,7 @@ export default function SignUp() {
       <section>
        
         <div className="SignUp_shadow">
-        <img src="/cover2.jpeg" alt="" className="topImg"/>
+        <img src="/cover2.jpeg" alt="" className="SignUpTopImg"/>
         </div>
        
         <div className="categoriesWrapper padding-50 purpleBckgnd">

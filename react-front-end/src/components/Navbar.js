@@ -3,9 +3,17 @@ import "./Home.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUser, faDumbbell, faUserFriends } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
+import { useState } from "react";
+
 
 export default function Navbar(children) {
 
+  const[name, setName]=useState("LogOut");
+  
+
+  const onClickButton = ({}) => {
+    setName ("SignUp")
+  }
 
   
   return (
@@ -39,9 +47,18 @@ export default function Navbar(children) {
               <FontAwesomeIcon icon={faUser} className="mr-1 purple"/>
               <Link to="/Profile">Alice Wonderland</Link>
             </li>
-            <li className="btn">
+            
+            {/* <li className="btn">
               <Link to="/Signup">Log out</Link>
+            </li> */}
+
+            <li className="btn">
+             { <Link to="/SignUp">
+              <button className="btn" onClick={onClickButton}>{name}</button>
+              </Link>
+              }
             </li>
+
 
           </ul>
         </nav>

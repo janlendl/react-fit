@@ -1,0 +1,78 @@
+.categoriesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  }
+
+
+.signCategories { 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    border-radius: 0.625rem;
+    height: 11.25rem;
+    margin: 0 1rem 2em;
+    color: white;
+    text-align: center;
+    font-weight: 800;
+    }
+  
+.signCategories img{
+    width: auto;
+    height: 11.25rem;
+    border: 0.175rem solid whitesmoke;
+    padding: 0.063rem;
+    border-radius: 1.563rem;
+    opacity: 0.8;
+  }
+
+
+.purpleBckgnd{
+background: #ad5389;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3c1053, #ad5389); 
+background: linear-gradient(to right, #3c1053, #992a6d); 
+
+}
+
+.SignUpTopImg {
+  max-width:100%;
+  margin-top:-40px;
+  border: solid 1px #fff;
+  box-sizing: border-box;
+  box-shadow: inset 10px 0px 100px 0px #FFF;
+  z-index:0;
+}
+
+
+.SignUp_shadow{
+  background: linear-gradient(to right,  rgb(236, 233, 236) 2000px, #f7eeeef6 300px);
+ z-index: 100px;
+}
+
+.padding-50{
+  padding-top: 50px;
+}
+
+.SignupBorder {
+  border-radius: 15px;;
+}
+
+.Signup_Slogan {
+  font-family:'Passion One', cursive;
+  font-size:3rem;
+  margin:0;
+}
+
+.Slogan {
+  position:absolute;
+  z-index:1;
+  top:20%;
+  left:20%;
+}
+
+.Slogan_pic {
+  z-index:0;
+}

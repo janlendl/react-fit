@@ -1,20 +1,38 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Home.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faUser, faDumbbell, faUserFriends } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 import { useState } from "react";
 
+
 export default function Navbar(children) {
 
-  const [color, setColor] = useState('');
+  const[name, setName]=useState("LogOut");  
 
+  const onClickButton = ({}) => {
+    setName ("SignUp")
+  }
+
+  const presence = () => {
+    if (name === 'LogOut') {
+      return (
+        <li className="m-3">
+              <FontAwesomeIcon icon={faUser} className="mr-1 purple"/>
+              <Link to="/Profile">Alice Wonderland</Link>
+            </li> 
+      )
+    }
+  
+  };
+
+  
   return (
     <>
       <header>
         <nav className="header">
           <Link to="/">
-            <h1 className="logo">NextFit</h1>
+            <h1 className="logo">React Fitness</h1>
           </Link>
           <ul>
             <li className="m-3">
@@ -30,22 +48,23 @@ export default function Navbar(children) {
                 </span>
               </Link>
             </li>
+            
             <li className="m-3">
               <Link to="/workouts">
                 <FontAwesomeIcon icon={faDumbbell} className="purple"/>
                 <span className="ml-1 purple">Workouts</span></Link>
             </li>
-            <li className="m-3">
-              <FontAwesomeIcon icon={faUser} className="mr-1 purple"/>
-              <Link to="/Profile">Alice Wonderland</Link>
-            </li>
-            <li className="btn">
-              <Link to="/Signup">Log out</Link>
-            </li>
 
+            {presence()}
+            
+            <li className="btn btn-primary">
+             { <Link to="/SignUp">
+              <div onClick={onClickButton}>{name}</div>
+              </Link>
+              }
+            </li>
           </ul>
         </nav>
-        {/* <Outlet /> */}
 
         <Footer />
       </header>

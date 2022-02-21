@@ -417,7 +417,7 @@ export default function ExerciseList() {
                           <label htmlFor="Sets" className="form-label">Sets</label>
                           <input
                             type="text"
-                            pattern="[0-9]"
+                            pattern='^[1-9]\d*(?:\.\d+)?$'
                             name="sets"
                             id='sets'
                             value={exercise.sets}
@@ -429,7 +429,7 @@ export default function ExerciseList() {
                           <label htmlFor="Sets" className="form-label">Reps</label>
                           <input
                             type="text"
-                            pattern="[0-9]"
+                            pattern='^[1-9]\d*(?:\.\d+)?$'
                             name="reps"
                             id="reps"
                             value={exercise.reps}

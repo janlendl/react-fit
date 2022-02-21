@@ -1,4 +1,6 @@
 import ExerciseListItem from './ExerciseListItem';
+// import Dialogue from "./Dialogue";
+
 import './WorkoutListItem.scss';
 import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,10 +10,16 @@ export default function WorkoutListItem(props) {
 
   const workout = props;
 
+  // Show Dialogue Box + Get Workout ID to WorkoutList onDelete
+  const passToParent = () => {
+    props.setShowDeleteWorkout(true)
+    props.setWorkoutID(props.id)
+  }
+
   return (
     <>
       <div className="container background margin-2">
-        <button className="btn btn-primary m-1 float-right" onClick={() => props.onDelete(workout.id)}><FontAwesomeIcon icon={faTrash} /></button>
+        <button className="btn btn-primary m-1 float-right" onClick={() => { passToParent() }}><FontAwesomeIcon icon={faTrash} /></button>
         <div className="card-header text-center">
           <h2 className="capitalize">{workout.workoutName}</h2>
           <p>Date Created: {workout.dateCreated}</p>

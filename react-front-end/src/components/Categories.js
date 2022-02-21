@@ -17,49 +17,49 @@ export default function Categories() {
 
       <article className="landingPageCategories">
         <Link to="/exercises/cardio">
-          <img src="/cardio.jpeg"  alt="cardio"/>
+          <img src="/cardio.jpeg" alt="cardio"/>
           <div className="title topleftSM">Cardio</div>
         </Link>
       </article>
 
       <article className="landingPageCategories">
         <Link to="/exercises/chest">
-          <img src="/chest.jpeg"  alt="chest"/>
+          <img src="/chest.jpeg" alt="chest"/>
           <div className="title topleftSM">Chest</div>
         </Link>
       </article>
 
       <article className="landingPageCategories">
         <Link to="/exercises/lower%20arms">
-          <img src="/lower_arm.jpeg" alt="lower arms"/>
+          <img src="/lower_arm.jpeg" alt="lower_arm"/>
           <div className="title topleft">Lower Arms</div>
         </Link>
       </article>
 
       <article className="landingPageCategories">
         <Link to="/exercises/lower%20legs">
-          <img src="/lower_leg.jpeg" alt="lower legs"/>
+          <img src="/lower_leg.jpeg" alt="lower_leg"/>
           <div className="title topleft">Lower Legs</div>
         </Link>
       </article>
 
       <article className="landingPageCategories">
         <Link to="/exercises/shoulders">
-          <img src="/shoulder.jpeg" alt="shoulders"/>
+          <img src="/shoulder.jpeg" alt="shoulder"/>
           <div className="title topleft">Shoulders</div>
         </Link>
       </article>
 
       <article className="landingPageCategories">
         <Link to="/exercises/upper%20arms">
-          <img src="/upper_arm.jpeg" alt="upper arms"/>
+          <img src="/upper_arm.jpeg" alt="upper_arm"/>
           <div className="title topleft">Upper Arms</div>
         </Link>
       </article>
 
       <article className="landingPageCategories">
         <Link to="/exercises/upper%20legs">
-          <img src="/upper_leg.jpeg" alt="upper legs"/>
+          <img src="/upper_leg.jpeg" alt="upper_leg"/>
           <div className="title topleft">Upper Legs</div>
         </Link>
       </article>

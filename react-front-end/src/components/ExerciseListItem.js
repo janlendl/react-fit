@@ -8,7 +8,9 @@ import Modal from "./Modal";
 export default function ExerciseListItem(props) {
 
   const [show, setModalShow] = useState(false);
-  const { id, gif, name, bodyPart, target, equipment, onAdd, sets, reps } = props;
+  const { id, gif, name, bodyPart, target, equipment, onAdd } = props;
+  const [sets, setSets] = useState(props.sets);
+  const [reps, setReps] = useState(props.reps);
 
   return (
     <>
@@ -26,7 +28,7 @@ export default function ExerciseListItem(props) {
                 <li>Equipment: {equipment}</li>
                 {sets && (<li>Sets: {sets}</li>)}
                 {reps && (<li>Reps: {reps}</li>)}
-               
+
               </ul>
             </div>
             <div className="d-flex align-items-end p-1 border-1">
@@ -42,7 +44,15 @@ export default function ExerciseListItem(props) {
       </div>
 
       <div className="mb-4 shadow border-1">
-        <Modal onClose={() => setModalShow(false)} show={show} id={id} sets={sets} reps={reps} />
+        <Modal onClose={() => setModalShow(false)}
+          show={show}
+          setModalShow={setModalShow}
+          id={id}
+          sets={sets}
+          reps={reps}
+          setSets={setSets}
+          setReps={setReps}
+           />
       </div>
 
 

@@ -5,8 +5,6 @@ import "./Modal.scss";
 
 const Modal = props => {
 
-  // console.log('modal', props)
-
   if (!props.show) {
     return null
   }
@@ -29,9 +27,6 @@ const Modal = props => {
           />}
 
         </div>
-        {/* <div className="modal-footer border-1">
-          
-        </div> */}
       </div>
     </div>
   )

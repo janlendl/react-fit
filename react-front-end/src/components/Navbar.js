@@ -8,12 +8,23 @@ import { useState } from "react";
 
 export default function Navbar(children) {
 
-  const[name, setName]=useState("LogOut");
-  
+  const[name, setName]=useState("LogOut");  
 
   const onClickButton = ({}) => {
     setName ("SignUp")
   }
+
+  const presence = () => {
+    if (name === 'LogOut') {
+      return (
+        <li className="m-3">
+              <FontAwesomeIcon icon={faUser} className="mr-1 purple"/>
+              <Link to="/Profile">Alice Wonderland</Link>
+            </li> 
+      )
+    }
+  
+  };
 
   
   return (
@@ -21,7 +32,7 @@ export default function Navbar(children) {
       <header>
         <nav className="header">
           <Link to="/">
-            <h1 className="logo">NextFit</h1>
+            <h1 className="logo">React Fitness</h1>
           </Link>
           <ul>
             <li className="m-3">
@@ -43,26 +54,17 @@ export default function Navbar(children) {
                 <FontAwesomeIcon icon={faDumbbell} className="purple"/>
                 <span className="ml-1 purple">Workouts</span></Link>
             </li>
-            <li className="m-3">
-              <FontAwesomeIcon icon={faUser} className="mr-1 purple"/>
-              <Link to="/Profile">Alice Wonderland</Link>
-            </li>
-            
-            {/* <li className="btn">
-              <Link to="/Signup">Log out</Link>
-            </li> */}
 
+            {presence()}
+            
             <li className="btn">
              { <Link to="/SignUp">
-              <button className="btn" onClick={onClickButton}>{name}</button>
+              <button  onClick={onClickButton}>{name}</button>
               </Link>
               }
             </li>
-
-
           </ul>
         </nav>
-       
 
         <Footer />
       </header>

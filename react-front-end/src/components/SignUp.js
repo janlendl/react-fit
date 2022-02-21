@@ -9,11 +9,11 @@ export default function SignUp() {
        
         
         <div className="Slogan">
-          <h1 className="Signup_Slogan Slogan_capitalize">Work</h1>
+          <h1 className="Signup_Slogan">WORK</h1>
             <br></br>
-          <h1 className="Signup_Slogan Slogan_capitalize">Sweat</h1> 
+          <h1 className="Signup_Slogan">SWEAT</h1> 
           <br></br>
-          <h1 className="Signup_Slogan Slogan_capitalize">Achieve</h1>
+          <h1 className="Signup_Slogan">ACHIEVE</h1>
         </div>
         <div className=" d-flex SignUp_shadow Slogan_pic">
         <img src="/cover2.jpeg" alt="" className="SignUpTopImg"/>

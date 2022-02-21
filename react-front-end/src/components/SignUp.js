@@ -15,7 +15,7 @@ export default function SignUp() {
           <br></br>
           <h1 className="Signup_Slogan">ACHIEVE</h1>
           <br></br>
-          <button className="btn btn-lg border-0 text_color p-4 fw-bold mt-4">GET STARTED</button>
+          <button className="btn btn-lg border-0 text_color p-4 fw-bold mt-4">SIGN ME UP!</button>
         </div>
         <div className=" d-flex SignUp_shadow Slogan_pic">
         <img src="/cover2.jpeg" alt="" className="SignUpTopImg"/>

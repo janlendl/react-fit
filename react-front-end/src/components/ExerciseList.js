@@ -387,7 +387,7 @@ export default function ExerciseList() {
           {/* Inserted: 'section' tag to contain exerciseItem and exerciseCart */}
           <section className="d-flex">
 
-            <div className="col-md-auto rounded-2 ml-1">
+            <div className="col-md-auto rounded-2">
               {exerciseItem}
             </div>
 

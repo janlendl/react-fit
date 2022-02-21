@@ -332,7 +332,7 @@ export default function ExerciseList() {
       <div className="topWrapper"></div>
       <div className="container-lg mt-4 pt-4">
         <div className="row noMrg justify-content-md-center rounded-2">
-          <div className="col col-2">
+          <div className="col col-1 mr-4">
             {/* Inserted: position-fixed */}
             <ul className="nav flex-column position-fixed">
               <h3>Categories</h3>

@@ -5,7 +5,8 @@
   align-content: center;
   }
 
-  .landingPageCategories { 
+
+.signCategories { 
     position: relative;
     display: flex;
     justify-content: center;
@@ -19,7 +20,7 @@
     font-weight: 800;
     }
   
-  .landingPageCategories img{
+.signCategories img{
     width: auto;
     height: 11.25rem;
     border: 0.175rem solid whitesmoke;
@@ -27,3 +28,33 @@
     border-radius: 1.563rem;
     opacity: 0.8;
   }
+
+
+.purpleBckgnd{
+background: #ad5389;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3c1053, #ad5389); 
+background: linear-gradient(to right, #3c1053, #992a6d); 
+
+}
+
+.topImg {
+  margin-top:-40px;
+  border: solid 1px #fff;
+  box-sizing: border-box;
+  box-shadow: inset 10px 0px 100px 0px #FFF;
+  z-index:0;
+}
+
+
+.SignUp_shadow{
+  background: linear-gradient(to right,  rgb(236, 233, 236) 2000px, #f7eeeef6 300px);
+ z-index: 100px;
+}
+
+.padding-50{
+  padding-top: 50px;
+}
+
+.SignupBorder {
+  border-radius: 15px;;
+}

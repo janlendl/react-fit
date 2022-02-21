@@ -7,6 +7,7 @@ import Footer from "./Footer";
 export default function Navbar(children) {
 
 
+  
   return (
     <>
       <header>

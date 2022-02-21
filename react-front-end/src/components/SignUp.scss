@@ -59,3 +59,22 @@ background: linear-gradient(to right, #3c1053, #992a6d);
 .SignupBorder {
   border-radius: 15px;;
 }
+
+.Signup_Slogan {
+  font-family:'Passion One', cursive;
+}
+
+.Slogan {
+  position:absolute;
+  z-index:1;
+  top:30%;
+  left:20%;
+}
+
+.Slogan_pic {
+  z-index:0;
+}
+
+.Slogan_capitalize {
+  text-transform: capitalize!important;
+}

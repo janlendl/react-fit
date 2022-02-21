@@ -57,9 +57,9 @@ export default function Navbar(children) {
 
             {presence()}
             
-            <li className="btn">
+            <li className="btn btn-primary">
              { <Link to="/SignUp">
-              <button  onClick={onClickButton}>{name}</button>
+              <div onClick={onClickButton}>{name}</div>
               </Link>
               }
             </li>

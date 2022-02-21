@@ -1,0 +1,1 @@
+export const validSetsReps = new RegExp('^[1-9]d*(?:.d+)?$');

@@ -52,7 +52,7 @@ export default function ExerciseListItem(props) {
           reps={reps}
           setSets={setSets}
           setReps={setReps}
-           />
+        />
       </div>
 
 

@@ -62,7 +62,7 @@ background: linear-gradient(to right, #3c1053, #992a6d);
 
 .Signup_Slogan {
   font-family:'Passion One', cursive;
-  font-size:3rem;
+  font-size:4rem;
   margin:0;
 }
 
@@ -75,4 +75,17 @@ background: linear-gradient(to right, #3c1053, #992a6d);
 
 .Slogan_pic {
   z-index:0;
+}
+
+.SignUp_btn {
+  background: rgb(224, 54, 148);
+  background: linear-gradient(
+    90deg,
+    rgba(224, 54, 148, 1) 27%,
+    rgba(244, 114, 83, 1) 97%
+  );
+  border: 1px solid hsla(0, 0%, 100%, 0.59);
+  border-radius: 9999px !important;
+  padding: 20px 70px;
+  // font-size: 1rem;
 }

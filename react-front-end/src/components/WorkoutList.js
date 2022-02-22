@@ -9,17 +9,18 @@ import "./Exercises.scss";
 import "./Workouts.scss";
 
 export default function WorkoutList(props) {
-  const [width, setWidth] = useState(0);
   const carousel = useRef();
+  const idRef = useRef();
 
-  useEffect(() => {
-    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-  })
+  const [width, setWidth] = useState(0);
 
   const [workoutData, setworkoutData] = useState([]);
   const [isUpdated, setisUpdated] = useState(null);
+  const [showDeleteWorkout, setShowDeleteWorkout] = useState(false);
 
-  const idRef = useRef();
+  // Update workout state from child
+  const [workoutID, setWorkoutID] = useState("");
+
 
   // ----- CALL API, DEPENDENT ON CATEGORY (URL) CHANGE -----
   useEffect(() => {
@@ -34,6 +35,16 @@ export default function WorkoutList(props) {
       })
 
   }, []);
+
+
+  useEffect(() => {
+
+    setTimeout(() => {
+      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    }, 300);
+
+  }, [workoutData]);
+
 
   useEffect(() => {
     if (isUpdated === null) {
@@ -51,9 +62,6 @@ export default function WorkoutList(props) {
     }
   }, [isUpdated]);
 
-  const [showDeleteWorkout, setShowDeleteWorkout] = useState(false);
-  // Update workout state from child
-  const [workoutID, setWorkoutID] = useState("");
 
   const onDelete = (id) => {
     idRef.current = id;
@@ -79,6 +87,8 @@ export default function WorkoutList(props) {
         exercises={workout.exercise}
         setShowDeleteWorkout={setShowDeleteWorkout}
         setWorkoutID={setWorkoutID}
+        setWidth={setWidth}
+
       />
 
     );

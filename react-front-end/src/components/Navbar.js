@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Home.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faUser, faDumbbell, faUserFriends } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUser, faDumbbell, faUserFriends, faAtom } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 import { useState } from "react";
 
@@ -31,9 +31,13 @@ export default function Navbar(children) {
     <>
       <header>
         <nav className="header">
+          <div className="d-flex">
           <Link to="/">
-            <h1 className="logo">React Fitness</h1>
+            <img src="./logo192.png" className="logo"></img>
+            {/* <h1 className="logo">REACT</h1> */}
+            <span className="logo2">Fitness</span>
           </Link>
+          </div>
           <ul>
             <li className="m-3">
               <Link to="/" >

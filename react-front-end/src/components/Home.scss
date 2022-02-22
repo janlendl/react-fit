@@ -8,7 +8,7 @@ nav {
 
 .header {
   width: 100%;
-  height: 5rem;
+  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,10 +17,58 @@ nav {
   font-family: Poppins, sans-serif;
 }
 
-.logo {
+.logo2{
+  // margin-top:10px;
   font-size: 2rem;
-  color: purple;
+  text-shadow: 2px 1px 8px rgba(244, 114, 83, 1);
+  color:  rgba(224, 54, 148, 1);
   font-weight: bold;
+  animation-name: slidein;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+@keyframes slidein {
+  from {
+   margin-left: 300%;
+   margin-bottom:10%;
+    width: 100%;
+  }
+  75% {
+    font-size: 100%;
+    margin-left: 20%;
+    margin-bottom:10%;
+    width: 150%;
+  }
+
+  to {
+    margin-left: 0%;
+    margin-bottom:10%;
+    width: 100%;
+  }
+}
+
+.logo{
+  margin-bottom:10%;
+  color:rgba(244, 114, 83, 1) ;
+  height: 40px;
+  // transition: transform .5s;
+  // transition-property: transform;
+  // transition-duration: 0.5s;
+  animation-name:rotate;
+  animation-duration:0.7s;
+  animation-iteration-count: 10;
+  // transition-timing-function: ease;
+  // transition-delay: 0s;
+  // width: 38px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .header ul {

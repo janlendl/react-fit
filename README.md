@@ -69,5 +69,6 @@ FrontEnd and BackEnd have separate dependencies that needs to be installed. To i
 # 
 ## Sample Navigation:
 Here is a sample navigation on creating your own workout
+
 ![img](react-front-end/public/create_workout.gif)
 

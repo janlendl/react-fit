@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Home.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faUser, faDumbbell, faUserFriends, faDoorOpen, faSignIn, faSignOut} from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUser, faDumbbell, faUserFriends} from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 import { useState } from "react";
 

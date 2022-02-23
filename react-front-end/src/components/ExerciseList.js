@@ -226,7 +226,7 @@ export default function ExerciseList() {
 
     axios.request(apiExerciseByBodyPart)
       .then((res) => {
-        console.log("RESPONSE", res.data);
+        // console.log("RESPONSE", res.data);
         setExerciseData(res.data);
       })
       .catch((err) => {
@@ -302,13 +302,12 @@ export default function ExerciseList() {
     )
   }
 
-  const exerciseItem = exerciseData.map((exercise, i) => {
+  const exerciseItem = exerciseData.map((exercise) => {
 
     return (
       <ExerciseListItem
         {...exercise}
-        key={i}
-        id={exercise.id}
+        key={exercise.id}
         gif={exercise.gifUrl}
         name={exercise.name}
         bodyPart={exercise.bodyPart}
@@ -412,7 +411,7 @@ export default function ExerciseList() {
                 {exerciseCart.map((exercise, index) => {
                   return (
 
-                    <div className="card-body w-0" id={exercise.id}>
+                    <div className="card-body w-0" key={exercise.id}>
                       <h5 className="capitalize">{exercise.name}</h5>
                       <div className="card-text flex align-items-center">
 

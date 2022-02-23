@@ -38,7 +38,7 @@ export default function EditWorkout(props) {
       <div className="d-flex col-auto widthModal">
         <form onSubmit={onSubmit} >
 
-          <label>Sets</label>
+          <label>Sets:</label>
 
           <input
             type="text"
@@ -48,7 +48,7 @@ export default function EditWorkout(props) {
             name="sets"
             className=" d-inline-flex col-3 mx-1" />
 
-          <label>Reps</label>
+          <label>Reps:</label>
           <input
             type="text"
             value={inputReps}

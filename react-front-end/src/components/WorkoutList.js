@@ -36,7 +36,23 @@ export default function WorkoutList(props) {
 
   }, []);
 
-
+  
+  useEffect(() => {
+    if (isUpdated === null) {
+      return null
+    } else {
+      axios.delete(`/api/deleteWorkout/${isUpdated}`)
+      .then(() => {
+        console.log("Sending data for deletion")
+        let newState = workoutData.filter((w) => w.workout_id !== isUpdated);
+        setworkoutData(newState);
+      })
+      .catch((error) => {
+        console.log("Error: ", error)
+      });
+    }
+  }, [isUpdated]);
+  
   useEffect(() => {
 
     setTimeout(() => {
@@ -44,24 +60,6 @@ export default function WorkoutList(props) {
     }, 300);
 
   }, [workoutData]);
-
-
-  useEffect(() => {
-    if (isUpdated === null) {
-      return null
-    } else {
-      axios.delete(`/api/deleteWorkout/${isUpdated}`)
-        .then(() => {
-          console.log("Sending data for deletion")
-          let newState = workoutData.filter((w) => w.workout_id !== isUpdated);
-          setworkoutData(newState);
-        })
-        .catch((error) => {
-          console.log("Error: ", error)
-        });
-    }
-  }, [isUpdated]);
-
 
   const onDelete = (id) => {
     idRef.current = id;

@@ -21,7 +21,6 @@ export default function WorkoutList(props) {
   // Update workout state from child
   const [workoutID, setWorkoutID] = useState("");
 
-
   // ----- CALL API, DEPENDENT ON CATEGORY (URL) CHANGE -----
   useEffect(() => {
     const workoutApi = '/api/workouts';
@@ -36,30 +35,21 @@ export default function WorkoutList(props) {
 
   }, []);
 
-  
   useEffect(() => {
     if (isUpdated === null) {
       return null
     } else {
       axios.delete(`/api/deleteWorkout/${isUpdated}`)
-      .then(() => {
-        console.log("Sending data for deletion")
-        let newState = workoutData.filter((w) => w.workout_id !== isUpdated);
-        setworkoutData(newState);
-      })
-      .catch((error) => {
-        console.log("Error: ", error)
-      });
+        .then(() => {
+          console.log("Sending data for deletion")
+          let newState = workoutData.filter((w) => w.workout_id !== isUpdated);
+          setworkoutData(newState);
+        })
+        .catch((error) => {
+          console.log("Error: ", error)
+        });
     }
   }, [isUpdated]);
-  
-  useEffect(() => {
-
-    setTimeout(() => {
-      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }, 300);
-
-  }, [workoutData]);
 
   const onDelete = (id) => {
     idRef.current = id;
@@ -72,6 +62,10 @@ export default function WorkoutList(props) {
   const onCancel = () => {
     setShowDeleteWorkout(false);
   }
+
+  useEffect(() => {
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+  }, [workoutData]);
 
   const workoutList = workoutData.map((workout, i) => {
 
@@ -113,7 +107,7 @@ export default function WorkoutList(props) {
           <motion.div className="container-lg">
             <div className="row noMrg">
               <div className="col-auto d-flex flex-wrap">
-                <div className="card-text d-flex mb-4">
+                <div className="card-text d-flex flex-row-reverse mb-4">
                   {workoutList}
                 </div>
               </div>

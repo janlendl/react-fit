@@ -21,7 +21,6 @@ export default function WorkoutList(props) {
   // Update workout state from child
   const [workoutID, setWorkoutID] = useState("");
 
-
   // ----- CALL API, DEPENDENT ON CATEGORY (URL) CHANGE -----
   useEffect(() => {
     const workoutApi = '/api/workouts';
@@ -35,16 +34,6 @@ export default function WorkoutList(props) {
       })
 
   }, []);
-
-
-  useEffect(() => {
-
-    setTimeout(() => {
-      setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }, 300);
-
-  }, [workoutData]);
-
 
   useEffect(() => {
     if (isUpdated === null) {
@@ -62,7 +51,6 @@ export default function WorkoutList(props) {
     }
   }, [isUpdated]);
 
-
   const onDelete = (id) => {
     idRef.current = id;
     console.log("Deleting Workout ID: ", idRef)
@@ -74,6 +62,10 @@ export default function WorkoutList(props) {
   const onCancel = () => {
     setShowDeleteWorkout(false);
   }
+
+  useEffect(() => {
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+  }, [workoutData]);
 
   const workoutList = workoutData.map((workout, i) => {
 
@@ -115,7 +107,7 @@ export default function WorkoutList(props) {
           <motion.div className="container-lg">
             <div className="row noMrg">
               <div className="col-auto d-flex flex-wrap">
-                <div className="card-text d-flex mb-4">
+                <div className="card-text d-flex flex-row-reverse mb-4">
                   {workoutList}
                 </div>
               </div>

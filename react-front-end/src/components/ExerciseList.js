@@ -11,196 +11,196 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 
-const backExercises = [
-  {
-    bodyPart: "back",
-    equipment: "cable",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-    id: "1",
-    name: "alternate lateral pulldown",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
-    id: "2",
-    name: "archer pull up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
-    id: "3",
-    name: "assisted parallel close grip pull-up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
-    id: "4",
-    name: "assisted pull-up",
-    target: "lats"
-  }, {
-    bodyPart: "back",
-    equipment: "cable",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-    id: "5",
-    name: "alternate lateral pulldown",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
-    id: "6",
-    name: "archer pull up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
-    id: "7",
-    name: "assisted parallel close grip pull-up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
-    id: "8",
-    name: "assisted pull-up",
-    target: "lats"
-  }, {
-    bodyPart: "back",
-    equipment: "cable",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-    id: "9",
-    name: "alternate lateral pulldown",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
-    id: "10",
-    name: "archer pull up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
-    id: "11",
-    name: "assisted parallel close grip pull-up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
-    id: "12",
-    name: "assisted pull-up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "cable",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-    id: "13",
-    name: "alternate lateral pulldown",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
-    id: "14",
-    name: "archer pull up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
-    id: "15",
-    name: "assisted parallel close grip pull-up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
-    id: "16",
-    name: "assisted pull-up",
-    target: "lats"
-  }, {
-    bodyPart: "back",
-    equipment: "cable",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-    id: "17",
-    name: "alternate lateral pulldown",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
-    id: "18",
-    name: "archer pull up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
-    id: "19",
-    name: "assisted parallel close grip pull-up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
-    id: "20",
-    name: "assisted pull-up",
-    target: "lats"
-  }, {
-    bodyPart: "back",
-    equipment: "cable",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
-    id: "21",
-    name: "alternate lateral pulldown",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "body weight",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
-    id: "22",
-    name: "archer pull up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
-    id: "23",
-    name: "assisted parallel close grip pull-up",
-    target: "lats"
-  },
-  {
-    bodyPart: "back",
-    equipment: "leverage machine",
-    gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
-    id: "24",
-    name: "assisted pull-up",
-    target: "lats"
-  }
-];
+// const backExercises = [
+//   {
+//     bodyPart: "back",
+//     equipment: "cable",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+//     id: "1",
+//     name: "alternate lateral pulldown",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "body weight",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+//     id: "2",
+//     name: "archer pull up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+//     id: "3",
+//     name: "assisted parallel close grip pull-up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+//     id: "4",
+//     name: "assisted pull-up",
+//     target: "lats"
+//   }, {
+//     bodyPart: "back",
+//     equipment: "cable",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+//     id: "5",
+//     name: "alternate lateral pulldown",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "body weight",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+//     id: "6",
+//     name: "archer pull up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+//     id: "7",
+//     name: "assisted parallel close grip pull-up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+//     id: "8",
+//     name: "assisted pull-up",
+//     target: "lats"
+//   }, {
+//     bodyPart: "back",
+//     equipment: "cable",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+//     id: "9",
+//     name: "alternate lateral pulldown",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "body weight",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+//     id: "10",
+//     name: "archer pull up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+//     id: "11",
+//     name: "assisted parallel close grip pull-up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+//     id: "12",
+//     name: "assisted pull-up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "cable",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+//     id: "13",
+//     name: "alternate lateral pulldown",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "body weight",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+//     id: "14",
+//     name: "archer pull up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+//     id: "15",
+//     name: "assisted parallel close grip pull-up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+//     id: "16",
+//     name: "assisted pull-up",
+//     target: "lats"
+//   }, {
+//     bodyPart: "back",
+//     equipment: "cable",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+//     id: "17",
+//     name: "alternate lateral pulldown",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "body weight",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+//     id: "18",
+//     name: "archer pull up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+//     id: "19",
+//     name: "assisted parallel close grip pull-up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+//     id: "20",
+//     name: "assisted pull-up",
+//     target: "lats"
+//   }, {
+//     bodyPart: "back",
+//     equipment: "cable",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0007.gif",
+//     id: "21",
+//     name: "alternate lateral pulldown",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "body weight",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/3293.gif",
+//     id: "22",
+//     name: "archer pull up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0015.gif",
+//     id: "23",
+//     name: "assisted parallel close grip pull-up",
+//     target: "lats"
+//   },
+//   {
+//     bodyPart: "back",
+//     equipment: "leverage machine",
+//     gifUrl: "http://d205bpvrqc9yn1.cloudfront.net/0017.gif",
+//     id: "24",
+//     name: "assisted pull-up",
+//     target: "lats"
+//   }
+// ];
 
 export default function ExerciseList() {
   let { category } = useParams();
@@ -212,25 +212,27 @@ export default function ExerciseList() {
   const [showDeleteDialogue, setShowDeleteDialogue] = useState(false);
 
   // ----- API REQUEST SETTINGS -----
-  // let apiExerciseByBodyPart = {
-  //   method: 'GET',
-  //   url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
-  //   headers: {
-  //     'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
-  //     'x-rapidapi-key': 'c2c9da1eb8msh17b3797bf1980ddp197370jsn45878d3b3863'
-  //   }
-  // };
+  let apiExerciseByBodyPart = {
+    method: 'GET',
+    url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`,
+    headers: {
+      'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
+      'x-rapidapi-key': '9555d07c58msh23cc2d21a1fd290p1a3f88jsn6e3ffdf744a3'
+    }
+  };
 
   // ----- CALL API, DEPENDENT ON CATEGORY (URL) CHANGE -----
-  // useEffect(() => {
-  // const getExercises = async () => {
-  //   const response = await axios.request(apiExerciseByBodyPart);
-  //   setExerciseData(response.data).catch((error) => {
-  //     console.log(error.message);
-  //   });
-  // };
-  // getExercises();
-  // }, [category]);
+  useEffect(() => {
+
+    axios.request(apiExerciseByBodyPart)
+      .then((res) => {
+        // console.log("RESPONSE", res.data);
+        setExerciseData(res.data);
+      })
+      .catch((err) => {
+        console.log("Error: ", err)
+      });
+  }, [category]);
 
   // ----- PERSISTENT STATE pt2 ----- Loads previous state from Local Storage (from broswer)
   // Note: pt2 must stay above pt1 or State will be overwritten.
@@ -252,7 +254,7 @@ export default function ExerciseList() {
 
   const onAdd = (exercise) => {
     // console.log('INPUT: exercise param', exercise)
-    const singleExercise = backExercises.find(erex => erex.id === exercise);
+    const singleExercise = exerciseData.find(erex => erex.id === exercise);
     // console.log('Match singleExercise', singleExercise)
     const exists = exerciseCart.find(erex => erex.id === exercise);
     if (exists) {
@@ -285,7 +287,7 @@ export default function ExerciseList() {
 
     axios.put('/api/createWorkout', { workoutData })
       .then((res) => {
-        console.log("Sending New Workout data to Backend: ", res.data);
+        console.log("Sending New Workout data to Backend: ", workoutData);
       }).catch((error) => {
         console.log(error)
       });
@@ -300,7 +302,7 @@ export default function ExerciseList() {
     )
   }
 
-  const exerciseItem = backExercises.map((exercise) => {
+  const exerciseItem = exerciseData.map((exercise) => {
 
     return (
       <ExerciseListItem

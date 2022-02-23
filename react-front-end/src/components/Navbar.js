@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Home.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faUser, faDumbbell, faUserFriends, faAtom } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUser, faDumbbell, faUserFriends, faDoorOpen, faSignIn, faSignOut} from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 import { useState } from "react";
 
@@ -63,7 +63,7 @@ export default function Navbar(children) {
             
             <li className="btn btn-primary">
              { <Link to="/SignUp">
-              <div onClick={onClickButton}>{name}</div>
+              <div className="text_color" onClick={onClickButton}>{name}</div>
               </Link>
               }
             </li>

@@ -75,7 +75,7 @@ export default function WorkoutList(props) {
         key={i}
         id={workout.workout_id}
         workoutName={workout.workout_name}
-        dateCreated={new Date(workout.created_date).toLocaleString()}
+        dateCreated={new Date(workout.created_date).toLocaleDateString('en-CA', {year: "numeric", month: "long", day: "2-digit"})}
         exercises={workout.exercise}
         setShowDeleteWorkout={setShowDeleteWorkout}
         setWorkoutID={setWorkoutID}

@@ -10,7 +10,7 @@ const Modal = props => {
   }
 
   return (
-    <div className="card bg-theme border-1">
+    <div className="card bg-theme border-1 Modal_Animation">
       <div className="modal-content border-1">
         <div className="modal-header ">
           <h4 className="modal-title">Edit Workout</h4>

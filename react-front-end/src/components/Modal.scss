@@ -24,28 +24,8 @@
 width:35rem;
 }
 
-// .Modal_Overlay {
-//   opacity:0;
-//   transform: translateX(-100px);
-//   transition: all 500ms ease-in-out;
-// }
-
-// .Modal_Overlay--after-open {
-//   opacity: 1;
-//   transform: translateX(0px);
-// }
-
-// .Modal_Overlay--before-close {
-//   opacity:0;
-//   transform: translateX(-100px);
-// }
 
 .Modal_Animation{
-  // margin-top:10px;
-  // font-size: 2rem;
-  // text-shadow: 2px 1px 8px rgba(244, 114, 83, 1);
-  // color:  rgba(224, 54, 148, 1);
-  // font-weight: bold;
   animation-name: slidedown;
   animation-duration: 1s;
   animation-iteration-count: 1;
@@ -54,12 +34,6 @@ width:35rem;
   50% {
     opacity:1;
    margin-top: 50px;
-    // width: 100%;
   }
 
-  // 0% {
-  //   opacity:1;
-  //   margin-top: 0%;
-  //   // width: 100%;
-  // }
 }

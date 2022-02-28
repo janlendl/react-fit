@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import "./Exercises.scss";
 import "./Profile.scss";
 import ExerciseListItem from "./ExerciseListItem";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -168,21 +167,3 @@ export default function Profile() {
   );
 }
 
-/* const Profile = props => {
-  console.log("props",props)
-  if (!props.show) {
-    return null
-  }
-
-  return (
-    <div className="container">
-      <div>
-
-        
-      </div>
-
-    </div>
-  )
-}
-
-export default  Profile */

@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 
 import ExerciseListItem from "./ExerciseListItem";
 import Dialogue from "./Dialogue";
+import Filter from "./FIlter";
+import SideNavBar from "./SideNavBar";
 
 import "./Exercises.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -230,27 +232,27 @@ export default function ExerciseList() {
         setExerciseData(res.data);
       })
       .catch((err) => {
-        console.log("Error: ", err)
+        console.log("Error: ", err);
       });
   }, [category]);
 
   // ----- PERSISTENT STATE pt2 ----- Loads previous state from Local Storage (from broswer)
   // Note: pt2 must stay above pt1 or State will be overwritten.
   useEffect(() => {
-    const data2 = localStorage.getItem('workout-name')
+    const data2 = localStorage.getItem('workout-name');
     const data = localStorage.getItem('exercise-cart');
     if (data) {
       // console.log('I am saved exercise-cart data', data)
-      setWorkoutName(JSON.parse(data2))
-      setExerciseCart(JSON.parse(data))
+      setWorkoutName(JSON.parse(data2));
+      setExerciseCart(JSON.parse(data));
     }
-  }, [])
+  }, []);
 
   // ----- PERSISTENT STATE pt1 ----- Save exercise cart items to Local Storage
   useEffect(() => {
-    localStorage.setItem('workout-name', JSON.stringify(workoutName))
-    localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart))
-  })
+    localStorage.setItem('workout-name', JSON.stringify(workoutName));
+    localStorage.setItem('exercise-cart', JSON.stringify(exerciseCart));
+  });
 
   const onAdd = (exercise) => {
     // console.log('INPUT: exercise param', exercise)
@@ -274,7 +276,7 @@ export default function ExerciseList() {
   const cancel = () => {
     setShowSaveDialogue(false);
     setShowDeleteDialogue(false);
-  }
+  };
 
   const onSubmit = () => {
     const date = new Date().toLocaleDateString('en-CA');
@@ -282,14 +284,14 @@ export default function ExerciseList() {
       workoutName,
       date,
       exercises: exerciseCart
-    }
+    };
     // console.log(workoutData);
 
     axios.put('/api/createWorkout', { workoutData })
       .then((res) => {
         console.log("Sending New Workout data to Backend: ", workoutData);
       }).catch((error) => {
-        console.log(error)
+        console.log(error);
       });
 
     reset();
@@ -299,8 +301,8 @@ export default function ExerciseList() {
   const onDelete = (exercise) => {
     setExerciseCart(
       exerciseCart.filter(item => item !== exercise)
-    )
-  }
+    );
+  };
 
   const exerciseItem = exerciseData.map((exercise) => {
 
@@ -326,65 +328,17 @@ export default function ExerciseList() {
       }
       return cart;
     }));
-  }
+  };
 
   return (
     <>
 
       <div className="topWrapper"></div>
+
       <div className="container-lg mt-4 pt-4">
+        <Filter />
         <div className="row noMrg justify-content-md-center rounded-2">
-          <div className="col col-1 mr-4">
-            {/* Inserted: position-fixed */}
-            <ul className="nav flex-column position-fixed">
-              <h3>Categories</h3>
-              <li className="nav-item">
-                <Link to="/exercises/back">
-                  <span className="nav-link">Back</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/exercises/cardio">
-                  <span className="nav-link">Cardio</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/exercises/chest">
-                  <span className="nav-link">Chest</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/exercises/lower%20arms">
-                  <span className="nav-link">Lower Arms</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/exercises/lower%20legs">
-                  <span className="nav-link">Lower Legs</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/exercises/shoulders">
-                  <span className="nav-link">Shoulders</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/exercises/upper%20arms">
-                  <span className="nav-link">Upper Arms</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/exercises/upper%20legs">
-                  <span className="nav-link">Upper Legs</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/exercises/waist">
-                  <span className="nav-link">Core</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <SideNavBar />
 
           {/* Inserted: 'section' tag to contain exerciseItem and exerciseCart */}
           <section className="d-flex">
@@ -413,7 +367,7 @@ export default function ExerciseList() {
 
                     <div className="card-body w-0" key={exercise.id}>
                       <h5 className="capitalize">{exercise.name}</h5>
-                      <div className="card-text flex align-items-center">
+                      <div className="card-text align-items-center d-flex">
 
                         <div>
                           <label htmlFor="Sets" className="form-label">Sets</label>
@@ -453,7 +407,7 @@ export default function ExerciseList() {
                       description="Visit the Workout Page to Edit Sets and Reps!"
                       confirm={onSubmit}
                       confirmMessage="close" />
-                    <button type="submit" className="btn btn-primary" onClick={() => { setShowSaveDialogue(true) }} ><FontAwesomeIcon icon={faHeart} /></button>
+                    <button type="submit" className="btn btn-primary" onClick={() => { setShowSaveDialogue(true); }} ><FontAwesomeIcon icon={faHeart} /></button>
                   </div>
 
                   <Dialogue show={showDeleteDialogue}
@@ -465,7 +419,7 @@ export default function ExerciseList() {
                     cancelMessage="No"
                   />
 
-                  <button type="submit" className="btn btn-primary" onClick={() => { setShowDeleteDialogue(true) }}><FontAwesomeIcon icon={faTrash} /></button>
+                  <button type="submit" className="btn btn-primary" onClick={() => { setShowDeleteDialogue(true); }}><FontAwesomeIcon icon={faTrash} /></button>
                 </div>
 
               </div>
